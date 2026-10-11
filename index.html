@@ -335,6 +335,37 @@
         border: 1px solid var(--border);
       }
 
+      #appendix {
+        --bg-card: rgba(255, 255, 255, 0.06);
+        --bg-soft: rgba(255, 255, 255, 0.04);
+        --border: rgba(255, 255, 255, 0.12);
+        --border-soft: rgba(255, 255, 255, 0.08);
+        --text-soft: #c9d4e5;
+        --text-mute: #8fa3c0;
+        margin-top: 48px;
+        padding: 4px 28px 28px;
+        background: linear-gradient(160deg, var(--navy-deep), var(--navy));
+        border-radius: 16px;
+        box-shadow: var(--shadow-lg);
+      }
+      #appendix h2,
+      #appendix td strong,
+      #appendix .quotes q {
+        color: #fff;
+      }
+      #appendix h2 {
+        margin-top: 24px;
+      }
+      #appendix h3 {
+        color: var(--orange);
+      }
+      #appendix .pill--must {
+        background: #fff;
+        color: var(--navy-deep);
+      }
+      #appendix .quotes tr:target td {
+        background: rgba(245, 130, 32, 0.16);
+      }
       @media (max-width: 640px) {
         .intro__inner {
           padding: 36px 16px 28px;
@@ -342,6 +373,9 @@
         .container {
           padding-left: 16px;
           padding-right: 16px;
+        }
+        #appendix {
+          padding: 4px 16px 16px;
         }
       }
     </style>
