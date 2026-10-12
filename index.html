@@ -15,6 +15,10 @@
     <style>
       :root {
         --navy-tint: #eef2f8;
+        --rai: #0f766e;
+        --rai-deep: #0b5c56;
+        --rai-soft: #d5f0ec;
+        --rai-tint: #f0faf8;
       }
       body {
         background: var(--bg-soft);
@@ -341,6 +345,58 @@
         border: 1px solid var(--border);
       }
 
+      #narrative {
+        margin-top: 48px;
+        padding: 4px 28px 28px;
+        background: var(--rai-tint);
+        border: 1px solid var(--rai-soft);
+        border-left: 4px solid var(--rai);
+        border-radius: 16px;
+      }
+      #narrative h2,
+      #narrative h2 a {
+        color: var(--rai-deep);
+      }
+      #narrative a {
+        color: var(--rai);
+      }
+      #narrative .pill--could {
+        background: var(--rai-soft);
+        color: var(--rai-deep);
+      }
+      #narrative tr.total td {
+        background: var(--rai-soft);
+      }
+      .funder {
+        display: inline-block;
+        margin-bottom: 12px;
+        padding: 2px 10px;
+        border-radius: 999px;
+        font-size: 10.5px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        background: var(--rai);
+        color: #fff;
+      }
+      tr.bundle-item.rai td {
+        background: var(--rai-tint);
+      }
+      tr.bundle-item.rai td:first-child {
+        box-shadow: inset 4px 0 0 var(--rai);
+      }
+      tr.bundle-item.rai a {
+        color: var(--rai);
+      }
+      .tag--rai {
+        background: var(--rai-soft);
+        color: var(--rai-deep);
+        border-color: var(--rai-soft);
+      }
+      .toc-side a[href="#narrative"] {
+        color: var(--rai);
+      }
+
       #appendix {
         --bg-card: rgba(255, 255, 255, 0.06);
         --bg-soft: rgba(255, 255, 255, 0.04);
@@ -466,6 +522,7 @@
           padding-left: 16px;
           padding-right: 16px;
         }
+        #narrative,
         #appendix {
           padding: 4px 16px 16px;
         }
@@ -864,14 +921,20 @@
                   <span class="medal medal--gold"></span><strong>Gold</strong
                   ><span class="sub">Silver plus every Could</span>
                 </td>
-                <td class="num"><strong>195</strong></td>
-                <td class="num"><strong>£182,813</strong></td>
-                <td class="num"><strong>£404,531</strong></td>
+                <td class="num"><strong>248</strong></td>
+                <td class="num"><strong>£232,500</strong></td>
+                <td class="num"><strong>£454,219</strong></td>
               </tr>
               <tr class="bundle-item">
                 <td>Causal AI (<a href="#causal">section E</a>)</td>
                 <td class="num">119</td>
                 <td class="num">£111,563</td>
+                <td class="num"></td>
+              </tr>
+              <tr class="bundle-item rai">
+                <td>Maritime Narrative Analytics (<a href="#narrative">section B(a)</a>) <span class="tag tag--rai">RAi funded</span></td>
+                <td class="num">53</td>
+                <td class="num">£49,688</td>
                 <td class="num"></td>
               </tr>
               <tr class="bundle-item">
@@ -1171,6 +1234,82 @@
                 </td>
                 <td class="num">12</td>
                 <td class="num">£11,250</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section class="block" id="narrative">
+        <h2>B(a). Maritime Narrative Analytics</h2>
+        <span class="funder">Responsible AI Institute funding</span>
+        <p class="note">
+          Breaks each report into a narrative structure (orientation,
+          complicating action, harm, resolution), profiles of the vessels,
+          people, places and equipment in it, and a chain of events, all
+          published as an open ontology. Adapts Steve’s Hostile Narrative
+          Analysis (Anning, 2023), and every extracted fact traces back to its
+          sentence and the grammar rule that produced it. Feeds pattern finding
+          and proposed coding (<a href="#analyst">section B</a>), and overlaps
+          with event sequences in <a href="#causal">section E</a>.
+        </p>
+        <div class="table-wrap">
+          <table class="items">
+            <thead>
+              <tr>
+                <th>Priority</th>
+                <th>Feature</th>
+                <th class="num">Build days</th>
+                <th class="num">Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
+                <td>Semantic relation mapping: the grammar of each sentence turned into who did what to what, where and when, as linked data</td>
+                <td class="num">12</td>
+                <td class="num">£11,250</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
+                <td>Event analysis: events in each report classified (navigation, mechanical failure, human error, environmental) and linked into a causal chain</td>
+                <td class="num">10</td>
+                <td class="num">£9,375</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
+                <td>Entity profiling: vessels, people, places and equipment extracted and matched to IMO or Wikidata records</td>
+                <td class="num">9</td>
+                <td class="num">£8,438</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
+                <td>Maritime Narrative Ontology v1.0: schema, entities and events brought together and published</td>
+                <td class="num">7</td>
+                <td class="num">£6,563</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
+                <td>Narrative schema: the parts of an incident narrative, checked against MAIB and IMO reports</td>
+                <td class="num">6</td>
+                <td class="num">£5,625</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
+                <td>Narrative structure and events stored against each report, and used for similar cases and pattern finding (<a href="#analyst">section B</a>)</td>
+                <td class="num">5</td>
+                <td class="num">£4,688</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
+                <td>Validation against held-out reports, with precision and coverage figures</td>
+                <td class="num">4</td>
+                <td class="num">£3,750</td>
+              </tr>
+              <tr class="total">
+                <td><strong>Could total</strong></td>
+                <td></td>
+                <td class="num"><strong>53</strong></td>
+                <td class="num"><strong>£49,688</strong></td>
               </tr>
             </tbody>
           </table>
