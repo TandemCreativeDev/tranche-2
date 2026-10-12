@@ -372,6 +372,92 @@
       #appendix .quotes tr:target td {
         background: rgba(245, 130, 32, 0.16);
       }
+      .layout {
+        max-width: 1348px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: grid;
+        grid-template-columns: 200px minmax(0, 1fr);
+        column-gap: 24px;
+      }
+      .layout > .container {
+        max-width: none;
+        margin: 0;
+        padding: 8px 0 96px;
+      }
+      .intro__inner {
+        max-width: 1348px;
+        padding-left: 248px;
+      }
+      .toc-side {
+        position: sticky;
+        top: 96px;
+        align-self: start;
+        max-height: calc(100vh - 120px);
+        overflow-y: auto;
+        margin-top: 48px;
+        font-size: 13px;
+      }
+      .toc-side__label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-mute);
+        margin-bottom: 8px;
+      }
+      .toc-side a {
+        display: block;
+        padding: 5px 10px;
+        border-left: 2px solid var(--border);
+        color: var(--text-soft);
+        text-decoration: none;
+        line-height: 1.35;
+      }
+      .toc-side a.sub {
+        padding-left: 22px;
+        font-size: 12.5px;
+      }
+      .toc-side a:hover {
+        color: var(--orange-deep);
+      }
+      .toc-side a.active {
+        color: var(--orange-deep);
+        border-left-color: var(--orange);
+        font-weight: 600;
+      }
+      h2 a,
+      h3 a {
+        color: inherit;
+        text-decoration: none;
+      }
+      h2 a:hover::after,
+      h3 a:hover::after {
+        content: " #";
+        color: var(--orange);
+      }
+      h3[id] {
+        scroll-margin-top: 16px;
+      }
+      @media (max-width: 1024px) {
+        .layout {
+          display: block;
+          max-width: none;
+          padding: 0;
+        }
+        .toc-side {
+          display: none;
+        }
+        .layout > .container {
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 8px 24px 96px;
+        }
+        .intro__inner {
+          max-width: 1100px;
+          padding-left: 24px;
+        }
+      }
       @media (max-width: 640px) {
         .intro__inner {
           padding: 36px 16px 28px;
@@ -495,6 +581,10 @@
       </div>
     </section>
 
+    <div class="layout">
+    <nav class="toc-side" id="toc-side" aria-label="Contents">
+      <div class="toc-side__label">Contents</div>
+    </nav>
     <main class="container">
       <section class="block" id="basis">
         <h2>Basis</h2>
@@ -2091,5 +2181,56 @@
         </div>
       </section>
     </main>
+    </div>
+    <script>
+      (function () {
+        var nav = document.getElementById("toc-side");
+        var targets = [];
+        function slug(t) {
+          return t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+        }
+        function addLink(el, sub, parentLink) {
+          var a = document.createElement("a");
+          a.href = "#" + el.id;
+          a.textContent = el.textContent;
+          if (sub) a.className = "sub";
+          nav.appendChild(a);
+          targets.push({ el: el, link: a, parent: parentLink });
+          return a;
+        }
+        function linkHeading(heading, id) {
+          heading.innerHTML = '<a href="#' + id + '">' + heading.innerHTML + "</a>";
+        }
+        document.querySelectorAll("main section.block[id]").forEach(function (sec) {
+          var h2 = sec.querySelector("h2");
+          var parent = addLink({ id: sec.id, textContent: h2.textContent }, false);
+          targets[targets.length - 1].el = sec;
+          linkHeading(h2, sec.id);
+          sec.querySelectorAll("h3").forEach(function (h3) {
+            if (!h3.id) h3.id = sec.id + "-" + slug(h3.textContent);
+            addLink(h3, true, parent);
+            linkHeading(h3, h3.id);
+          });
+        });
+        var ticking = false;
+        function update() {
+          ticking = false;
+          var current = null;
+          targets.forEach(function (t) {
+            if (t.el.getBoundingClientRect().top <= 120) current = t;
+          });
+          targets.forEach(function (t) {
+            t.link.classList.toggle("active", !!current && (t === current || t.link === current.parent));
+          });
+        }
+        window.addEventListener("scroll", function () {
+          if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(update);
+          }
+        }, { passive: true });
+        update();
+      })();
+    </script>
   </body>
 </html>
