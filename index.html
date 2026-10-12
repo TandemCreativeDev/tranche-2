@@ -1188,6 +1188,216 @@
           </table>
         </div>
       </section>
+      <section class="block" id="causal">
+        <h2>E. Causal AI</h2>
+        <p class="note">
+          Moves the corpus from factors that appear together to factors that
+          cause outcomes, using hypotheses from CHIRP’s experts, analysts and the
+          data. From Steve’s user journeys, not the Scope Doc. We have not built
+          causal models before, so the spike comes first and confirms or revises
+          the estimates below it.
+        </p>
+        <div class="table-wrap">
+          <table class="items">
+            <thead>
+              <tr>
+                <th>Priority</th>
+                <th>Feature</th>
+                <th class="num">Build days</th>
+                <th class="num">Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="pill pill--must">Must</span></td>
+                <td>Test a hypothesis: effect size, robustness checks and a plain verdict</td>
+                <td class="num">10</td>
+                <td class="num">£7,500</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--must">Must</span></td>
+                <td>Analysis-ready dataset built from verified records and the MAIB spreadsheets</td>
+                <td class="num">6</td>
+                <td class="num">£4,500</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--must">Must</span></td>
+                <td>Causes stated in each report extracted and cited</td>
+                <td class="num">6</td>
+                <td class="num">£4,500</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--must">Must</span></td>
+                <td>SHIELD codes proposed across the corpus and confirmed in the review tool (shares a model with proposed coding, <a href="#analyst">section B</a>)</td>
+                <td class="num">6</td>
+                <td class="num">£4,500</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--must">Must</span></td>
+                <td>Cause-and-effect maps for priority accident types, drawn up with CHIRP’s experts and fed into the system</td>
+                <td class="num">5</td>
+                <td class="num">£3,750</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--must">Must</span></td>
+                <td>Chat checks causal claims before replying, and words untested ones as associations (<a href="#chat">section A</a>)</td>
+                <td class="num">5</td>
+                <td class="num">£3,750</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--must">Must</span></td>
+                <td>Analysts raise and test hypotheses through the chat (<a href="#chat">section A</a>)</td>
+                <td class="num">5</td>
+                <td class="num">£3,750</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--must">Must</span></td>
+                <td>Hypothesis register in the review tool, signed off before results are cited</td>
+                <td class="num">4</td>
+                <td class="num">£3,000</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--must">Must</span></td>
+                <td>Feasibility spike: test the approach on our data before committing the rest</td>
+                <td class="num">3</td>
+                <td class="num">£2,250</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--must">Must</span></td>
+                <td>Quality test set of known cause-and-effect relationships, re-run after every change</td>
+                <td class="num">3</td>
+                <td class="num">£2,250</td>
+              </tr>
+              <tr class="total">
+                <td><strong>Must total</strong></td>
+                <td></td>
+                <td class="num"><strong>53</strong></td>
+                <td class="num"><strong>£39,750</strong></td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--should">Should</span></td>
+                <td>Exposure data (fleet sizes, time at sea), so findings are rates rather than counts</td>
+                <td class="num">6</td>
+                <td class="num">£4,500</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--should">Should</span></td>
+                <td>Did the rule work: outcomes before and after a regulation change, and between countries (<a href="#sources">section D</a>)</td>
+                <td class="num">6</td>
+                <td class="num">£4,500</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--should">Should</span></td>
+                <td>Causal pathway view: the maps on screen, with the evidence behind every link</td>
+                <td class="num">6</td>
+                <td class="num">£4,500</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--should">Should</span></td>
+                <td>Where a factor matters most: effects broken down by vessel type, region and conditions</td>
+                <td class="num">5</td>
+                <td class="num">£3,750</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--should">Should</span></td>
+                <td>Control measures ranked by estimated lives saved</td>
+                <td class="num">5</td>
+                <td class="num">£3,750</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--should">Should</span></td>
+                <td>AI-proposed links for experts to accept or reject into the maps</td>
+                <td class="num">5</td>
+                <td class="num">£3,750</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--should">Should</span></td>
+                <td>Chat suggests causal lines of enquiry and offers to test them (<a href="#chat">section A</a>)</td>
+                <td class="num">4</td>
+                <td class="num">£3,000</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--should">Should</span></td>
+                <td>Evidence tables for regulators, exported as PDF and CSV</td>
+                <td class="num">2</td>
+                <td class="num">£1,500</td>
+              </tr>
+              <tr class="total">
+                <td><strong>Should total</strong></td>
+                <td></td>
+                <td class="num"><strong>39</strong></td>
+                <td class="num"><strong>£29,250</strong></td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--could">Could</span></td>
+                <td>Sequence of events extracted from each report, to find recurring chains</td>
+                <td class="num">8</td>
+                <td class="num">£6,000</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--could">Could</span></td>
+                <td>Did the recommendation work: outcomes before and after implementation</td>
+                <td class="num">5</td>
+                <td class="num">£3,750</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--could">Could</span></td>
+                <td>Weather and sea state as tested factors (Copernicus, <a href="#sources">section D</a>)</td>
+                <td class="num">3</td>
+                <td class="num">£2,250</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--could">Could</span></td>
+                <td>Incoming CHIRP reports set against the maps, with follow-up questions for the reporter (<a href="#analyst">section B</a>)</td>
+                <td class="num">3</td>
+                <td class="num">£2,250</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--could">Could</span></td>
+                <td>Hypotheses re-tested as new reports are verified</td>
+                <td class="num">3</td>
+                <td class="num">£2,250</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--could">Could</span></td>
+                <td>Methods note for regulators and external reviewers</td>
+                <td class="num">3</td>
+                <td class="num">£2,250</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--could">Could</span></td>
+                <td>Dashboard figures labelled as association or tested cause (<a href="#analyst">section B</a>)</td>
+                <td class="num">2</td>
+                <td class="num">£1,500</td>
+              </tr>
+              <tr class="total">
+                <td><strong>Could total</strong></td>
+                <td></td>
+                <td class="num"><strong>27</strong></td>
+                <td class="num"><strong>£20,250</strong></td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--wont">Won't</span></td>
+                <td>Causal findings shown to the public without human sign-off</td>
+                <td class="num">n/a</td>
+                <td class="num">n/a</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--wont">Won't</span></td>
+                <td>Claims about how often accidents happen without exposure data</td>
+                <td class="num">n/a</td>
+                <td class="num">n/a</td>
+              </tr>
+              <tr>
+                <td><span class="pill pill--wont">Won't</span></td>
+                <td>Real-time risk scoring for vessels or voyages</td>
+                <td class="num">n/a</td>
+                <td class="num">n/a</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
       <section class="block" id="bodies">
         <h2>F. Official investigation bodies</h2>
         <p class="note">
