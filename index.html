@@ -385,8 +385,90 @@
         }
       }
     </style>
+    <style>
+      html.locked body > :not(#gate) {
+        display: none;
+      }
+      #gate {
+        display: none;
+      }
+      html.locked #gate {
+        display: flex;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+      .gate__card {
+        width: 100%;
+        max-width: 360px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 28px 24px;
+      }
+      .gate__card h1 {
+        font-size: 20px;
+        margin-bottom: 6px;
+      }
+      .gate__card p {
+        font-size: 14px;
+        color: var(--text-soft);
+        margin-bottom: 16px;
+      }
+      .gate__card input {
+        width: 100%;
+        font: inherit;
+        padding: 10px 12px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        margin-bottom: 12px;
+      }
+      .gate__card button {
+        width: 100%;
+        font: inherit;
+        font-weight: 600;
+        padding: 10px 12px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--navy-deep);
+        color: #fff;
+        cursor: pointer;
+      }
+      .gate__error {
+        display: none;
+        font-size: 13px;
+        color: #b42318;
+        margin-top: 10px;
+      }
+    </style>
+    <script>
+      if (localStorage.getItem("tranche-2-unlocked") !== "yes") {
+        document.documentElement.classList.add("locked");
+      }
+    </script>
   </head>
   <body>
+    <div id="gate">
+      <form class="gate__card" id="gate-form">
+        <h1>Password required</h1>
+        <p>This draft is private. Enter the password to continue.</p>
+        <input type="password" id="gate-password" placeholder="Password" autocomplete="current-password" autofocus />
+        <button type="submit">Continue</button>
+        <div class="gate__error" id="gate-error">Incorrect password.</div>
+      </form>
+    </div>
+    <script>
+      document.getElementById("gate-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (document.getElementById("gate-password").value === "CHIRPzigzag") {
+          localStorage.setItem("tranche-2-unlocked", "yes");
+          document.documentElement.classList.remove("locked");
+        } else {
+          document.getElementById("gate-error").style.display = "block";
+        }
+      });
+    </script>
     <header class="site-header">
       <div class="site-header__inner">
         <a href="../index.html" class="logo">
