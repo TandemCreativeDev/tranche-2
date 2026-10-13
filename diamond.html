@@ -69,6 +69,22 @@
         color: var(--navy-deep);
         margin: 36px 0 0;
       }
+      main.container > h2 {
+        margin-top: 48px;
+        font-size: 14px;
+      }
+      main.container > h2:first-child {
+        margin-top: 40px;
+      }
+      main.container > h2::before {
+        content: "";
+        display: block;
+        width: 28px;
+        height: 3px;
+        margin-bottom: 12px;
+        border-radius: 2px;
+        background: var(--orange);
+      }
       .note {
         font-size: 14px;
         color: var(--text-soft);
@@ -423,6 +439,61 @@
       }
       .diagram .sub--stretch {
         font-style: italic;
+      }
+      ul.examples {
+        list-style: none;
+        margin: 12px 0 0;
+        padding: 0;
+        display: grid;
+        gap: 10px;
+      }
+      ul.examples li {
+        padding: 14px 18px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+      }
+      ul.examples strong {
+        display: block;
+        font-size: 15px;
+        color: var(--navy-deep);
+      }
+      .examples__label {
+        display: block;
+        margin-top: 8px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-mute);
+      }
+      ul.examples code {
+        display: block;
+        margin-top: 4px;
+        padding: 10px 12px;
+        overflow-x: auto;
+        white-space: pre;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 12.5px;
+        color: var(--navy-deep);
+        background: #eef2f8;
+        border-radius: 8px;
+      }
+      .examples__plain {
+        display: block;
+        margin-top: 4px;
+        font-size: 14px;
+        color: var(--text-soft);
+      }
+      .examples__answer {
+        display: block;
+        margin-top: 4px;
+        padding: 10px 14px;
+        font-size: 14px;
+        color: var(--text);
+        background: var(--orange-tint);
+        border-left: 3px solid var(--orange);
+        border-radius: 0 8px 8px 0;
       }
       ul.list {
         list-style: none;
@@ -783,7 +854,7 @@
 
       <h2>Not included</h2>
       <ul class="list">
-        <li><strong>A CHIRP-branded chat screen.</strong> Users ask through their own AI.</li>
+        <li><strong>A CHIRP-branded chat screen.</strong> Users ask through their own AI, such as <a href="https://claude.ai">claude.ai</a>.</li>
         <li><strong><a href="#g-patterns">Learning from user questions</a>.</strong> Questions are <a href="#g-log">logged</a>, but not yet reused to improve answers.</li>
         <li><strong>Full ingestion of the 6 new countries.</strong> These use <a href="#g-fast">fast ingestion</a>, which is quicker but gives less reliable data.</li>
         <li><strong><a href="#g-causal">Causal AI</a>.</strong></li>
@@ -920,6 +991,60 @@
           <text class="step-sub step-sub--user" x="48" y="573">one click to the PDF page</text>
         </svg>
       </div>
+
+      <h2>Questions Diamond can answer</h2>
+      <ul class="examples">
+        <li>
+          <strong>“How many fishing vessels have sunk in the last ten years, and in which countries?”</strong>
+          <span class="examples__label">Claude asks CHIRPdb</span>
+          <code>count_reports(vessel_type="fishing vessel", vessel_sank=true,
+              accident_date_from="2016-01-01", group_by="country")</code>
+          <span class="examples__label">In plain English</span>
+          <span class="examples__plain">Count the reports about fishing vessels that sank since 2016, split by country.</span>
+          <span class="examples__label">A typical answer</span>
+          <span class="examples__answer">112 fishing vessels sank across the 8 countries since 2016. The UK had the most (38), then the US (27) and Norway (14). Most capsized after flooding or losing stability. Each count links to the reports behind it.</span>
+        </li>
+        <li>
+          <strong>“What keeps causing deaths in enclosed spaces?”</strong>
+          <span class="examples__label">Claude asks CHIRPdb</span>
+          <code>search_text(text="enclosed space", deaths_min=1)
+count_reports(text="enclosed space", deaths_min=1, group_by="shield_code")</code>
+          <span class="examples__label">In plain English</span>
+          <span class="examples__plain">Find passages that mention enclosed spaces in reports where someone died, then count those reports by SHIELD code.</span>
+          <span class="examples__label">A typical answer</span>
+          <span class="examples__answer">Across 46 fatal enclosed-space accidents, two factors recur most: poor planning of the task (29 reports) and procedures not followed (24). A common sequence: the atmosphere was not tested, and a second person died going in to help. Each point links to the report page it comes from.</span>
+        </li>
+        <li>
+          <strong>“Compare collisions in the UK and the US since 2015.”</strong>
+          <span class="examples__label">Claude asks CHIRPdb</span>
+          <code>count_reports(accident_type="collision", country=["UK", "US"],
+              accident_date_from="2015-01-01", group_by=["country", "vessel_type"])</code>
+          <span class="examples__label">In plain English</span>
+          <span class="examples__plain">Count collisions in UK and US reports since 2015, split by country and vessel type.</span>
+          <span class="examples__label">A typical answer</span>
+          <span class="examples__answer">A table of collisions by country and vessel type, 212 in UK reports and 184 in US reports, with the biggest differences called out: fishing vessels feature far more often in UK reports, towing vessels in US reports.</span>
+        </li>
+        <li>
+          <strong>“Has anything like this happened before? A bulk carrier grounded at night with one person on watch.”</strong>
+          <span class="examples__label">Claude asks CHIRPdb</span>
+          <code>find_similar(description="bulk carrier grounded at night, single watchkeeper")</code>
+          <span class="examples__label">In plain English</span>
+          <span class="examples__plain">Find past incidents that read most like this description.</span>
+          <span class="examples__label">A typical answer</span>
+          <span class="examples__answer">6 similar groundings, closest first: the bulk carrier Ocean Venture, Australia, 2018, grounded at night with the officer of the watch alone on the bridge; and so on, each with a one-line summary and a link to the report.</span>
+        </li>
+        <li>
+          <strong>“Write me a toolbox talk on mooring line injuries, from real cases.”</strong>
+          <span class="examples__label">Claude asks CHIRPdb</span>
+          <code>search_text(text="mooring line", injuries_min=1)
+get_report_pages(report_ids=[…], pages="matching passages")</code>
+          <span class="examples__label">In plain English</span>
+          <span class="examples__plain">Find passages about mooring lines in reports where someone was injured, then fetch those report pages.</span>
+          <span class="examples__label">A typical answer</span>
+          <span class="examples__answer">A one-page toolbox talk in plain English: what went wrong in 14 real cases, the warning signs, and what to do differently, each point linked to the report it comes from.</span>
+        </li>
+      </ul>
+      <p class="note">Illustrative: the tool names and fields are settled during the build, and the figures and vessel names in the answers are made up for illustration.</p>
 
       <h2>How it fits together</h2>
       <div class="diagram">
