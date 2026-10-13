@@ -233,6 +233,86 @@
         letter-spacing: 0.1em;
         fill: var(--text-mute);
       }
+      .diagram .label--mid {
+        text-anchor: middle;
+      }
+      .diagram .phase {
+        stroke-width: 3;
+        stroke-linecap: round;
+      }
+      .diagram .phase--setup,
+      .diagram .flow--setup {
+        stroke: var(--navy-soft);
+      }
+      .diagram .phase--use,
+      .diagram .flow--use,
+      .diagram .flow--loop {
+        stroke: var(--orange);
+      }
+      .diagram .flow {
+        fill: none;
+        stroke-width: 4;
+        stroke-linecap: round;
+      }
+      .diagram .flow--join {
+        stroke: #c4c9d4;
+      }
+      .diagram .flow--loop {
+        stroke-width: 2;
+        stroke-dasharray: 6 5;
+      }
+      .diagram .node {
+        fill: #fff;
+        stroke-width: 3;
+      }
+      .diagram .node--setup {
+        stroke: var(--navy-soft);
+      }
+      .diagram .node--use {
+        stroke: var(--orange);
+      }
+      .diagram .icon {
+        fill: none;
+        stroke-width: 2;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+      }
+      .diagram .icon--setup {
+        stroke: var(--navy-deep);
+      }
+      .diagram .icon--use {
+        stroke: var(--orange-deep);
+      }
+      .diagram .icon--use .fill {
+        fill: var(--orange-deep);
+        stroke: none;
+      }
+      .diagram .sub--loop {
+        font-weight: 600;
+        fill: var(--orange-deep);
+      }
+      .split {
+        display: block;
+        margin-top: 8px;
+      }
+      .tag {
+        display: inline-block;
+        margin-right: 6px;
+        padding: 1px 8px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      .tag--in {
+        background: #e7f5ec;
+        color: #1f7a45;
+      }
+      .tag--out {
+        background: #fdecea;
+        color: #b42318;
+      }
       ul.list {
         list-style: none;
         margin: 12px 0 0;
@@ -383,7 +463,7 @@
             <li>Reports from the UK, the US and up to 6 more countries</li>
             <li>CHIRP’s own reports</li>
             <li>Asked through an AI, CHIRP’s own or a third party’s</li>
-            <li>Compare incidents, find recurring patterns and draw lessons</li>
+            <li>Compare incidents, find <a href="#g-patterns">recurring patterns</a> and draw lessons</li>
             <li>Every conclusion traceable to its source report</li>
             <li>SHIELD matching</li>
             <li>Kept up to date automatically</li>
@@ -473,7 +553,7 @@
             <tr>
               <td>
                 <strong>Count incidents by causal factor</strong>
-                <a href="#g-shield">SHIELD codes</a> proposed for every report and confirmed by CHIRP in the <a href="#g-review-tool">review tool</a>.
+                SHIELD codes proposed for every report and confirmed by CHIRP in the <a href="#g-review-tool">review tool</a>.
               </td>
               <td class="num">6</td>
               <td class="num">10.2</td>
@@ -491,7 +571,7 @@
             <tr>
               <td>
                 <strong>Always up to date</strong>
-                New reports are <a href="#g-ingestion">ingested automatically</a> as each source publishes them.
+                New reports are ingested automatically as each source publishes them.
               </td>
               <td class="num">4</td>
               <td class="num">6.8</td>
@@ -592,8 +672,8 @@
       <h2>Not included</h2>
       <ul class="list">
         <li><strong>A CHIRP-branded chat screen.</strong> Users ask through their own AI.</li>
-        <li><strong>Learning from user questions.</strong> Questions are <a href="#g-log">logged</a>, but not yet reused to improve answers.</li>
-        <li><strong>Full <a href="#g-ingestion">ingestion</a> of the 6 new countries.</strong> These use <a href="#g-fast">fast ingestion</a>, which is quicker but gives less reliable data.</li>
+        <li><strong><a href="#g-patterns">Learning from user questions</a>.</strong> Questions are <a href="#g-log">logged</a>, but not yet reused to improve answers.</li>
+        <li><strong>Full ingestion of the 6 new countries.</strong> These use <a href="#g-fast">fast ingestion</a>, which is quicker but gives less reliable data.</li>
         <li><strong>Dashboards and Causal AI.</strong></li>
       </ul>
       <p class="note">
@@ -604,12 +684,13 @@
       <h2>Glossary</h2>
       <ul class="list">
         <li id="g-connector"><strong>Connector.</strong> A plug-in users add to their own AI, such as Claude, so it can search CHIRPdb. Users sign in with a CHIRPdb account before it works.</li>
-        <li id="g-vocabulary"><strong>Shared vocabulary.</strong> Each country labels things its own way (“fishing vessel”, “fishing”, “trawler”). We map them all onto one list, so counts compare across countries.</li>
-        <li id="g-shield"><strong>SHIELD codes.</strong> A standard set of codes for the human factors behind an incident. The AI suggests them for each report; CHIRP accepts or corrects them.</li>
+        <li id="g-vocabulary"><strong>Shared vocabulary.</strong> Each country describes the same thing in its own words: one says “fishing vessel”, another “fishing”, another “trawler”; severity and accident type vary in the same way. We map every country’s terms onto one list for each field, building on the IMO classifications we already use for accident type and severity. We also capture more fields from every report, so a report from any country carries close to the detail the MAIB spreadsheets give. The result: ask about fishing vessel groundings and the answer draws on the matching reports from every country, with counts that compare like with like.</li>
         <li id="g-review-tool"><strong>Review tool.</strong> CHIRP’s existing staff screen for checking reports.</li>
-        <li id="g-ingestion"><strong>Ingestion.</strong> Adding a source’s reports to CHIRPdb so they can be searched. Automatic ingestion checks each source on a schedule and adds new reports without anyone doing it by hand.</li>
         <li id="g-fast"><strong>Fast ingestion.</strong> 2.5 days per country instead of 5. Only some of each country’s reporting rules are built in, so the data is less reliable.</li>
         <li id="g-test-set"><strong>Validated test set.</strong> A fixed list of questions with known right answers, re-run after every change to catch answers getting worse.</li>
+        <li id="g-patterns"><strong>Pattern finding and learning.</strong> Asking what keeps recurring across all reports, for example what keeps causing enclosed-space deaths, and seeing the supporting cases. Every report has two parts. The <em>metadata</em> is a set of labelled details held for every report: country, date, vessel type, accident type, outcome and SHIELD codes. The <em>plain text</em> is the report itself, the investigators’ written account of what happened.
+          <span class="split"><span class="tag tag--in">Included</span> Patterns in the metadata. These are quick and reliable to find, because the system simply counts across every report.</span>
+          <span class="split"><span class="tag tag--out">Not included</span> Patterns in the plain text, and learning. Patterns that appear only in the text, such as something about the crew’s background, are harder: the system has to read the reports to spot them. With learning, whatever it finds is saved against each report it applies to, in effect a new piece of metadata. The next time anyone asks something similar, the system checks the metadata first, then the saved findings, and only then goes back to the plain text, so answers get faster and more consistent with every question. Diamond logs every question, which is the starting point for this.</span></li>
         <li id="g-log"><strong>Log.</strong> A record of each question asked and which reports the AI used to answer it.</li>
       </ul>
 
@@ -692,6 +773,51 @@
         </svg>
       </div>
 
+      <h2>How CHIRP’s users get answers</h2>
+      <div class="diagram">
+        <svg viewBox="0 0 960 335" role="img" aria-label="Set up once: CHIRP invites a user, they add the connector to their own AI and sign in. Every time: they ask a question, get an answer compared across 8 countries, and check the source. Follow-up questions loop back.">
+          <defs>
+            <marker id="arrow-flow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="#f58220" />
+            </marker>
+          </defs>
+          <text class="label label--mid" x="240" y="24">SET UP ONCE</text>
+          <path class="phase phase--setup" d="M40,36 H440" />
+          <text class="label label--mid" x="720" y="24">EVERY TIME</text>
+          <path class="phase phase--use" d="M520,36 H920" />
+
+          <path class="flow flow--setup" d="M80,140 C160,140 160,200 240,200 C320,200 320,140 400,140" />
+          <path class="flow flow--join" d="M400,140 C480,140 480,200 560,200" />
+          <path class="flow flow--use" d="M560,200 C640,200 640,140 720,140 C800,140 800,200 880,200" />
+          <path class="flow flow--loop" d="M880,284 C880,312 860,312 840,312 H600 C580,312 560,312 560,288" marker-end="url(#arrow-flow)" />
+          <text class="sub sub--loop" x="720" y="328">Ask a follow-up</text>
+
+          <circle class="node node--setup" cx="80" cy="140" r="34" />
+          <g class="icon icon--setup"><rect x="66" y="130" width="28" height="20" rx="3" /><polyline points="66,131 80,142 94,131" /></g>
+          <text class="title" x="80" y="82">CHIRP invites them</text>
+          <text class="sub" x="80" y="98">from the existing platform</text>
+          <circle class="node node--setup" cx="240" cy="200" r="34" />
+          <g class="icon icon--setup"><rect x="231" y="195" width="18" height="14" rx="3" /><path d="M236,195 V187 M244,195 V187 M240,209 V216" /></g>
+          <text class="title" x="240" y="256">They add the connector</text>
+          <text class="sub" x="240" y="272">to Claude or another AI</text>
+          <circle class="node node--setup" cx="400" cy="140" r="34" />
+          <g class="icon icon--setup"><rect x="389" y="138" width="22" height="16" rx="3" /><path d="M393,138 V133 A7,7 0 0 1 407,133 V138" /></g>
+          <text class="title" x="400" y="82">They sign in once</text>
+          <text class="sub" x="400" y="98">with a CHIRPdb account</text>
+          <circle class="node node--use" cx="560" cy="200" r="34" />
+          <g class="icon icon--use"><path d="M551,189 H569 Q574,189 574,194 V203 Q574,208 569,208 H561 L552,215 L554,208 H551 Q546,208 546,203 V194 Q546,189 551,189 Z" /></g>
+          <text class="title" x="560" y="256">They ask a question</text>
+          <text class="sub" x="560" y="272">in plain English</text>
+          <circle class="node node--use" cx="720" cy="140" r="34" />
+          <g class="icon icon--use"><path d="M706,153 H734" /><rect class="fill" x="709" y="141" width="6" height="10" rx="1" /><rect class="fill" x="717" y="133" width="6" height="18" rx="1" /><rect class="fill" x="725" y="127" width="6" height="24" rx="1" /></g>
+          <text class="title" x="720" y="82">They get an answer</text>
+          <text class="sub" x="720" y="98">compared across 8 countries</text>
+          <circle class="node node--use" cx="880" cy="200" r="34" />
+          <g class="icon icon--use"><path d="M870,186 H884 L890,192 V214 H870 Z M875,198 H885 M875,204 H885 M875,210 H881" /></g>
+          <text class="title" x="880" y="256">They check the source</text>
+          <text class="sub" x="880" y="272">every claim links to the PDF</text>
+        </svg>
+      </div>
     </main>
     <script>
       document.querySelectorAll(".toggle").forEach(function (button) {
