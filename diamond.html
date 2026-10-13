@@ -103,7 +103,7 @@
         letter-spacing: 0.1em;
         text-transform: uppercase;
         color: var(--text-mute);
-        background: var(--bg-soft);
+        background: #eef2f8;
       }
       tr:last-child td {
         border-bottom: 0;
@@ -313,6 +313,117 @@
         background: #fdecea;
         color: #b42318;
       }
+      .diagram .lane {
+        stroke: var(--border);
+        stroke-width: 1.5;
+        stroke-dasharray: 4 5;
+      }
+      .diagram .head--user,
+      .diagram .head--ai {
+        fill: var(--bg-soft);
+        stroke: var(--border);
+      }
+      .diagram .head--conn {
+        fill: var(--orange-tint);
+        stroke: var(--orange);
+      }
+      .diagram .head--data {
+        fill: var(--navy-deep);
+      }
+      .diagram .head-text {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        fill: var(--text-soft);
+      }
+      .diagram .head-text--conn {
+        fill: var(--orange-deep);
+      }
+      .diagram .head-text--data {
+        fill: #fff;
+      }
+      .diagram .seq {
+        fill: none;
+        stroke: #8a92a6;
+        stroke-width: 1.75;
+      }
+      .diagram .step-box {
+        fill: #fff;
+        stroke: var(--border);
+        stroke-width: 1.5;
+      }
+      .diagram .step-box--user {
+        stroke: var(--navy-soft);
+      }
+      .diagram .step-box--conn {
+        fill: var(--orange-tint);
+        stroke: var(--orange);
+      }
+      .diagram .step-box--data {
+        fill: var(--navy-deep);
+        stroke: var(--navy-deep);
+      }
+      .diagram .num {
+        fill: var(--navy-soft);
+      }
+      .diagram .num--ai {
+        fill: #8a92a6;
+      }
+      .diagram .num--conn {
+        fill: var(--orange);
+      }
+      .diagram .num--data {
+        fill: #fff;
+      }
+      .diagram .num-text {
+        font-size: 12px;
+        font-weight: 700;
+        fill: #fff;
+      }
+      .diagram .num-text--data {
+        fill: var(--navy-deep);
+      }
+      .diagram .step-title,
+      .diagram .step-sub {
+        text-anchor: start;
+      }
+      .diagram .step-title {
+        font-size: 12.5px;
+        font-weight: 700;
+        fill: var(--navy-deep);
+      }
+      .diagram .step-sub {
+        font-size: 11px;
+        fill: var(--text-soft);
+      }
+      .diagram .step-title--data {
+        fill: #fff;
+      }
+      .diagram .step-sub--data {
+        fill: #c9d3e3;
+      }
+      .diagram .panel-title {
+        text-anchor: start;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        fill: var(--navy-deep);
+      }
+      .diagram .item {
+        text-anchor: start;
+        font-size: 12.5px;
+        fill: var(--text);
+      }
+      .diagram .dot--new {
+        fill: var(--orange);
+      }
+      .diagram .dot--old {
+        fill: #c4c9d4;
+      }
+      .diagram .sub--stretch {
+        font-style: italic;
+      }
       ul.list {
         list-style: none;
         margin: 12px 0 0;
@@ -453,9 +564,10 @@
         <div class="eyebrow">Internal draft · not yet shared with CHIRP</div>
         <h1>Diamond</h1>
         <p class="lede">
-          By the end of this tranche, CHIRP can ask an AI about reports from 8
-          countries to compare incidents, find recurring patterns and draw
-          lessons, with every conclusion traced back to its source report.
+          “By the end of this tranche, CHIRP must be able to access well-structured data from the 2 existing
+          and up to 6 additional jurisdictions’ reports via an LLM (our own or a 3rd party) to compare
+          incidents, identify recurring patterns and synthesise lessons with conclusions traceable to the
+          underlying source reports.”
         </p>
         <div class="card">
           <h2>CHIRP’s requirements</h2>
@@ -472,7 +584,7 @@
             <li>Stretch: open to people CHIRP shares the link with</li>
           </ul>
         </div>
-        <p class="price"><strong>£53,000</strong> · 65 build days, 106 days in total at £500 a day. Hosting and AI usage paid by CHIRP.</p>
+        <p class="price"><strong>£53,000</strong> · 106 days at £500 a day. Hosting and AI usage paid by CHIRP.</p>
       </div>
     </section>
 
@@ -491,7 +603,7 @@
           <tbody>
             <tr>
               <td>
-                <strong>Ask questions in Claude, or another AI that supports <a href="#g-connector">connectors</a></strong>
+                <strong>Ask questions in the Claude harness, through a CHIRPdb <a href="#g-connector">connector</a></strong>
                 A CHIRPdb <a href="#g-connector">connector</a> that searches the reports, finds similar incidents, counts across
                 every report, and links each claim to the right page of the source PDF. Only people CHIRP gives
                 access to can use it.
@@ -502,7 +614,7 @@
               <td class="num">£15,300</td>
             </tr>
             <tr class="sub" data-group="ask" hidden>
-              <td>Connector tools: search the reports, find similar incidents, count across every report, fetch a report at the right PDF page</td>
+              <td>Connector tools (search, count, find similar incidents, fetch the PDF page), and the new CHIRPdb API work behind counting and similar incidents</td>
               <td class="num">8</td>
               <td class="num">13.6</td>
               <td class="num">£6,800</td>
@@ -526,7 +638,7 @@
               <td class="num">£850</td>
             </tr>
             <tr class="sub" data-group="ask" hidden>
-              <td>Access: users sign in to the <a href="#g-connector">connector</a> with a CHIRPdb account, and CHIRP adds and removes users in the existing platform</td>
+              <td>Access: users sign in to the <a href="#g-connector">connector</a> with a CHIRPdb account, and CHIRP adds and removes users in the CHIRPdb frontend</td>
               <td class="num">4</td>
               <td class="num">6.8</td>
               <td class="num">£3,400</td>
@@ -644,7 +756,7 @@
             <tr>
               <td>
                 <strong>Open it to people CHIRP shares the link with</strong>
-                Rate limits, abuse and scraping protection, and terms and a privacy notice
+                Rate limits and abuse and scraping protection on the connector, and terms and a privacy notice
                 (CHIRP writes the wording). The <a href="#g-log">log</a> shows how it is used in practice.
                 <button type="button" class="toggle" data-group="link" aria-expanded="false">Show breakdown</button>
               </td>
@@ -653,7 +765,7 @@
               <td class="num">£3,825</td>
             </tr>
             <tr class="sub" data-group="link" hidden>
-              <td>Rate limits, and abuse and scraping protection</td>
+              <td>Rate limits, and abuse and scraping protection, on the connector</td>
               <td class="num">3</td>
               <td class="num">5.1</td>
               <td class="num">£2,550</td>
@@ -683,93 +795,103 @@
 
       <h2>Glossary</h2>
       <ul class="list">
-        <li id="g-connector"><strong>Connector.</strong> A plug-in users add to their own AI, such as Claude, so it can search CHIRPdb. Users sign in with a CHIRPdb account before it works.</li>
+        <li id="g-connector"><strong>Connector.</strong> A small new service that users add to the Claude harness. It holds no data: it turns the AI’s requests into calls to CHIRPdb, which does the searching and counting. Users sign in with a CHIRPdb account before it works.</li>
         <li id="g-vocabulary"><strong>Shared vocabulary.</strong> Each country describes the same thing in its own words: one says “fishing vessel”, another “fishing”, another “trawler”; severity and accident type vary in the same way. We map every country’s terms onto one list for each field, building on the IMO classifications we already use for accident type and severity. We also capture more fields from every report, so a report from any country carries close to the detail the MAIB spreadsheets give. The result: ask about fishing vessel groundings and the answer draws on the matching reports from every country, with counts that compare like with like.</li>
-        <li id="g-review-tool"><strong>Review tool.</strong> CHIRP’s existing staff screen for checking reports.</li>
+        <li id="g-review-tool"><strong>Review tool.</strong> The part of the CHIRPdb frontend that CHIRP staff use to check reports.</li>
         <li id="g-fast"><strong>Fast ingestion.</strong> 2.5 days per country instead of 5. Only some of each country’s reporting rules are built in, so the data is less reliable.</li>
         <li id="g-test-set"><strong>Validated test set.</strong> A fixed list of questions with known right answers, re-run after every change to catch answers getting worse.</li>
         <li id="g-patterns"><strong>Pattern finding and learning.</strong> Asking what keeps recurring across all reports, for example what keeps causing enclosed-space deaths, and seeing the supporting cases. Every report has two parts. The <em>metadata</em> is a set of labelled details held for every report: country, date, vessel type, accident type, outcome and SHIELD codes. The <em>plain text</em> is the report itself, the investigators’ written account of what happened.
-          <span class="split"><span class="tag tag--in">Included</span> Patterns in the metadata. These are quick and reliable to find, because the system simply counts across every report.</span>
-          <span class="split"><span class="tag tag--out">Not included</span> Patterns in the plain text, and learning. Patterns that appear only in the text, such as something about the crew’s background, are harder: the system has to read the reports to spot them. With learning, whatever it finds is saved against each report it applies to, in effect a new piece of metadata. The next time anyone asks something similar, the system checks the metadata first, then the saved findings, and only then goes back to the plain text, so answers get faster and more consistent with every question. Diamond logs every question, which is the starting point for this.</span></li>
+          <span class="split"><span class="tag tag--in">Included in Diamond</span> Patterns in the metadata. Claude uses a CHIRPdb tool that searches every report in the database, not just a handful of top matches, to find what recurs. Claude decides what to look for, for example enclosed-space deaths by SHIELD code, vessel type and country, then compares the results and writes up the lessons. The counts are exact, so every number traces back to its reports. As a fallback, the tool can also search the plain text of every report for words and phrases, such as “double shift”, when Claude knows what to look for.</span>
+          <span class="split"><span class="tag tag--out">Not included in Diamond</span> Patterns in the plain text, and learning. Patterns that appear only in the text are harder: the system has to read the reports to spot them. For example, many reports may mention that the crew had just finished a double shift, but no field records it, so Diamond cannot count it. With learning, the system would spot it in the text and save “crew had just worked a double shift” against each report it applies to, in effect a new piece of metadata. The next time anyone asks something similar, the system checks the metadata first, then the saved findings, and only then goes back to the plain text, so answers get faster and more consistent with every question. Diamond logs every question, which is the starting point for this.</span></li>
         <li id="g-log"><strong>Log.</strong> A record of each question asked and which reports the AI used to answer it.</li>
       </ul>
 
       <h2>How it fits together</h2>
       <div class="diagram">
-        <svg viewBox="0 44 960 360" role="img" aria-label="Sources flow through automatic ingestion into CHIRPdb. The connector lets users ask questions through their own AI.">
+        <svg viewBox="0 30 960 408" role="img" aria-label="Sources flow through automatic ingestion into CHIRPdb: its database, API and frontend. A new connector turns the Claude harness's requests into calls to the CHIRPdb API. Users are invited and managed by CHIRP in the CHIRPdb frontend.">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
               <path d="M0,0 L10,5 L0,10 z" fill="#8a92a6" />
             </marker>
           </defs>
-
+          <text class="label" x="20" y="74">SOURCES</text>
+          <rect class="box" x="20" y="86" width="162" height="48" rx="8" />
+          <text class="title" x="101" y="107">UK and US</text>
+          <text class="sub" x="101" y="124">from Tranche 1</text>
+          <rect class="box" x="20" y="146" width="162" height="48" rx="8" />
+          <text class="title" x="101" y="167">6 more countries</text>
+          <text class="sub" x="101" y="184">investigation bodies</text>
+          <circle class="dot--new" cx="171" cy="157" r="4.5" />
+          <rect class="box" x="20" y="206" width="162" height="48" rx="8" />
+          <text class="title" x="101" y="227">CHIRP reports</text>
+          <text class="sub" x="101" y="244">CHIRP Maritime’s own</text>
+          <circle class="dot--new" cx="171" cy="217" r="4.5" />
+          <rect class="box" x="205" y="124" width="118" height="60" rx="8" />
+          <text class="title" x="264" y="151">Automatic</text>
+          <text class="sub" x="264" y="168">ingestion</text>
+          <circle class="dot--new" cx="312" cy="135" r="4.5" />
+          <rect class="core" x="345" y="40" width="320" height="388" rx="12" />
+          <text class="title title--light" x="505" y="66">CHIRPdb</text>
+          <rect class="inner" x="361" y="80" width="288" height="104" rx="6" />
+          <text class="panel-title" x="375" y="102">Database</text>
+          <circle class="dot--old" cx="380" cy="120" r="4" />
+          <text class="item" x="391" y="124">Verified reports</text>
+          <circle class="dot--new" cx="380" cy="139" r="4" />
+          <text class="item" x="391" y="143">Shared vocabulary, extended</text>
+          <circle class="dot--new" cx="380" cy="158" r="4" />
+          <text class="item" x="391" y="162">SHIELD codes on every report</text>
+          <rect class="inner" x="361" y="194" width="288" height="132" rx="6" />
+          <text class="panel-title" x="375" y="216">API</text>
+          <circle class="dot--old" cx="380" cy="234" r="4" />
+          <text class="item" x="391" y="238">Search</text>
+          <circle class="dot--old" cx="380" cy="253" r="4" />
+          <text class="item" x="391" y="257">Sign-in, roles and scope</text>
+          <circle class="dot--new" cx="380" cy="272" r="4" />
+          <text class="item" x="391" y="276">Count across every report</text>
+          <circle class="dot--new" cx="380" cy="291" r="4" />
+          <text class="item" x="391" y="295">Find similar incidents</text>
+          <circle class="dot--new" cx="380" cy="310" r="4" />
+          <text class="item" x="391" y="314">Log of every question</text>
+          <rect class="inner" x="361" y="336" width="288" height="80" rx="6" />
+          <text class="panel-title" x="375" y="358">Frontend</text>
+          <circle class="dot--new" cx="380" cy="376" r="4" />
+          <text class="item" x="391" y="380">Review tool: confirm SHIELD codes</text>
+          <circle class="dot--new" cx="380" cy="395" r="4" />
+          <text class="item" x="391" y="399">Manage users and access</text>
+          <rect class="accent" x="695" y="196" width="125" height="120" rx="10" />
+          <text class="title" x="757.5" y="220">CHIRPdb</text>
+          <text class="title" x="757.5" y="237">connector</text>
+          <text class="sub" x="757.5" y="259">turns the AI’s</text>
+          <text class="sub" x="757.5" y="274">requests into</text>
+          <text class="sub" x="757.5" y="289">API calls</text>
+          <circle class="dot--new" cx="809" cy="207" r="4.5" />
+          <text class="sub sub--stretch" x="757.5" y="334">rate limits: stretch</text>
+          <rect class="box" x="845" y="196" width="100" height="60" rx="8" />
+          <text class="title" x="895" y="223">Claude</text>
+          <text class="sub" x="895" y="240">harness</text>
+          <rect class="box" x="845" y="336" width="100" height="60" rx="8" />
+          <text class="title" x="895" y="363">Users</text>
+          <text class="sub" x="895" y="380">invited by CHIRP</text>
+          <rect class="box" x="695" y="96" width="250" height="52" rx="8" />
+          <text class="title" x="820" y="119">Validated test set</text>
+          <text class="sub" x="820" y="136">known questions, asked end to end</text>
+          <circle class="dot--new" cx="934" cy="107" r="4.5" />
           <g class="lines">
-            <path d="M190,104 C210,104 210,170 230,170" marker-end="url(#arrow)" />
-            <path d="M190,170 L230,170" marker-end="url(#arrow)" />
-            <path d="M190,236 C210,236 210,170 230,170" marker-end="url(#arrow)" />
-            <path d="M380,170 L420,170" marker-end="url(#arrow)" />
-            <path d="M510,310 L510,280" marker-start="url(#arrow)" marker-end="url(#arrow)" />
-            <path d="M600,150 L640,150" marker-start="url(#arrow)" marker-end="url(#arrow)" />
-            <path d="M720,220 L720,244" />
-            <path d="M720,292 L720,304" />
-            <path d="M720,344 L720,356" />
-            <path d="M800,140 L840,140" marker-start="url(#arrow)" marker-end="url(#arrow)" />
-            <path d="M895,220 L895,170" marker-start="url(#arrow)" marker-end="url(#arrow)" />
-            <path d="M840,250 C820,250 820,268 800,268" class="dashed" />
+            <path d="M182,110 C194,110 194,154 205,154" marker-end="url(#arrow)" />
+            <path d="M182,170 C194,170 194,154 205,154" marker-end="url(#arrow)" />
+            <path d="M182,230 C194,230 194,154 205,154" marker-end="url(#arrow)" />
+            <path d="M323,154 L361,154" marker-end="url(#arrow)" />
+            <path d="M649,256 L695,256" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+            <path d="M820,226 L845,226" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+            <path d="M895,256 L895,336" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+            <path d="M895,148 L895,196" class="dashed" marker-end="url(#arrow)" />
+            <path d="M649,392 C750,392 760,366 845,366" class="dashed" />
           </g>
-
-          <text class="label" x="20" y="64">SOURCES</text>
-          <rect class="box" x="20" y="80" width="170" height="48" rx="8" />
-          <text class="title" x="105" y="100">UK and US</text>
-          <text class="sub" x="105" y="117">from Tranche 1</text>
-          <rect class="box" x="20" y="146" width="170" height="48" rx="8" />
-          <text class="title" x="105" y="166">6 more countries</text>
-          <text class="sub" x="105" y="183">investigation bodies</text>
-          <rect class="box" x="20" y="212" width="170" height="48" rx="8" />
-          <text class="title" x="105" y="232">CHIRP’s own reports</text>
-          <text class="sub" x="105" y="249">CHIRP Maritime</text>
-
-          <rect class="box" x="230" y="140" width="150" height="60" rx="8" />
-          <text class="title" x="305" y="164">Automatic ingestion</text>
-          <text class="sub" x="305" y="182">new reports added</text>
-
-          <rect class="core" x="420" y="60" width="180" height="220" rx="10" />
-          <text class="title title--light" x="510" y="86">CHIRPdb</text>
-          <rect class="inner" x="436" y="100" width="148" height="48" rx="6" />
-          <text class="title" x="510" y="120">Verified reports</text>
-          <text class="sub" x="510" y="137">cited to the PDF page</text>
-          <rect class="inner" x="436" y="158" width="148" height="48" rx="6" />
-          <text class="title" x="510" y="178">Shared vocabulary</text>
-          <text class="sub" x="510" y="195">same labels everywhere</text>
-          <rect class="inner" x="436" y="216" width="148" height="48" rx="6" />
-          <text class="title" x="510" y="236">SHIELD codes</text>
-          <text class="sub" x="510" y="253">on every report</text>
-
-          <rect class="box" x="420" y="310" width="180" height="52" rx="8" />
-          <text class="title" x="510" y="331">Review tool</text>
-          <text class="sub" x="510" y="349">CHIRP confirms SHIELD codes</text>
-
-          <rect class="accent" x="640" y="80" width="160" height="140" rx="10" />
-          <text class="title" x="720" y="104">CHIRPdb connector</text>
-          <text class="sub" x="720" y="130">Search the reports</text>
-          <text class="sub" x="720" y="150">Find similar incidents</text>
-          <text class="sub" x="720" y="170">Count across every report</text>
-          <text class="sub" x="720" y="190">Fetch the PDF page</text>
-
-          <rect class="box" x="640" y="244" width="160" height="48" rx="8" />
-          <text class="title" x="720" y="264">Sign-in and access</text>
-          <text class="sub" x="720" y="281">in the existing platform</text>
-          <rect class="box" x="640" y="304" width="160" height="40" rx="8" />
-          <text class="title" x="720" y="329">Log of every question</text>
-          <rect class="box" x="640" y="356" width="160" height="40" rx="8" />
-          <text class="title" x="720" y="381">Validated test set</text>
-
-          <rect class="box" x="840" y="110" width="110" height="60" rx="8" />
-          <text class="title" x="895" y="136">Claude, or</text>
-          <text class="title" x="895" y="153">another AI</text>
-          <rect class="box" x="840" y="220" width="110" height="60" rx="8" />
-          <text class="title" x="895" y="246">Users</text>
-          <text class="sub" x="895" y="263">invited by CHIRP</text>
+          <text class="sub" x="757" y="412">CHIRP manages access</text>
+          <circle class="dot--old" cx="26" cy="300" r="4.5" />
+          <text class="item" x="38" y="304">Tranche 1</text>
+          <circle class="dot--new" cx="26" cy="322" r="4.5" />
+          <text class="item" x="38" y="326">Tranche 2</text>
         </svg>
       </div>
 
@@ -795,11 +917,11 @@
           <circle class="node node--setup" cx="80" cy="140" r="34" />
           <g class="icon icon--setup"><rect x="66" y="130" width="28" height="20" rx="3" /><polyline points="66,131 80,142 94,131" /></g>
           <text class="title" x="80" y="82">CHIRP invites them</text>
-          <text class="sub" x="80" y="98">from the existing platform</text>
+          <text class="sub" x="80" y="98">in the CHIRPdb frontend</text>
           <circle class="node node--setup" cx="240" cy="200" r="34" />
           <g class="icon icon--setup"><rect x="231" y="195" width="18" height="14" rx="3" /><path d="M236,195 V187 M244,195 V187 M240,209 V216" /></g>
           <text class="title" x="240" y="256">They add the connector</text>
-          <text class="sub" x="240" y="272">to Claude or another AI</text>
+          <text class="sub" x="240" y="272">to the Claude harness</text>
           <circle class="node node--setup" cx="400" cy="140" r="34" />
           <g class="icon icon--setup"><rect x="389" y="138" width="22" height="16" rx="3" /><path d="M393,138 V133 A7,7 0 0 1 407,133 V138" /></g>
           <text class="title" x="400" y="82">They sign in once</text>
@@ -816,6 +938,74 @@
           <g class="icon icon--use"><path d="M870,186 H884 L890,192 V214 H870 Z M875,198 H885 M875,204 H885 M875,210 H881" /></g>
           <text class="title" x="880" y="256">They check the source</text>
           <text class="sub" x="880" y="272">every claim links to the PDF</text>
+        </svg>
+      </div>
+
+      <h2>What happens when someone asks a question</h2>
+      <div class="diagram">
+        <svg viewBox="0 0 960 606" role="img" aria-label="One question, end to end: the user asks; the Claude harness reads CHIRPdb's instructions and picks tools; the connector passes the request to the CHIRPdb API with the user's sign-in; the API checks access, logs the question, counts the matching reports by SHIELD code, vessel type, country, date or outcome, finds the matching reports and pulls passages and PDF pages; the connector returns the results; the Claude harness writes a cited answer; the user checks a source.">
+          <defs>
+            <marker id="arrow-seq" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="#8a92a6" />
+            </marker>
+          </defs>
+          <path class="lane" d="M120,58 V602" />
+          <rect class="head head--user" x="8" y="16" width="224" height="32" rx="16" />
+          <text class="head-text head-text--user" x="120" y="37">USER</text>
+          <path class="lane" d="M360,58 V602" />
+          <rect class="head head--ai" x="248" y="16" width="224" height="32" rx="16" />
+          <text class="head-text head-text--ai" x="360" y="37">CLAUDE HARNESS</text>
+          <path class="lane" d="M600,58 V602" />
+          <rect class="head head--conn" x="488" y="16" width="224" height="32" rx="16" />
+          <text class="head-text head-text--conn" x="600" y="37">CHIRPDB CONNECTOR</text>
+          <path class="lane" d="M840,58 V602" />
+          <rect class="head head--data" x="728" y="16" width="224" height="32" rx="16" />
+          <text class="head-text head-text--data" x="840" y="37">CHIRPDB API</text>
+          <path class="seq" d="M232,100 H350 Q360,100 360,110 V142" marker-end="url(#arrow-seq)" />
+          <path class="seq" d="M472,166 H590 Q600,166 600,176 V208" marker-end="url(#arrow-seq)" />
+          <path class="seq" d="M712,232 H830 Q840,232 840,242 V274" marker-end="url(#arrow-seq)" />
+          <path class="seq" d="M728,298 H610 Q600,298 600,308 V404" marker-end="url(#arrow-seq)" />
+          <path class="seq" d="M488,428 H370 Q360,428 360,438 V470" marker-end="url(#arrow-seq)" />
+          <path class="seq" d="M248,494 H130 Q120,494 120,504 V536" marker-end="url(#arrow-seq)" />
+          <rect class="step-box step-box--user" x="8" y="76" width="224" height="48" rx="10" />
+          <circle class="num num--user" cx="28" cy="100" r="11" />
+          <text class="num-text num-text--user" x="28" y="104">1</text>
+          <text class="step-title step-title--user" x="48" y="97">Asks a question</text>
+          <text class="step-sub step-sub--user" x="48" y="113">in plain English</text>
+          <rect class="step-box step-box--ai" x="248" y="142" width="224" height="48" rx="10" />
+          <circle class="num num--ai" cx="268" cy="166" r="11" />
+          <text class="num-text num-text--ai" x="268" y="170">2</text>
+          <text class="step-title step-title--ai" x="288" y="163">Reads the instructions</text>
+          <text class="step-sub step-sub--ai" x="288" y="179">and picks which tools to use</text>
+          <rect class="step-box step-box--conn" x="488" y="208" width="224" height="48" rx="10" />
+          <circle class="num num--conn" cx="508" cy="232" r="11" />
+          <text class="num-text num-text--conn" x="508" y="236">3</text>
+          <text class="step-title step-title--conn" x="528" y="229">Passes the request on</text>
+          <text class="step-sub step-sub--conn" x="528" y="245">with the user’s sign-in</text>
+          <rect class="step-box step-box--data" x="728" y="274" width="224" height="112" rx="10" />
+          <circle class="num num--data" cx="748" cy="298" r="11" />
+          <text class="num-text num-text--data" x="748" y="302">4</text>
+          <text class="step-title step-title--data" x="768" y="295">Checks access, logs it, then:</text>
+          <text class="step-sub step-sub--data" x="768" y="311">· counts the matching reports</text>
+          <text class="step-sub step-sub--data" x="776" y="327">by SHIELD code, vessel type,</text>
+          <text class="step-sub step-sub--data" x="776" y="343">country, date or outcome</text>
+          <text class="step-sub step-sub--data" x="768" y="359">· finds the matching reports</text>
+          <text class="step-sub step-sub--data" x="768" y="375">· pulls passages and PDF pages</text>
+          <rect class="step-box step-box--conn" x="488" y="404" width="224" height="48" rx="10" />
+          <circle class="num num--conn" cx="508" cy="428" r="11" />
+          <text class="num-text num-text--conn" x="508" y="432">5</text>
+          <text class="step-title step-title--conn" x="528" y="425">Returns the results</text>
+          <text class="step-sub step-sub--conn" x="528" y="441">counts and passages, with links</text>
+          <rect class="step-box step-box--ai" x="248" y="470" width="224" height="48" rx="10" />
+          <circle class="num num--ai" cx="268" cy="494" r="11" />
+          <text class="num-text num-text--ai" x="268" y="498">6</text>
+          <text class="step-title step-title--ai" x="288" y="491">Writes the answer</text>
+          <text class="step-sub step-sub--ai" x="288" y="507">compares, draws lessons, cites</text>
+          <rect class="step-box step-box--user" x="8" y="536" width="224" height="48" rx="10" />
+          <circle class="num num--user" cx="28" cy="560" r="11" />
+          <text class="num-text num-text--user" x="28" y="564">7</text>
+          <text class="step-title step-title--user" x="48" y="557">Checks a source</text>
+          <text class="step-sub step-sub--user" x="48" y="573">one click to the PDF page</text>
         </svg>
       </div>
     </main>
