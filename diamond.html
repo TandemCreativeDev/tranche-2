@@ -674,41 +674,33 @@
           <tbody>
             <tr>
               <td>
-                <strong>Ask questions in the Claude harness, through a CHIRPdb <a href="#g-connector">connector</a></strong>
-                A CHIRPdb <a href="#g-connector">connector</a> that searches the reports, finds similar incidents, counts across
-                every report, and links each claim to the right page of the source PDF. Only people CHIRP gives
-                access to can use it.
-                <button type="button" class="toggle" data-group="ask" aria-expanded="false">Show breakdown</button>
+                <strong>Asked through an AI</strong>
+                Users ask in the Claude harness through a CHIRPdb <a href="#g-connector">connector</a>. Only people CHIRP gives access to can use it.
+                <button type="button" class="toggle" data-group="ai" aria-expanded="false">Show breakdown</button>
               </td>
-              <td class="num">18</td>
-              <td class="num">30.6</td>
-              <td class="num">£15,300</td>
+              <td class="num">10</td>
+              <td class="num">17</td>
+              <td class="num">£8,500</td>
             </tr>
-            <tr class="sub" data-group="ask" hidden>
-              <td>Connector tools (search, count, find similar incidents, fetch the PDF page), and the new CHIRPdb API work behind counting and similar incidents</td>
-              <td class="num">8</td>
-              <td class="num">13.6</td>
-              <td class="num">£6,800</td>
+            <tr class="sub" data-group="ai" hidden>
+              <td>The CHIRPdb <a href="#g-connector">connector</a>, with a search tool over the existing CHIRPdb API</td>
+              <td class="num">2</td>
+              <td class="num">3.4</td>
+              <td class="num">£1,700</td>
             </tr>
-            <tr class="sub" data-group="ask" hidden>
+            <tr class="sub" data-group="ai" hidden>
               <td>Deployment, backups and monitoring</td>
               <td class="num">3</td>
               <td class="num">5.1</td>
               <td class="num">£2,550</td>
             </tr>
-            <tr class="sub" data-group="ask" hidden>
-              <td>Instructions to the AI: plain maritime English, cite every claim, refuse off-topic questions</td>
-              <td class="num">2</td>
-              <td class="num">3.4</td>
-              <td class="num">£1,700</td>
-            </tr>
-            <tr class="sub" data-group="ask" hidden>
+            <tr class="sub" data-group="ai" hidden>
               <td>Setup page: how to add the CHIRPdb <a href="#g-connector">connector</a>, with sample questions</td>
               <td class="num">1</td>
               <td class="num">1.7</td>
               <td class="num">£850</td>
             </tr>
-            <tr class="sub" data-group="ask" hidden>
+            <tr class="sub" data-group="ai" hidden>
               <td>Access: users sign in to the <a href="#g-connector">connector</a> with a CHIRPdb account, and CHIRP adds and removes users in the CHIRPdb frontend</td>
               <td class="num">4</td>
               <td class="num">6.8</td>
@@ -716,8 +708,58 @@
             </tr>
             <tr>
               <td>
-                <strong>Reports from 6 more countries</strong>
-                Chosen by CHIRP, added to the UK and US reports already in from Tranche 1.
+                <strong>Compare incidents, find <a href="#g-patterns">recurring patterns</a> and draw lessons</strong>
+                Counts across every report, not just the top matches, and finds similar past incidents, so the AI can compare them and draw lessons.
+                <button type="button" class="toggle" data-group="patterns" aria-expanded="false">Show breakdown</button>
+              </td>
+              <td class="num">6.5</td>
+              <td class="num">11.05</td>
+              <td class="num">£5,525</td>
+            </tr>
+            <tr class="sub" data-group="patterns" hidden>
+              <td>Count across every report: connector tool and new CHIRPdb API work</td>
+              <td class="num">3</td>
+              <td class="num">5.1</td>
+              <td class="num">£2,550</td>
+            </tr>
+            <tr class="sub" data-group="patterns" hidden>
+              <td>Find similar incidents: connector tool and new CHIRPdb API work</td>
+              <td class="num">2</td>
+              <td class="num">3.4</td>
+              <td class="num">£1,700</td>
+            </tr>
+            <tr class="sub" data-group="patterns" hidden>
+              <td>Instructions to the AI: compare incidents and draw lessons in plain maritime English, refuse off-topic questions</td>
+              <td class="num">1.5</td>
+              <td class="num">2.55</td>
+              <td class="num">£1,275</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Every conclusion traceable to its source report</strong>
+                Each conclusion links to the right page of the source PDF.
+                <button type="button" class="toggle" data-group="trace" aria-expanded="false">Show breakdown</button>
+              </td>
+              <td class="num">1.5</td>
+              <td class="num">2.55</td>
+              <td class="num">£1,275</td>
+            </tr>
+            <tr class="sub" data-group="trace" hidden>
+              <td>Fetch the PDF page: connector tool</td>
+              <td class="num">1</td>
+              <td class="num">1.7</td>
+              <td class="num">£850</td>
+            </tr>
+            <tr class="sub" data-group="trace" hidden>
+              <td>Instructions to the AI: cite the source report for every conclusion</td>
+              <td class="num">0.5</td>
+              <td class="num">0.85</td>
+              <td class="num">£425</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Reports from the UK, the US and up to 6 more countries</strong>
+                The 6 more countries are chosen by CHIRP, added to the UK and US reports already in from Tranche 1.
               </td>
               <td class="num">15</td>
               <td class="num">21</td>
@@ -725,7 +767,7 @@
             </tr>
             <tr>
               <td>
-                <strong>Compare countries like with like</strong>
+                <strong>Compare incidents across countries like with like</strong>
                 One <a href="#g-vocabulary">shared vocabulary</a> for vessel type, accident type, outcome and so on, so
                 that a count in one country means the same as a count in another.
               </td>
@@ -735,8 +777,9 @@
             </tr>
             <tr>
               <td>
-                <strong>Count incidents by causal factor</strong>
-                SHIELD codes proposed for every report and confirmed by CHIRP in the <a href="#g-review-tool">review tool</a>.
+                <strong>SHIELD matching</strong>
+                SHIELD codes proposed for every report and confirmed by CHIRP in the <a href="#g-review-tool">review tool</a>,
+                so incidents can be counted by causal factor.
               </td>
               <td class="num">6</td>
               <td class="num">10.2</td>
@@ -744,7 +787,7 @@
             </tr>
             <tr>
               <td>
-                <strong>CHIRP’s own reports included</strong>
+                <strong>CHIRP’s own reports</strong>
                 CHIRP Maritime’s published reports, searchable alongside the investigation reports.
               </td>
               <td class="num">3</td>
@@ -753,7 +796,7 @@
             </tr>
             <tr>
               <td>
-                <strong>Always up to date</strong>
+                <strong>Kept up to date automatically</strong>
                 New reports are ingested automatically as each source publishes them.
               </td>
               <td class="num">2</td>
@@ -762,8 +805,8 @@
             </tr>
             <tr>
               <td>
-                <strong>Proof the answers are right, and a record of how it is used</strong>
-                A <a href="#g-test-set">validated test set</a>, re-run after every change, and a <a href="#g-log">log</a> of every question asked.
+                <strong>A validated test set, and logging</strong>
+                A <a href="#g-test-set">validated test set</a>, re-run after every change to prove the answers are right, and a <a href="#g-log">log</a> of every question asked.
                 <button type="button" class="toggle" data-group="proof" aria-expanded="false">Show breakdown</button>
               </td>
               <td class="num">5</td>
@@ -777,7 +820,7 @@
               <td class="num">£2,550</td>
             </tr>
             <tr class="sub" data-group="proof" hidden>
-              <td><a href="#g-log">Log</a> of every question asked and the reports used to answer it</td>
+              <td>Logging: a <a href="#g-log">log</a> of every question asked and the reports used to answer it</td>
               <td class="num">2</td>
               <td class="num">3.4</td>
               <td class="num">£1,700</td>
@@ -855,7 +898,7 @@
       <h2>Not included</h2>
       <ul class="list">
         <li><strong>A CHIRP-branded chat screen.</strong> Users ask through their own AI, such as <a href="https://claude.ai">claude.ai</a>.</li>
-        <li><strong><a href="#g-patterns">Learning from user questions</a>.</strong> Questions are <a href="#g-log">logged</a>, but not yet reused to improve answers.</li>
+        <li><strong><a href="#g-patterns">Learning from user questions</a>.</strong> Recurring patterns are found from each report’s metadata and text on every question, but not saved for next time. Questions are <a href="#g-log">logged</a>, which is the starting point.</li>
         <li><strong>Full ingestion of the 6 new countries.</strong> These use <a href="#g-fast">fast ingestion</a>, which is quicker but gives less reliable data.</li>
         <li><strong><a href="#g-causal">Causal AI</a>.</strong></li>
       </ul>
@@ -1079,7 +1122,7 @@ get_report_pages(report_ids=[…], pages="matching passages")</code>
           <circle class="dot--new" cx="380" cy="139" r="4" />
           <text class="item" x="391" y="143">Shared vocabulary, extended</text>
           <circle class="dot--new" cx="380" cy="158" r="4" />
-          <text class="item" x="391" y="162">SHIELD codes on every report</text>
+          <text class="item" x="391" y="162">SHIELD matching on every report</text>
           <rect class="inner" x="361" y="194" width="288" height="132" rx="6" />
           <text class="panel-title" x="375" y="216">API</text>
           <circle class="dot--old" cx="380" cy="234" r="4" />
@@ -1091,7 +1134,7 @@ get_report_pages(report_ids=[…], pages="matching passages")</code>
           <circle class="dot--new" cx="380" cy="291" r="4" />
           <text class="item" x="391" y="295">Find similar incidents</text>
           <circle class="dot--new" cx="380" cy="310" r="4" />
-          <text class="item" x="391" y="314">Log of every question</text>
+          <text class="item" x="391" y="314">Logging of every question</text>
           <rect class="inner" x="361" y="336" width="288" height="80" rx="6" />
           <text class="panel-title" x="375" y="358">Frontend</text>
           <circle class="dot--new" cx="380" cy="376" r="4" />
