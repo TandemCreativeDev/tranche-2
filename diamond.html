@@ -584,7 +584,7 @@
             <li>Stretch: open to people CHIRP shares the link with</li>
           </ul>
         </div>
-        <p class="price"><strong>£53,000</strong> · 106 days at £500 a day. Hosting and AI usage paid by CHIRP.</p>
+        <p class="price"><strong>£51,300</strong> · 102.6 days at £500 a day. Hosting and AI usage paid by CHIRP.</p>
       </div>
     </section>
 
@@ -685,9 +685,9 @@
                 <strong>Always up to date</strong>
                 New reports are ingested automatically as each source publishes them.
               </td>
-              <td class="num">4</td>
-              <td class="num">6.8</td>
-              <td class="num">£3,400</td>
+              <td class="num">2</td>
+              <td class="num">3.4</td>
+              <td class="num">£1,700</td>
             </tr>
             <tr>
               <td>
@@ -713,30 +713,10 @@
             </tr>
             <tr class="total">
               <td><strong>Total</strong></td>
-              <td class="num">65</td>
-              <td class="num">106</td>
-              <td class="num">£53,000</td>
+              <td class="num">63</td>
+              <td class="num">102.6</td>
+              <td class="num">£51,300</td>
             </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h2>Where the days go</h2>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Work</th>
-              <th class="num">Days</th>
-              <th class="num">Cost</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Build</td><td class="num">65</td><td class="num">£32,500</td></tr>
-            <tr><td>Contingency</td><td class="num">13</td><td class="num">£6,500</td></tr>
-            <tr><td>Project management (not on the 6 new countries)</td><td class="num">15</td><td class="num">£7,500</td></tr>
-            <tr><td>ZigZag product management, including a Maritime Safety Senior Stakeholder Workshop to decide the future direction of CHIRPdb</td><td class="num">13</td><td class="num">£6,500</td></tr>
-            <tr class="total"><td><strong>Total</strong></td><td class="num">106</td><td class="num">£53,000</td></tr>
           </tbody>
         </table>
       </div>
@@ -779,14 +759,34 @@
           </tbody>
         </table>
       </div>
-      <p class="note">Taken on if time allows, or funded on top, which brings Diamond to £56,825.</p>
+      <p class="note">Taken on if time allows, or funded on top, which brings Diamond to £55,125.</p>
+
+      <h2>Where the days go</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Work</th>
+              <th class="num">Days</th>
+              <th class="num">Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Build</td><td class="num">63</td><td class="num">£31,500</td></tr>
+            <tr><td>Contingency</td><td class="num">12.6</td><td class="num">£6,300</td></tr>
+            <tr><td>Project management (not on the 6 new countries)</td><td class="num">14.4</td><td class="num">£7,200</td></tr>
+            <tr><td>ZigZag product management, including a Maritime Safety Senior Stakeholder Workshop to decide the future direction of CHIRPdb</td><td class="num">12.6</td><td class="num">£6,300</td></tr>
+            <tr class="total"><td><strong>Total</strong></td><td class="num">102.6</td><td class="num">£51,300</td></tr>
+          </tbody>
+        </table>
+      </div>
 
       <h2>Not included</h2>
       <ul class="list">
         <li><strong>A CHIRP-branded chat screen.</strong> Users ask through their own AI.</li>
         <li><strong><a href="#g-patterns">Learning from user questions</a>.</strong> Questions are <a href="#g-log">logged</a>, but not yet reused to improve answers.</li>
         <li><strong>Full ingestion of the 6 new countries.</strong> These use <a href="#g-fast">fast ingestion</a>, which is quicker but gives less reliable data.</li>
-        <li><strong>Dashboards and Causal AI.</strong></li>
+        <li><strong><a href="#g-causal">Causal AI</a>.</strong></li>
       </ul>
       <p class="note">
         Hosting and AI usage are paid by CHIRP. Costs come from the
@@ -800,9 +800,10 @@
         <li id="g-review-tool"><strong>Review tool.</strong> The part of the CHIRPdb frontend that CHIRP staff use to check reports.</li>
         <li id="g-fast"><strong>Fast ingestion.</strong> 2.5 days per country instead of 5. Only some of each country’s reporting rules are built in, so the data is less reliable.</li>
         <li id="g-test-set"><strong>Validated test set.</strong> A fixed list of questions with known right answers, re-run after every change to catch answers getting worse.</li>
-        <li id="g-patterns"><strong>Pattern finding and learning.</strong> Asking what keeps recurring across all reports, for example what keeps causing enclosed-space deaths, and seeing the supporting cases. Every report has two parts. The <em>metadata</em> is a set of labelled details held for every report: country, date, vessel type, accident type, outcome and SHIELD codes. The <em>plain text</em> is the report itself, the investigators’ written account of what happened.
-          <span class="split"><span class="tag tag--in">Included in Diamond</span> Patterns in the metadata. Claude uses a CHIRPdb tool that searches every report in the database, not just a handful of top matches, to find what recurs. Claude decides what to look for, for example enclosed-space deaths by SHIELD code, vessel type and country, then compares the results and writes up the lessons. The counts are exact, so every number traces back to its reports. As a fallback, the tool can also search the plain text of every report for words and phrases, such as “double shift”, when Claude knows what to look for.</span>
+        <li id="g-patterns"><strong>Pattern finding and learning from user questions.</strong> Asking what keeps recurring across all reports, for example what keeps causing enclosed-space deaths, and seeing the supporting cases. Every report has two parts. The <em>metadata</em> is a set of labelled details held for every report: country, date, vessel type, accident type, outcome and SHIELD codes. The <em>plain text</em> is the report itself, the investigators’ written account of what happened.
+          <span class="split"><span class="tag tag--in">Included in Diamond</span> Finding what recurs across every report. Claude uses a CHIRPdb tool that searches every report in the database, both its metadata and its plain text, not just a handful of top matches. Claude decides what to look for, for example enclosed-space deaths by SHIELD code, vessel type and country, or a phrase such as “double shift” in the text, then compares the results and writes up the lessons. Counts from the metadata are exact, so every number traces back to its reports.</span>
           <span class="split"><span class="tag tag--out">Not included in Diamond</span> Patterns in the plain text, and learning. Patterns that appear only in the text are harder: the system has to read the reports to spot them. For example, many reports may mention that the crew had just finished a double shift, but no field records it, so Diamond cannot count it. With learning, the system would spot it in the text and save “crew had just worked a double shift” against each report it applies to, in effect a new piece of metadata. The next time anyone asks something similar, the system checks the metadata first, then the saved findings, and only then goes back to the plain text, so answers get faster and more consistent with every question. Diamond logs every question, which is the starting point for this.</span></li>
+        <li id="g-causal"><strong>Causal AI.</strong> Working out which factors actually cause accidents, not just which ones appear together. CHIRP’s experts propose a cause, for example that fatigue leads to groundings, and the system tests it against the reports, showing how strong the effect is; nothing is cited until CHIRP signs it off. It also tests whether a regulation or recommendation worked. Diamond shows what recurs, not what causes what.</li>
         <li id="g-log"><strong>Log.</strong> A record of each question asked and which reports the AI used to answer it.</li>
       </ul>
 
