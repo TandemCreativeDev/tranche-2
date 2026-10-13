@@ -159,6 +159,10 @@
         color: var(--orange-deep);
         cursor: pointer;
       }
+      table.hide-build th:nth-child(2),
+      table.hide-build td:nth-child(2) {
+        display: none;
+      }
       tr.total td {
         background: var(--bg-soft);
         border-top: 1px solid var(--border);
@@ -662,7 +666,7 @@
     <main class="container">
       <h2>What CHIRP gets</h2>
       <div class="table-wrap">
-        <table>
+        <table class="hide-build">
           <thead>
             <tr>
               <th>Outcome</th>
@@ -837,7 +841,7 @@
 
       <h2>Stretch goal</h2>
       <div class="table-wrap">
-        <table>
+        <table class="hide-build">
           <thead>
             <tr>
               <th>Stretch goal</th>
