@@ -138,6 +138,20 @@
         color: var(--orange-deep);
         margin-bottom: 4px;
       }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin: 8px 0 4px;
+      }
+      .chip {
+        font-size: 13px;
+        padding: 3px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--bg-card);
+        color: var(--navy-deep);
+      }
       ul.exclusions {
         list-style: none;
         margin: 12px 0 0;
@@ -148,8 +162,10 @@
         overflow: hidden;
       }
       ul.exclusions li {
-        padding: 14px 18px;
-        line-height: 1.6;
+        padding: 12px 18px;
+        font-size: 14px;
+        line-height: 1.55;
+        color: var(--text-soft);
         border-bottom: 1px solid var(--border-soft);
       }
       ul.exclusions li:last-child {
@@ -2452,11 +2468,10 @@
             </tbody>
           </table>
         </div>
-        <h3>Stretch goal</h3>
+        <h3>Stretch goals</h3>
         <p class="note">
-          Taken on if time allows within the build, or funded on top. It takes
-          Steel to £51,725. Without the shared vocabulary, counts compare each
-          jurisdiction in its own terms.
+          Taken on if time allows within the build, or funded on top. Each is
+          priced on its own; all of them take Steel to £56,825. Without the shared vocabulary, pattern finding compares each jurisdiction in its own terms.
         </p>
         <div class="table-wrap">
           <table class="bundles">
@@ -2469,6 +2484,8 @@
             </thead>
             <tbody>
               <tr class="bundle-item"><td>Pattern finding for CHIRP analysts: ask what keeps recurring across all reports, counted across every report rather than read from the top matches, see the supporting cases, and get a first-draft outline of a CHIRP write-up (<a href="#analyst">section B</a>)</td><td class="num">8</td><td class="num">£6,800</td></tr>
+              <tr class="bundle-item"><td>SHIELD code matching: SHIELD codes proposed across the corpus and confirmed in the review tool, so reports can be counted by causal factor (<a href="#causal">section E</a>)</td><td class="num">6</td><td class="num">£5,100</td></tr>
+              <tr class="total"><td><strong>Stretch goals total</strong></td><td class="num"><strong>14</strong></td><td class="num"><strong>£11,900</strong></td></tr>
             </tbody>
           </table>
         </div>
@@ -2482,7 +2499,7 @@
           <li><strong>Automatic ingestion of new reports.</strong> New reports are added by hand.</li>
           <li><strong>Full ingestion of investigation bodies.</strong> Six bodies at fast ingestion, rather than ten at full.</li>
           <li><strong>A closed beta and a landing page.</strong> No round of testing with real seafarers, and no walkthrough for first-time users.</li>
-          <li><strong>SHIELD code matching and Causal AI.</strong> No SHIELD codes proposed across the corpus, and no cause-and-effect analysis.</li>
+          <li><strong>SHIELD code matching and Causal AI.</strong> SHIELD code matching only as a stretch goal, and no cause-and-effect analysis.</li>
           <li><strong>Toolbox talks and dashboards.</strong> No printable toolbox talk format, and no dashboards to explore trends.</li>
         </ul>
         <h3>Excluded</h3>
@@ -2631,38 +2648,26 @@
         </div>
         <h3>Comes with Claude</h3>
         <p class="note">
-          Chat features from <a href="#chat">section A</a> that we would not build,
-          with what they would cost us to build ourselves.
+          Chat features from <a href="#chat">section A</a> that we would not build:
+          <strong>56 build days, £47,600</strong> if we built them ourselves.
+        </p>
+        <div class="chips"><span class="chip">Streaming, mobile and accessible chat</span><span class="chip">Follow-up questions</span><span class="chip">Memory across chats</span><span class="chip">Saved history</span><span class="chip">Searching past chats</span><span class="chip">Tables</span><span class="chip">Long conversations summarised</span><span class="chip">Copy, print and export</span><span class="chip">Charts</span><span class="chip">Document upload</span><span class="chip">Maps and heat maps</span><span class="chip">Remembers role and vessel type</span><span class="chip">Share links</span><span class="chip">Regenerate and edit</span></div>
+        <h3>Stretch goals</h3>
+        <p class="note">
+          Taken on if time allows within the build, or funded on top. It takes
+          Copper to £53,425. Copper’s counting by causal factor depends on SHIELD code matching.
         </p>
         <div class="table-wrap">
           <table class="bundles">
             <thead>
               <tr>
-                <th>Feature</th>
+                <th>Item</th>
                 <th class="num">Build days</th>
                 <th class="num">Cost</th>
               </tr>
             </thead>
             <tbody>
-              <tr class="bundle-item"><td>Replies stream in; chat screen works on mobile and is accessible</td><td class="num">4</td><td class="num">£3,400</td></tr>
-              <tr class="bundle-item"><td>Follow-up questions within a conversation</td><td class="num">2</td><td class="num">£1,700</td></tr>
-              <tr class="bundle-item"><td>Shared memory across all chats</td><td class="num">6</td><td class="num">£5,100</td></tr>
-              <tr class="bundle-item"><td>Saved conversation history</td><td class="num">3</td><td class="num">£2,550</td></tr>
-              <tr class="bundle-item"><td>Chat searches past conversations to keep up with the user</td><td class="num">3</td><td class="num">£2,550</td></tr>
-              <tr class="bundle-item"><td>Tables in the reply</td><td class="num">2</td><td class="num">£1,700</td></tr>
-              <tr class="bundle-item"><td>Long conversations: older turns summarised</td><td class="num">1</td><td class="num">£850</td></tr>
-              <tr class="bundle-item"><td>Copy, print and export an answer</td><td class="num">1</td><td class="num">£850</td></tr>
-              <tr class="bundle-item"><td>Charts in the reply</td><td class="num">10</td><td class="num">£8,500</td></tr>
-              <tr class="bundle-item"><td>Upload your own document and discuss it</td><td class="num">10</td><td class="num">£8,500</td></tr>
-              <tr class="bundle-item"><td>Maps and heat maps</td><td class="num">8</td><td class="num">£6,800</td></tr>
-              <tr class="bundle-item"><td>Remembers your role and vessel type across chats</td><td class="num">3</td><td class="num">£2,550</td></tr>
-              <tr class="bundle-item"><td>Share link to a conversation</td><td class="num">2</td><td class="num">£1,700</td></tr>
-              <tr class="bundle-item"><td>Regenerate an answer, or edit and resend a question</td><td class="num">1</td><td class="num">£850</td></tr>
-              <tr class="total">
-                <td><strong>Total</strong></td>
-                <td class="num"><strong>56</strong></td>
-                <td class="num"><strong>£47,600</strong></td>
-              </tr>
+              <tr class="bundle-item"><td>SHIELD code matching: SHIELD codes proposed across the corpus and confirmed in the review tool, so reports can be counted by causal factor (<a href="#causal">section E</a>)</td><td class="num">6</td><td class="num">£5,100</td></tr>
             </tbody>
           </table>
         </div>
@@ -2674,7 +2679,7 @@
           <li><strong>Automatic ingestion of new reports.</strong> New reports are added by hand.</li>
           <li><strong>Full ingestion of investigation bodies.</strong> Six bodies at fast ingestion, rather than ten at full.</li>
           <li><strong>A closed beta.</strong> No round of testing with real seafarers.</li>
-          <li><strong>SHIELD code matching, Causal AI, legislation and dashboards.</strong></li>
+          <li><strong>Causal AI, legislation and dashboards.</strong> SHIELD code matching is a stretch goal.</li>
         </ul>
       </section>
       <section class="block" id="iron">
@@ -2734,11 +2739,10 @@
             </tbody>
           </table>
         </div>
-        <h3>Stretch goal</h3>
+        <h3>Stretch goals</h3>
         <p class="note">
-          Taken on if time allows within the build, or funded on top. It takes
-          Iron to £56,200. Without the shared vocabulary, counts compare each
-          jurisdiction in its own terms.
+          Taken on if time allows within the build, or funded on top. Each is
+          priced on its own; all of them take Iron to £61,300. Without the shared vocabulary, pattern finding compares each jurisdiction in its own terms.
         </p>
         <div class="table-wrap">
           <table class="bundles">
@@ -2751,6 +2755,8 @@
             </thead>
             <tbody>
               <tr class="bundle-item"><td>Pattern finding for CHIRP analysts: ask what keeps recurring across all reports, counted across every report rather than read from the top matches, see the supporting cases, and get a first-draft outline of a CHIRP write-up (<a href="#analyst">section B</a>)</td><td class="num">8</td><td class="num">£6,800</td></tr>
+              <tr class="bundle-item"><td>SHIELD code matching: SHIELD codes proposed across the corpus and confirmed in the review tool, so reports can be counted by causal factor (<a href="#causal">section E</a>)</td><td class="num">6</td><td class="num">£5,100</td></tr>
+              <tr class="total"><td><strong>Stretch goals total</strong></td><td class="num"><strong>14</strong></td><td class="num"><strong>£11,900</strong></td></tr>
             </tbody>
           </table>
         </div>
@@ -2763,7 +2769,7 @@
           <li><strong>CHIRP Maritime’s own reports and MAIB Safety Digests.</strong> The chat answers from investigation reports only.</li>
           <li><strong>Automatic ingestion of new reports.</strong> New reports are added by hand.</li>
           <li><strong>Full ingestion of investigation bodies.</strong> Two bodies at fast ingestion, rather than ten at full.</li>
-          <li><strong>SHIELD code matching and Causal AI.</strong> No SHIELD codes proposed across the corpus, and no cause-and-effect analysis.</li>
+          <li><strong>SHIELD code matching and Causal AI.</strong> SHIELD code matching only as a stretch goal, and no cause-and-effect analysis.</li>
         </ul>
       </section>
     </main>
