@@ -138,6 +138,28 @@
         color: var(--orange-deep);
         margin-bottom: 4px;
       }
+      ul.exclusions {
+        list-style: none;
+        margin: 12px 0 0;
+        padding: 0;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--bg-card);
+        overflow: hidden;
+      }
+      ul.exclusions li {
+        padding: 14px 18px;
+        line-height: 1.6;
+        border-bottom: 1px solid var(--border-soft);
+      }
+      ul.exclusions li:last-child {
+        border-bottom: 0;
+      }
+      ul.exclusions li strong {
+        display: block;
+        margin-bottom: 2px;
+        color: var(--navy-deep);
+      }
       .callout ul {
         margin: 6px 0 0 20px;
         font-size: 15px;
@@ -232,6 +254,24 @@
       }
       .medal--steel {
         background: radial-gradient(circle at 35% 35%, #c9d1d9, #4f5a65);
+      }
+      tr.tier--copper td {
+        background: #f7e6dc;
+      }
+      tr.tier--copper td:first-child {
+        box-shadow: inset 4px 0 0 #b5653a;
+      }
+      .medal--copper {
+        background: radial-gradient(circle at 35% 35%, #f0a77c, #94461f);
+      }
+      tr.tier--iron td {
+        background: #e4e6e8;
+      }
+      tr.tier--iron td:first-child {
+        box-shadow: inset 4px 0 0 #3f4448;
+      }
+      .medal--iron {
+        background: radial-gradient(circle at 35% 35%, #8a9096, #2c3034);
       }
       .medal--baseline {
         background: radial-gradient(
@@ -406,6 +446,32 @@
         color: var(--rai);
       }
 
+      #steel,
+      #copper,
+      #iron {
+        margin-top: 48px;
+        padding: 4px 28px 28px;
+        border-radius: 16px;
+        border: 1px solid var(--tier-line);
+        background: var(--tier-wash);
+      }
+      #steel h2,
+      #copper h2,
+      #iron h2 {
+        margin-top: 24px;
+      }
+      #steel {
+        --tier-wash: rgba(107, 119, 130, 0.06);
+        --tier-line: rgba(107, 119, 130, 0.18);
+      }
+      #copper {
+        --tier-wash: rgba(181, 101, 58, 0.06);
+        --tier-line: rgba(181, 101, 58, 0.18);
+      }
+      #iron {
+        --tier-wash: rgba(63, 68, 72, 0.06);
+        --tier-line: rgba(63, 68, 72, 0.18);
+      }
       #appendix {
         --bg-card: rgba(255, 255, 255, 0.06);
         --bg-soft: rgba(255, 255, 255, 0.04);
@@ -532,7 +598,10 @@
           padding-right: 16px;
         }
         #narrative,
-        #appendix {
+        #appendix,
+        #steel,
+        #copper,
+        #iron {
           padding: 4px 16px 16px;
         }
       }
@@ -2378,13 +2447,35 @@
               <tr class="bundle-item"><td>Terms, privacy notice and disclaimers built in (CHIRP writes the wording)</td><td class="num">1.5</td><td class="num">£1,275</td></tr>
               <tr class="bundle-head"><td colspan="3"><strong>Data</strong> (<a href="#bodies">section F</a>)</td></tr>
               <tr class="bundle-item"><td>Ingest reports from 6 more national investigation bodies, fast ingestion at 2.5 days each <span class="tag">contingency, no PM</span></td><td class="num">15</td><td class="num">£10,500</td></tr>
+              <tr class="bundle-head"><td colspan="3"><strong>Product management</strong></td></tr>
+              <tr class="bundle-item"><td>Maritime Safety Senior Stakeholder Workshop, to decide the future direction of CHIRPdb <span class="tag">in ZigZag product management</span></td><td class="num"></td><td class="num"></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Stretch goal</h3>
+        <p class="note">
+          Taken on if time allows within the build, or funded on top. It takes
+          Steel to £51,725. Without the shared vocabulary, counts compare each
+          jurisdiction in its own terms.
+        </p>
+        <div class="table-wrap">
+          <table class="bundles">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th class="num">Build days</th>
+                <th class="num">Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bundle-item"><td>Pattern finding for CHIRP analysts: ask what keeps recurring across all reports, counted across every report rather than read from the top matches, see the supporting cases, and get a first-draft outline of a CHIRP write-up (<a href="#analyst">section B</a>)</td><td class="num">8</td><td class="num">£6,800</td></tr>
             </tbody>
           </table>
         </div>
         <h3>Notable exclusions</h3>
-        <ul>
+        <ul class="exclusions">
           <li><strong>Learning from user questions.</strong> The engine does not get better as people use it.</li>
-          <li><strong>Analyst tools for CHIRP.</strong> No pattern finding across reports and no proposed coding for incoming reports.</li>
+          <li><strong>Analyst tools for CHIRP.</strong> No proposed coding for incoming reports, and pattern finding only as the stretch goal. Without it, questions about what keeps recurring are refused rather than answered from the top matches.</li>
           <li><strong>A shared vocabulary across jurisdictions.</strong> Each body’s reports keep their own terms for accident type, vessel type and so on.</li>
           <li><strong>Reporting and withdrawing a wrong answer.</strong> No route for users to flag an answer, or for CHIRP to withdraw one.</li>
           <li><strong>CHIRP Maritime’s own reports and MAIB Safety Digests.</strong> The chat answers from investigation reports only.</li>
@@ -2479,6 +2570,201 @@
             </tbody>
           </table>
         </div>
+      </section>
+      <section class="block" id="copper">
+        <h2>Appendix: Copper (£50k)</h2>
+        <p class="note">
+          An alternative to Steel. Instead of building our own chat, we build a
+          CHIRPdb MCP server: a connector that users add to Claude. Claude provides
+          the chat screen, memory, history, charts, uploads and mobile apps; our
+          server provides the verified reports, search and counting across every
+          report. Most of section A comes with Claude, so the budget goes into the
+          backend.
+        </p>
+        <div class="callout">
+          <div class="callout__label">What Copper trades away</div>
+          <ul>
+            <li>Users need a Claude account and must add the connector. Which Claude plans and apps support custom connectors needs confirming before we commit.</li>
+            <li>Claude writes the answers, not us. Our tools return only verified records with citations, and our instructions tell Claude to cite every claim and refuse off-topic questions, but we cannot stop it drawing on its own knowledge or web search.</li>
+            <li>Documents users upload go to Anthropic under the user’s Claude terms, not deleted by CHIRP at session end.</li>
+            <li>The experience is Claude’s, not CHIRP’s branded product.</li>
+            <li>Question-answering costs move to the user’s Claude plan. CHIRP pays only for hosting and search.</li>
+          </ul>
+        </div>
+        <h3>Included</h3>
+        <div class="table-wrap">
+          <table class="bundles">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th class="num">Build days</th>
+                <th class="num">Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bundle-head tier--copper">
+                <td>
+                  <span class="medal medal--copper"></span><strong>Copper</strong
+                  ><span class="sub">CHIRPdb connector for Claude, plus backend</span>
+                </td>
+                <td class="num"><strong>59.5</strong></td>
+                <td class="num"><strong>£48,325</strong></td>
+              </tr>
+              <tr class="bundle-head"><td colspan="3"><strong>MCP server</strong></td></tr>
+              <tr class="bundle-item"><td>Tools Claude can call: search verified reports, find incidents similar to a description, count and compare across every report by causal factor, vessel type, date, outcome and country (pattern finding), and fetch a report with a link to the right PDF page</td><td class="num">8</td><td class="num">£6,800</td></tr>
+              <tr class="bundle-item"><td>Quality test set, run through Claude and re-run after every change</td><td class="num">3</td><td class="num">£2,550</td></tr>
+              <tr class="bundle-item"><td>Rate limits and abuse and scraping protection on the public server</td><td class="num">3</td><td class="num">£2,550</td></tr>
+              <tr class="bundle-item"><td>Deployment, backups and monitoring</td><td class="num">3</td><td class="num">£2,550</td></tr>
+              <tr class="bundle-item"><td>Instructions and prompts: plain maritime English, cite every claim, refuse off-topic questions, task briefings, near misses, toolbox talks and draft CHIRP write-ups</td><td class="num">2</td><td class="num">£1,700</td></tr>
+              <tr class="bundle-item"><td>Logging and tracing of every question asked, the starting point for learning from user questions</td><td class="num">2</td><td class="num">£1,700</td></tr>
+              <tr class="bundle-item"><td>Setup page: how to add the CHIRPdb connector to Claude, with sample questions</td><td class="num">2</td><td class="num">£1,700</td></tr>
+              <tr class="bundle-item"><td>Terms, privacy notice and disclaimers (CHIRP writes the wording)</td><td class="num">1.5</td><td class="num">£1,275</td></tr>
+              <tr class="bundle-head"><td colspan="3"><strong>Backend</strong> (<a href="#analyst">section B</a>, <a href="#sources">section D</a>)</td></tr>
+              <tr class="bundle-item"><td>Capture more metadata, with a shared vocabulary for each field across jurisdictions, so counts across countries compare like with like</td><td class="num">14</td><td class="num">£11,900</td></tr>
+              <tr class="bundle-item"><td>Proposed coding and similar cases for incoming CHIRP reports, inside the review tool</td><td class="num">6</td><td class="num">£5,100</td></tr>
+              <tr class="bundle-head"><td colspan="3"><strong>Data</strong> (<a href="#bodies">section F</a>)</td></tr>
+              <tr class="bundle-item"><td>Ingest reports from 6 more national investigation bodies, fast ingestion at 2.5 days each <span class="tag">contingency, no PM</span></td><td class="num">15</td><td class="num">£10,500</td></tr>
+              <tr class="bundle-head"><td colspan="3"><strong>Product management</strong></td></tr>
+              <tr class="bundle-item"><td>Maritime Safety Senior Stakeholder Workshop, to decide the future direction of CHIRPdb <span class="tag">in ZigZag product management</span></td><td class="num"></td><td class="num"></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Comes with Claude</h3>
+        <p class="note">
+          Chat features from <a href="#chat">section A</a> that we would not build,
+          with what they would cost us to build ourselves.
+        </p>
+        <div class="table-wrap">
+          <table class="bundles">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th class="num">Build days</th>
+                <th class="num">Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bundle-item"><td>Replies stream in; chat screen works on mobile and is accessible</td><td class="num">4</td><td class="num">£3,400</td></tr>
+              <tr class="bundle-item"><td>Follow-up questions within a conversation</td><td class="num">2</td><td class="num">£1,700</td></tr>
+              <tr class="bundle-item"><td>Shared memory across all chats</td><td class="num">6</td><td class="num">£5,100</td></tr>
+              <tr class="bundle-item"><td>Saved conversation history</td><td class="num">3</td><td class="num">£2,550</td></tr>
+              <tr class="bundle-item"><td>Chat searches past conversations to keep up with the user</td><td class="num">3</td><td class="num">£2,550</td></tr>
+              <tr class="bundle-item"><td>Tables in the reply</td><td class="num">2</td><td class="num">£1,700</td></tr>
+              <tr class="bundle-item"><td>Long conversations: older turns summarised</td><td class="num">1</td><td class="num">£850</td></tr>
+              <tr class="bundle-item"><td>Copy, print and export an answer</td><td class="num">1</td><td class="num">£850</td></tr>
+              <tr class="bundle-item"><td>Charts in the reply</td><td class="num">10</td><td class="num">£8,500</td></tr>
+              <tr class="bundle-item"><td>Upload your own document and discuss it</td><td class="num">10</td><td class="num">£8,500</td></tr>
+              <tr class="bundle-item"><td>Maps and heat maps</td><td class="num">8</td><td class="num">£6,800</td></tr>
+              <tr class="bundle-item"><td>Remembers your role and vessel type across chats</td><td class="num">3</td><td class="num">£2,550</td></tr>
+              <tr class="bundle-item"><td>Share link to a conversation</td><td class="num">2</td><td class="num">£1,700</td></tr>
+              <tr class="bundle-item"><td>Regenerate an answer, or edit and resend a question</td><td class="num">1</td><td class="num">£850</td></tr>
+              <tr class="total">
+                <td><strong>Total</strong></td>
+                <td class="num"><strong>56</strong></td>
+                <td class="num"><strong>£47,600</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Notable exclusions</h3>
+        <ul class="exclusions">
+          <li><strong>Learning from user questions.</strong> Questions are logged, but not yet reused to improve answers.</li>
+          <li><strong>Reporting and withdrawing a wrong answer.</strong> Claude’s answers are not stored by us, so a wrong record can be withdrawn but an answer cannot.</li>
+          <li><strong>CHIRP Maritime’s own reports and MAIB Safety Digests.</strong> Claude answers from investigation reports only.</li>
+          <li><strong>Automatic ingestion of new reports.</strong> New reports are added by hand.</li>
+          <li><strong>Full ingestion of investigation bodies.</strong> Six bodies at fast ingestion, rather than ten at full.</li>
+          <li><strong>A closed beta.</strong> No round of testing with real seafarers.</li>
+          <li><strong>SHIELD code matching, Causal AI, legislation and dashboards.</strong></li>
+        </ul>
+      </section>
+      <section class="block" id="iron">
+        <h2>Appendix: Iron (£50k)</h2>
+        <p class="note">
+          Steel’s chat, for CHIRP staff only. There is no public launch, so the
+          money that Steel spends on public access goes into a chat that learns:
+          from the questions staff ask, and from the wrong answers they report.
+          It is still hardened, tested and deployed to production, and it lives
+          inside the existing review tool, behind its sign-in and roles.
+        </p>
+        <div class="callout">
+          <div class="callout__label">What Iron trades away</div>
+          <ul>
+            <li>No one outside CHIRP can use it. A public launch later needs Steel’s public platform items at least: rate limits and a spending cap, public access kept separate from staff tools, and terms (£6,375).</li>
+            <li>Two more investigation bodies at fast ingestion, rather than Steel’s six.</li>
+            <li>Replies arrive whole rather than streaming in, and the chat is built for desktop, not mobile.</li>
+          </ul>
+        </div>
+        <h3>Included</h3>
+        <div class="table-wrap">
+          <table class="bundles">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th class="num">Build days</th>
+                <th class="num">Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bundle-head tier--iron">
+                <td>
+                  <span class="medal medal--iron"></span><strong>Iron</strong
+                  ><span class="sub">A chat that learns, for CHIRP staff only</span>
+                </td>
+                <td class="num"><strong>59</strong></td>
+                <td class="num"><strong>£49,400</strong></td>
+              </tr>
+              <tr class="bundle-head"><td colspan="3"><strong>Chat</strong> (<a href="#chat">section A</a>)</td></tr>
+              <tr class="bundle-item"><td>Ask a question and get an answer drawn from verified reports (the tools the model can call, plus retrieval)</td><td class="num">11</td><td class="num">£9,350</td></tr>
+              <tr class="bundle-item"><td>Every claim cited and checked, with a link to the report at the right PDF page</td><td class="num">4</td><td class="num">£3,400</td></tr>
+              <tr class="bundle-item"><td>Answers in plain maritime English, tuned for task briefings and descriptions of a near miss</td><td class="num">4</td><td class="num">£3,400</td></tr>
+              <tr class="bundle-item"><td>Refuses when there is no evidence or the question is off-topic; prompt-injection defence; safety disclaimer</td><td class="num">3</td><td class="num">£2,550</td></tr>
+              <tr class="bundle-item"><td>Follow-up questions within a conversation</td><td class="num">2</td><td class="num">£1,700</td></tr>
+              <tr class="bundle-head"><td colspan="3"><strong>Learning</strong> (<a href="#chat">section A</a>, <a href="#platform">section C</a>)</td></tr>
+              <tr class="bundle-item"><td>Learning from user questions: features extracted from each question and reused when others ask similar ones</td><td class="num">12</td><td class="num">£10,200</td></tr>
+              <tr class="bundle-item"><td>Watching answers, a “report a wrong answer” route, withdrawing an answer or record; reported answers join the quality test set</td><td class="num">4</td><td class="num">£3,400</td></tr>
+              <tr class="bundle-head"><td colspan="3"><strong>Hardening and testing</strong> (<a href="#chat">section A</a>, <a href="#platform">section C</a>)</td></tr>
+              <tr class="bundle-item"><td>Quality test set, re-run after every change</td><td class="num">7</td><td class="num">£5,950</td></tr>
+              <tr class="bundle-item"><td>Deployment, load testing, backups</td><td class="num">4</td><td class="num">£3,400</td></tr>
+              <tr class="bundle-item"><td>Tracing and cost per conversation</td><td class="num">2</td><td class="num">£1,700</td></tr>
+              <tr class="bundle-item"><td>Chat inside the existing review tool, behind CHIRP staff sign-in and roles</td><td class="num">1</td><td class="num">£850</td></tr>
+              <tr class="bundle-head"><td colspan="3"><strong>Data</strong> (<a href="#bodies">section F</a>)</td></tr>
+              <tr class="bundle-item"><td>Ingest reports from 2 more national investigation bodies, fast ingestion at 2.5 days each <span class="tag">contingency, no PM</span></td><td class="num">5</td><td class="num">£3,500</td></tr>
+              <tr class="bundle-head"><td colspan="3"><strong>Product management</strong></td></tr>
+              <tr class="bundle-item"><td>Maritime Safety Senior Stakeholder Workshop, to decide the future direction of CHIRPdb <span class="tag">in ZigZag product management</span></td><td class="num"></td><td class="num"></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Stretch goal</h3>
+        <p class="note">
+          Taken on if time allows within the build, or funded on top. It takes
+          Iron to £56,200. Without the shared vocabulary, counts compare each
+          jurisdiction in its own terms.
+        </p>
+        <div class="table-wrap">
+          <table class="bundles">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th class="num">Build days</th>
+                <th class="num">Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bundle-item"><td>Pattern finding for CHIRP analysts: ask what keeps recurring across all reports, counted across every report rather than read from the top matches, see the supporting cases, and get a first-draft outline of a CHIRP write-up (<a href="#analyst">section B</a>)</td><td class="num">8</td><td class="num">£6,800</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Notable exclusions</h3>
+        <ul class="exclusions">
+          <li><strong>A public launch.</strong> No public access, landing page, terms, public rate limits or closed beta with seafarers.</li>
+          <li><strong>Analyst tools for CHIRP.</strong> No proposed coding for incoming reports, and pattern finding only as the stretch goal. Without it, questions about what keeps recurring are refused rather than answered from the top matches.</li>
+          <li><strong>A shared vocabulary across jurisdictions.</strong> Each body’s reports keep their own terms for accident type, vessel type and so on.</li>
+          <li><strong>Memory across chats and saved conversation history.</strong> The chat learns from questions across all users, but does not remember an individual user.</li>
+          <li><strong>CHIRP Maritime’s own reports and MAIB Safety Digests.</strong> The chat answers from investigation reports only.</li>
+          <li><strong>Automatic ingestion of new reports.</strong> New reports are added by hand.</li>
+          <li><strong>Full ingestion of investigation bodies.</strong> Two bodies at fast ingestion, rather than ten at full.</li>
+          <li><strong>SHIELD code matching and Causal AI.</strong> No SHIELD codes proposed across the corpus, and no cause-and-effect analysis.</li>
+        </ul>
       </section>
     </main>
     </div>
