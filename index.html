@@ -725,9 +725,10 @@
         <div class="eyebrow">Internal draft · not yet shared with CHIRP</div>
         <h1>Insight Engine Tranche 2: costed menu</h1>
         <p class="lede">
-          Every item priced at £500 a day with contingency, project management
-          and ZigZag product management included (investigation bodies: no
-          project management). Pick items, or take a bundle.
+          Every item priced in days at £500 a day. Each build day comes with
+          0.7 days of contingency, project management and ZigZag product
+          management (investigation bodies: 0.4 days, no project management).
+          Pick items, or take a bundle.
         </p>
       </div>
     </section>
@@ -753,22 +754,30 @@
                 <td>£500</td>
               </tr>
               <tr>
+                <td>Build</td>
+                <td>1 day</td>
+              </tr>
+              <tr>
                 <td>Contingency</td>
-                <td>20% on build days</td>
+                <td>0.2 days per build day</td>
               </tr>
               <tr>
                 <td>Project management</td>
-                <td>25% on build days plus contingency</td>
+                <td>0.3 days per build day</td>
+              </tr>
+              <tr>
+                <td>ZigZag product management</td>
+                <td>0.2 days per build day</td>
+              </tr>
+              <tr class="highlight">
+                <td>Total days</td>
+                <td>1.7 days per build day (£850)</td>
               </tr>
               <tr class="highlight">
                 <td>Investigation bodies</td>
                 <td>
-                  Billed at £500 a day plus 20% contingency and ZigZag product management, no project management
+                  1.4 days per build day (£700): build, contingency and ZigZag product management, no project management
                 </td>
-              </tr>
-              <tr>
-                <td>ZigZag product management</td>
-                <td>20% of the £500 day rate, on every build day</td>
               </tr>
               <tr>
                 <td>Excluded</td>
@@ -788,11 +797,11 @@
         <div class="callout">
           <div class="callout__label">What the costs include</div>
           <p>
-            £500 a day plus <strong>20% contingency</strong>,
-            <strong>25% project management</strong> and
-            <strong>20% ZigZag product management</strong>. The investigation
-            bodies are the exception: no project management, but contingency and
-            ZigZag product management apply.
+            Every build day comes with <strong>0.2 days of contingency</strong>,
+            <strong>0.3 days of project management</strong> and
+            <strong>0.2 days of ZigZag product management</strong>: 1.7 days
+            in total, at £500 a day. The investigation bodies are the exception:
+            no project management, so 1.4 days in total.
           </p>
         </div>
         <div class="callout">
@@ -814,6 +823,7 @@
               <tr>
                 <th>Bundle and contents</th>
                 <th class="num">Build days</th>
+                <th class="num">Total days</th>
                 <th class="num">Cost</th>
                 <th class="num">Running total</th>
               </tr>
@@ -826,6 +836,7 @@
                   ><span class="sub">Official investigation bodies</span>
                 </td>
                 <td class="num"><strong>50</strong></td>
+                <td class="num"><strong>70</strong></td>
                 <td class="num"><strong>£35,000</strong></td>
                 <td class="num"><strong>£35,000</strong></td>
               </tr>
@@ -836,6 +847,7 @@
                   <span class="tag">contingency, no PM</span>
                 </td>
                 <td class="num">50</td>
+                <td class="num">70</td>
                 <td class="num">£35,000</td>
                 <td class="num"></td>
               </tr>
@@ -846,12 +858,14 @@
                   ><span class="sub">Baseline plus every other Must</span>
                 </td>
                 <td class="num"><strong>121.5</strong></td>
+                <td class="num"><strong>206.55</strong></td>
                 <td class="num"><strong>£103,275</strong></td>
                 <td class="num"><strong>£138,275</strong></td>
               </tr>
               <tr class="bundle-item">
                 <td>Chat Musts (<a href="#chat">section A</a>)</td>
                 <td class="num">49</td>
+                <td class="num">83.3</td>
                 <td class="num">£41,650</td>
                 <td class="num"></td>
               </tr>
@@ -860,12 +874,14 @@
                   Public launch platform (<a href="#platform">section C</a>)
                 </td>
                 <td class="num">29.5</td>
+                <td class="num">50.15</td>
                 <td class="num">£25,075</td>
                 <td class="num"></td>
               </tr>
               <tr class="bundle-item">
                 <td>Capture more metadata, with one shared vocabulary across jurisdictions (<a href="#sources">section D</a>)</td>
                 <td class="num">14</td>
+                <td class="num">23.8</td>
                 <td class="num">£11,900</td>
                 <td class="num"></td>
               </tr>
@@ -876,6 +892,7 @@
                   write-up (<a href="#analyst">section B</a>)
                 </td>
                 <td class="num">8</td>
+                <td class="num">13.6</td>
                 <td class="num">£6,800</td>
                 <td class="num"></td>
               </tr>
@@ -885,18 +902,21 @@
                   report CHIRP receives (<a href="#analyst">section B</a>)
                 </td>
                 <td class="num">6</td>
+                <td class="num">10.2</td>
                 <td class="num">£5,100</td>
                 <td class="num"></td>
               </tr>
               <tr class="bundle-item">
                 <td>Ingest MAIB incident webpages, with or without a report (<a href="#sources">section D</a>)</td>
                 <td class="num">4</td>
+                <td class="num">6.8</td>
                 <td class="num">£3,400</td>
                 <td class="num"></td>
               </tr>
               <tr class="bundle-item">
                 <td>Automatically ingest new reports from every source (<a href="#sources">section D</a>)</td>
                 <td class="num">4</td>
+                <td class="num">6.8</td>
                 <td class="num">£3,400</td>
                 <td class="num"></td>
               </tr>
@@ -906,6 +926,7 @@
                   format (<a href="#sources">section D</a>)
                 </td>
                 <td class="num">3</td>
+                <td class="num">5.1</td>
                 <td class="num">£2,550</td>
                 <td class="num"></td>
               </tr>
@@ -915,6 +936,7 @@
                   (<a href="#sources">section D</a>)
                 </td>
                 <td class="num">2</td>
+                <td class="num">3.4</td>
                 <td class="num">£1,700</td>
                 <td class="num"></td>
               </tr>
@@ -924,6 +946,7 @@
                   and digests (<a href="#sources">section D</a>)
                 </td>
                 <td class="num">2</td>
+                <td class="num">3.4</td>
                 <td class="num">£1,700</td>
                 <td class="num"></td>
               </tr>
@@ -934,6 +957,7 @@
                   ><span class="sub">Bronze plus every Should</span>
                 </td>
                 <td class="num"><strong>75</strong></td>
+                <td class="num"><strong>127.5</strong></td>
                 <td class="num"><strong>£63,750</strong></td>
                 <td class="num"><strong>£202,025</strong></td>
               </tr>
@@ -945,6 +969,7 @@
                   >)
                 </td>
                 <td class="num">15</td>
+                <td class="num">25.5</td>
                 <td class="num">£12,750</td>
                 <td class="num"></td>
               </tr>
@@ -954,6 +979,7 @@
                   (<a href="#analyst">section B</a>)
                 </td>
                 <td class="num">12</td>
+                <td class="num">20.4</td>
                 <td class="num">£10,200</td>
                 <td class="num"></td>
               </tr>
@@ -963,12 +989,14 @@
                   conventions (<a href="#sources">section D</a>)
                 </td>
                 <td class="num">12</td>
+                <td class="num">20.4</td>
                 <td class="num">£10,200</td>
                 <td class="num"></td>
               </tr>
               <tr class="bundle-item">
                 <td>Chat Shoulds (<a href="#chat">section A</a>)</td>
                 <td class="num">20</td>
+                <td class="num">34</td>
                 <td class="num">£17,000</td>
                 <td class="num"></td>
               </tr>
@@ -978,6 +1006,7 @@
                   ingestion system (<a href="#sources">section D</a>)
                 </td>
                 <td class="num">5</td>
+                <td class="num">8.5</td>
                 <td class="num">£4,250</td>
                 <td class="num"></td>
               </tr>
@@ -987,6 +1016,7 @@
                   description (<a href="#sources">section D</a>)
                 </td>
                 <td class="num">4</td>
+                <td class="num">6.8</td>
                 <td class="num">£3,400</td>
                 <td class="num"></td>
               </tr>
@@ -998,6 +1028,7 @@
                   >)
                 </td>
                 <td class="num">4</td>
+                <td class="num">6.8</td>
                 <td class="num">£3,400</td>
                 <td class="num"></td>
               </tr>
@@ -1007,6 +1038,7 @@
                   from (<a href="#sources">section D</a>)
                 </td>
                 <td class="num">3</td>
+                <td class="num">5.1</td>
                 <td class="num">£2,550</td>
                 <td class="num"></td>
               </tr>
@@ -1016,30 +1048,35 @@
                   ><span class="sub">Silver plus every Could</span>
                 </td>
                 <td class="num"><strong>248</strong></td>
+                <td class="num"><strong>421.6</strong></td>
                 <td class="num"><strong>£210,800</strong></td>
                 <td class="num"><strong>£412,825</strong></td>
               </tr>
               <tr class="bundle-item">
                 <td>Causal AI (<a href="#causal">section E</a>)</td>
                 <td class="num">119</td>
+                <td class="num">202.3</td>
                 <td class="num">£101,150</td>
                 <td class="num"></td>
               </tr>
               <tr class="bundle-item rai">
                 <td>Maritime Narrative Analytics (<a href="#narrative">section B(a)</a>) <span class="tag tag--rai">RAi funded</span></td>
                 <td class="num">53</td>
+                <td class="num">90.1</td>
                 <td class="num">£45,050</td>
                 <td class="num"></td>
               </tr>
               <tr class="bundle-item">
                 <td>Chat Coulds (<a href="#chat">section A</a>)</td>
                 <td class="num">34</td>
+                <td class="num">57.8</td>
                 <td class="num">£28,900</td>
                 <td class="num"></td>
               </tr>
               <tr class="bundle-item">
                 <td>Estimate accident costs, refined by factors like location and date (<a href="#sources">section D</a>)</td>
                 <td class="num">25</td>
+                <td class="num">42.5</td>
                 <td class="num">£21,250</td>
                 <td class="num"></td>
               </tr>
@@ -1049,12 +1086,14 @@
                   and place, from Copernicus (<a href="#sources">section D</a>)
                 </td>
                 <td class="num">5</td>
+                <td class="num">8.5</td>
                 <td class="num">£4,250</td>
                 <td class="num"></td>
               </tr>
               <tr class="bundle-item">
                 <td>Estimate accident costs where reports don’t publish one, simple version (<a href="#sources">section D</a>)</td>
                 <td class="num">5</td>
+                <td class="num">8.5</td>
                 <td class="num">£4,250</td>
                 <td class="num"></td>
               </tr>
@@ -1066,6 +1105,7 @@
                   >)
                 </td>
                 <td class="num">4</td>
+                <td class="num">6.8</td>
                 <td class="num">£3,400</td>
                 <td class="num"></td>
               </tr>
@@ -1076,6 +1116,7 @@
                   >)
                 </td>
                 <td class="num">3</td>
+                <td class="num">5.1</td>
                 <td class="num">£2,550</td>
                 <td class="num"></td>
               </tr>
@@ -1092,6 +1133,7 @@
                 <th>Priority</th>
                 <th>Feature</th>
                 <th class="num">Build days</th>
+                <th class="num">Total days</th>
                 <th class="num">Cost</th>
               </tr>
             </thead>
@@ -1100,6 +1142,7 @@
                 <td><span class="pill pill--must">Must</span></td>
                 <td>Learning from user questions: features extracted from each question and reused when others ask similar ones</td>
                 <td class="num">12</td>
+                <td class="num">20.4</td>
                 <td class="num">£10,200</td>
               </tr>
               <tr>
@@ -1109,12 +1152,14 @@
                   (the tools the model can call, plus retrieval) (<a href="#scope-chat-briefings">Scope Doc</a>)
                 </td>
                 <td class="num">11</td>
+                <td class="num">18.7</td>
                 <td class="num">£9,350</td>
               </tr>
               <tr>
                 <td><span class="pill pill--must">Must</span></td>
                 <td>Quality test set, re-run after every change</td>
                 <td class="num">7</td>
+                <td class="num">11.9</td>
                 <td class="num">£5,950</td>
               </tr>
               <tr>
@@ -1124,6 +1169,7 @@
                   the right PDF page (<a href="#scope-chat-cited">Scope Doc</a>)
                 </td>
                 <td class="num">4</td>
+                <td class="num">6.8</td>
                 <td class="num">£3,400</td>
               </tr>
               <tr>
@@ -1133,6 +1179,7 @@
                   accessible
                 </td>
                 <td class="num">4</td>
+                <td class="num">6.8</td>
                 <td class="num">£3,400</td>
               </tr>
               <tr>
@@ -1143,6 +1190,7 @@
                   <a href="#scope-chat-briefings">briefings</a>, <a href="#scope-chat-near-miss">near miss</a>)
                 </td>
                 <td class="num">4</td>
+                <td class="num">6.8</td>
                 <td class="num">£3,400</td>
               </tr>
               <tr>
@@ -1152,84 +1200,98 @@
                   off-topic; prompt-injection defence; safety disclaimer
                 </td>
                 <td class="num">3</td>
+                <td class="num">5.1</td>
                 <td class="num">£2,550</td>
               </tr>
               <tr>
                 <td><span class="pill pill--must">Must</span></td>
                 <td>Follow-up questions within a conversation</td>
                 <td class="num">2</td>
+                <td class="num">3.4</td>
                 <td class="num">£1,700</td>
               </tr>
               <tr>
                 <td><span class="pill pill--must">Must</span></td>
                 <td>Tracing and cost per conversation</td>
                 <td class="num">2</td>
+                <td class="num">3.4</td>
                 <td class="num">£1,700</td>
               </tr>
               <tr class="total">
                 <td><strong>Must total</strong></td>
                 <td></td>
                 <td class="num"><strong>49</strong></td>
+                <td class="num"><strong>83.3</strong></td>
                 <td class="num"><strong>£41,650</strong></td>
               </tr>
               <tr>
                 <td><span class="pill pill--should">Should</span></td>
                 <td>Shared memory across all chats</td>
                 <td class="num">6</td>
+                <td class="num">10.2</td>
                 <td class="num">£5,100</td>
               </tr>
               <tr>
                 <td><span class="pill pill--should">Should</span></td>
                 <td>Saved conversation history (needs sign-in)</td>
                 <td class="num">3</td>
+                <td class="num">5.1</td>
                 <td class="num">£2,550</td>
               </tr>
               <tr>
                 <td><span class="pill pill--should">Should</span></td>
                 <td>Toolbox talk format (<a href="#scope-chat-toolbox">Scope Doc</a>)</td>
                 <td class="num">3</td>
+                <td class="num">5.1</td>
                 <td class="num">£2,550</td>
               </tr>
               <tr>
                 <td><span class="pill pill--should">Should</span></td>
                 <td>Chat searches past conversations to keep up with the user</td>
                 <td class="num">3</td>
+                <td class="num">5.1</td>
                 <td class="num">£2,550</td>
               </tr>
               <tr>
                 <td><span class="pill pill--should">Should</span></td>
                 <td>Tables in the reply</td>
                 <td class="num">2</td>
+                <td class="num">3.4</td>
                 <td class="num">£1,700</td>
               </tr>
               <tr>
                 <td><span class="pill pill--should">Should</span></td>
                 <td>Suggested follow-up and sample questions</td>
                 <td class="num">1</td>
+                <td class="num">1.7</td>
                 <td class="num">£850</td>
               </tr>
               <tr>
                 <td><span class="pill pill--should">Should</span></td>
                 <td>Long conversations: older turns summarised</td>
                 <td class="num">1</td>
+                <td class="num">1.7</td>
                 <td class="num">£850</td>
               </tr>
               <tr>
                 <td><span class="pill pill--should">Should</span></td>
                 <td>Copy, print and export an answer</td>
                 <td class="num">1</td>
+                <td class="num">1.7</td>
                 <td class="num">£850</td>
               </tr>
               <tr class="total">
                 <td><strong>Should total</strong></td>
                 <td></td>
                 <td class="num"><strong>20</strong></td>
+                <td class="num"><strong>34</strong></td>
                 <td class="num"><strong>£17,000</strong></td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span></td>
                 <td>Charts in the reply</td>
                 <td class="num">10</td>
+                <td class="num">17</td>
                 <td class="num">£8,500</td>
               </tr>
               <tr>
@@ -1239,48 +1301,56 @@
                   end, pattern record kept (<a href="#scope-chat-upload">Scope Doc</a>)
                 </td>
                 <td class="num">10</td>
+                <td class="num">17</td>
                 <td class="num">£8,500</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span></td>
                 <td>Maps and heat maps</td>
                 <td class="num">8</td>
+                <td class="num">13.6</td>
                 <td class="num">£6,800</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span></td>
                 <td>Remembers your role and vessel type across chats</td>
                 <td class="num">3</td>
+                <td class="num">5.1</td>
                 <td class="num">£2,550</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span></td>
                 <td>Share link to a conversation</td>
                 <td class="num">2</td>
+                <td class="num">3.4</td>
                 <td class="num">£1,700</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span></td>
                 <td>Regenerate an answer, or edit and resend a question</td>
                 <td class="num">1</td>
+                <td class="num">1.7</td>
                 <td class="num">£850</td>
               </tr>
               <tr class="total">
                 <td><strong>Could total</strong></td>
                 <td></td>
                 <td class="num"><strong>34</strong></td>
+                <td class="num"><strong>57.8</strong></td>
                 <td class="num"><strong>£28,900</strong></td>
               </tr>
               <tr>
                 <td><span class="pill pill--wont">Won't</span></td>
                 <td>Web search (breaks the verified-data-only rule)</td>
                 <td class="num">n/a</td>
+                <td class="num"></td>
                 <td class="num">n/a</td>
               </tr>
               <tr>
                 <td><span class="pill pill--wont">Won't</span></td>
                 <td>Voice, image generation, native app</td>
                 <td class="num">n/a</td>
+                <td class="num"></td>
                 <td class="num">n/a</td>
               </tr>
             </tbody>
@@ -1296,6 +1366,7 @@
                 <th>Priority</th>
                 <th>Feature</th>
                 <th class="num">Build days</th>
+                <th class="num">Total days</th>
                 <th class="num">Cost</th>
               </tr>
             </thead>
@@ -1309,6 +1380,7 @@
                   first-draft outline of a CHIRP write-up to edit (<a href="#scope-analyst-patterns">Scope Doc</a>)
                 </td>
                 <td class="num">8</td>
+                <td class="num">13.6</td>
                 <td class="num">£6,800</td>
               </tr>
               <tr>
@@ -1318,6 +1390,7 @@
                   inside the review tool (<a href="#scope-analyst-coding">Scope Doc</a>)
                 </td>
                 <td class="num">6</td>
+                <td class="num">10.2</td>
                 <td class="num">£5,100</td>
               </tr>
               <tr>
@@ -1327,6 +1400,7 @@
                   (P6) (<a href="#scope-analyst-dashboards">Scope Doc</a>)
                 </td>
                 <td class="num">12</td>
+                <td class="num">20.4</td>
                 <td class="num">£10,200</td>
               </tr>
             </tbody>
@@ -1353,6 +1427,7 @@
                 <th>Priority</th>
                 <th>Feature</th>
                 <th class="num">Build days</th>
+                <th class="num">Total days</th>
                 <th class="num">Cost</th>
               </tr>
             </thead>
@@ -1361,48 +1436,56 @@
                 <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
                 <td>Semantic relation mapping: the grammar of each sentence turned into who did what to what, where and when, as linked data</td>
                 <td class="num">12</td>
+                <td class="num">20.4</td>
                 <td class="num">£10,200</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
                 <td>Event analysis: events in each report classified (navigation, mechanical failure, human error, environmental) and linked into a causal chain</td>
                 <td class="num">10</td>
+                <td class="num">17</td>
                 <td class="num">£8,500</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
                 <td>Entity profiling: vessels, people, places and equipment extracted and matched to IMO or Wikidata records</td>
                 <td class="num">9</td>
+                <td class="num">15.3</td>
                 <td class="num">£7,650</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
                 <td>Maritime Narrative Ontology v1.0: schema, entities and events brought together and published</td>
                 <td class="num">7</td>
+                <td class="num">11.9</td>
                 <td class="num">£5,950</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
                 <td>Narrative schema: the parts of an incident narrative, checked against MAIB and IMO reports</td>
                 <td class="num">6</td>
+                <td class="num">10.2</td>
                 <td class="num">£5,100</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
                 <td>Narrative structure and events stored against each report, and used for similar cases and pattern finding (<a href="#analyst">section B</a>)</td>
                 <td class="num">5</td>
+                <td class="num">8.5</td>
                 <td class="num">£4,250</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
                 <td>Validation against held-out reports, with precision and coverage figures</td>
                 <td class="num">4</td>
+                <td class="num">6.8</td>
                 <td class="num">£3,400</td>
               </tr>
               <tr class="total">
                 <td><strong>Could total</strong></td>
                 <td></td>
                 <td class="num"><strong>53</strong></td>
+                <td class="num"><strong>90.1</strong></td>
                 <td class="num"><strong>£45,050</strong></td>
               </tr>
             </tbody>
@@ -1418,6 +1501,7 @@
                 <th>Priority</th>
                 <th>Item</th>
                 <th class="num">Build days</th>
+                <th class="num">Total days</th>
                 <th class="num">Cost</th>
               </tr>
             </thead>
@@ -1426,6 +1510,7 @@
                 <td><span class="pill pill--must">Must</span></td>
                 <td>Closed beta with real seafarers, then a round of fixes</td>
                 <td class="num">6</td>
+                <td class="num">10.2</td>
                 <td class="num">£5,100</td>
               </tr>
               <tr>
@@ -1435,6 +1520,7 @@
                   accessibility (WCAG)
                 </td>
                 <td class="num">5</td>
+                <td class="num">8.5</td>
                 <td class="num">£4,250</td>
               </tr>
               <tr>
@@ -1444,6 +1530,7 @@
                   and scraping protection (<a href="#scope-platform-limits">Scope Doc</a>)
                 </td>
                 <td class="num">4</td>
+                <td class="num">6.8</td>
                 <td class="num">£3,400</td>
               </tr>
               <tr>
@@ -1453,6 +1540,7 @@
                   an answer or record (<a href="#scope-platform-withdraw">Scope Doc</a>)
                 </td>
                 <td class="num">4</td>
+                <td class="num">6.8</td>
                 <td class="num">£3,400</td>
               </tr>
               <tr>
@@ -1461,12 +1549,14 @@
                   Deployment, load testing, backups, cost per conversation
                 </td>
                 <td class="num">4</td>
+                <td class="num">6.8</td>
                 <td class="num">£3,400</td>
               </tr>
               <tr>
                 <td><span class="pill pill--must">Must</span></td>
                 <td>User and developer documentation</td>
                 <td class="num">3</td>
+                <td class="num">5.1</td>
                 <td class="num">£2,550</td>
               </tr>
               <tr>
@@ -1476,6 +1566,7 @@
                   sessions (<a href="#scope-platform-separate">Scope Doc</a>)
                 </td>
                 <td class="num">2</td>
+                <td class="num">3.4</td>
                 <td class="num">£1,700</td>
               </tr>
               <tr>
@@ -1485,12 +1576,14 @@
                   the wording)
                 </td>
                 <td class="num">1.5</td>
+                <td class="num">2.55</td>
                 <td class="num">£1,275</td>
               </tr>
               <tr class="total">
                 <td><strong>Total</strong></td>
                 <td></td>
                 <td class="num"><strong>29.5</strong></td>
+                <td class="num"><strong>50.15</strong></td>
                 <td class="num"><strong>£25,075</strong></td>
               </tr>
             </tbody>
@@ -1506,6 +1599,7 @@
                 <th>Priority</th>
                 <th>Source</th>
                 <th class="num">Build days</th>
+                <th class="num">Total days</th>
                 <th class="num">Cost</th>
               </tr>
             </thead>
@@ -1517,36 +1611,42 @@
                   >) <span class="tag">contingency, no PM</span>
                 </td>
                 <td class="num">5 each, 2.5 fast</td>
+                <td class="num">7</td>
                 <td class="num">£3,500 each, £1,750 fast</td>
               </tr>
               <tr>
                 <td><span class="pill pill--must">Must</span></td>
                 <td>Capture more metadata, with a shared vocabulary for each field across jurisdictions</td>
                 <td class="num">14</td>
+                <td class="num">23.8</td>
                 <td class="num">£11,900</td>
               </tr>
               <tr>
                 <td><span class="pill pill--must">Must</span></td>
                 <td>MAIB webpage ingestion, alongside the report or on its own where there is no report</td>
                 <td class="num">4</td>
+                <td class="num">6.8</td>
                 <td class="num">£3,400</td>
               </tr>
               <tr>
                 <td><span class="pill pill--must">Must</span></td>
                 <td>Automatically ingest new content from every source as it is published</td>
                 <td class="num">4</td>
+                <td class="num">6.8</td>
                 <td class="num">£3,400</td>
               </tr>
               <tr>
                 <td><span class="pill pill--must">Must</span></td>
                 <td>CHIRP Maritime published reports</td>
                 <td class="num">3</td>
+                <td class="num">5.1</td>
                 <td class="num">£2,550</td>
               </tr>
               <tr>
                 <td><span class="pill pill--must">Must</span></td>
                 <td>MAIB Safety Digests</td>
                 <td class="num">2</td>
+                <td class="num">3.4</td>
                 <td class="num">£1,700</td>
               </tr>
               <tr>
@@ -1559,6 +1659,7 @@
                   caught) (<a href="#scope-sources-linking">Scope Doc</a>)
                 </td>
                 <td class="num">2</td>
+                <td class="num">3.4</td>
                 <td class="num">£1,700</td>
               </tr>
               <tr>
@@ -1568,6 +1669,7 @@
                   recurring findings listed by law (<a href="#scope-sources-legislation">Scope Doc</a>)
                 </td>
                 <td class="num">12</td>
+                <td class="num">20.4</td>
                 <td class="num">£10,200</td>
               </tr>
               <tr>
@@ -1578,18 +1680,21 @@
                   report and may need their own category
                 </td>
                 <td class="num">5</td>
+                <td class="num">8.5</td>
                 <td class="num">£4,250</td>
               </tr>
               <tr>
                 <td><span class="pill pill--should">Should</span></td>
                 <td>Generic free-text ingestion</td>
                 <td class="num">4</td>
+                <td class="num">6.8</td>
                 <td class="num">£3,400</td>
               </tr>
               <tr>
                 <td><span class="pill pill--should">Should</span></td>
                 <td>IMO GISIS casualty module</td>
                 <td class="num">4</td>
+                <td class="num">6.8</td>
                 <td class="num">£3,400</td>
               </tr>
               <tr>
@@ -1600,66 +1705,77 @@
                   clues (<a href="#scope-sources-linking">Scope Doc</a>)
                 </td>
                 <td class="num">3</td>
+                <td class="num">5.1</td>
                 <td class="num">£2,550</td>
               </tr>
               <tr>
                 <td><span class="pill pill--should">Should</span></td>
                 <td>IMO Lessons Learned</td>
                 <td class="num">2.5</td>
+                <td class="num">4.25</td>
                 <td class="num">£2,125</td>
               </tr>
               <tr>
                 <td><span class="pill pill--should">Should</span></td>
                 <td>Nautical Institute MARS</td>
                 <td class="num">2.5</td>
+                <td class="num">4.25</td>
                 <td class="num">£2,125</td>
               </tr>
               <tr>
                 <td><span class="pill pill--should">Should</span></td>
                 <td>SAFETY4SEA</td>
                 <td class="num">2.5</td>
+                <td class="num">4.25</td>
                 <td class="num">£2,125</td>
               </tr>
               <tr>
                 <td><span class="pill pill--should">Should</span></td>
                 <td>IMCA safety flashes</td>
                 <td class="num">2.5</td>
+                <td class="num">4.25</td>
                 <td class="num">£2,125</td>
               </tr>
               <tr>
                 <td><span class="pill pill--should">Should</span></td>
                 <td>USCG Marine Safety Alerts</td>
                 <td class="num">2.5</td>
+                <td class="num">4.25</td>
                 <td class="num">£2,125</td>
               </tr>
               <tr>
                 <td><span class="pill pill--should">Should</span></td>
                 <td>Marine Safety Forum alerts</td>
                 <td class="num">2.5</td>
+                <td class="num">4.25</td>
                 <td class="num">£2,125</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span></td>
                 <td>Refined, fairly accurate cost estimate based on factors like location and date</td>
                 <td class="num">25</td>
+                <td class="num">42.5</td>
                 <td class="num">£21,250</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span></td>
                 <td>Copernicus metocean data</td>
                 <td class="num">5</td>
+                <td class="num">8.5</td>
                 <td class="num">£4,250</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span></td>
                 <td>Simple cost estimate for reports that don’t publish one</td>
                 <td class="num">5</td>
+                <td class="num">8.5</td>
                 <td class="num">£4,250</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span></td>
                 <td>P&amp;I club loss prevention publications</td>
                 <td class="num">4</td>
+                <td class="num">6.8</td>
                 <td class="num">£3,400</td>
               </tr>
               <tr>
@@ -1669,24 +1785,28 @@
                   images)
                 </td>
                 <td class="num">3</td>
+                <td class="num">5.1</td>
                 <td class="num">£2,550</td>
               </tr>
               <tr>
                 <td><span class="pill pill--wont">Won't</span></td>
                 <td>Paris and Tokyo MoU detentions</td>
                 <td class="num">n/a</td>
+                <td class="num"></td>
                 <td class="num">n/a</td>
               </tr>
               <tr>
                 <td><span class="pill pill--wont">Won't</span></td>
                 <td>Other news and trade press</td>
                 <td class="num">n/a</td>
+                <td class="num"></td>
                 <td class="num">n/a</td>
               </tr>
               <tr>
                 <td><span class="pill pill--wont">Won't</span></td>
                 <td>Non-English reports via translation</td>
                 <td class="num">n/a</td>
+                <td class="num"></td>
                 <td class="num">n/a</td>
               </tr>
             </tbody>
@@ -1709,6 +1829,7 @@
                 <th>Priority</th>
                 <th>Feature</th>
                 <th class="num">Build days</th>
+                <th class="num">Total days</th>
                 <th class="num">Cost</th>
               </tr>
             </thead>
@@ -1717,174 +1838,203 @@
                 <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
                 <td>Test a hypothesis: effect size, robustness checks and a plain verdict</td>
                 <td class="num">10</td>
+                <td class="num">17</td>
                 <td class="num">£8,500</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
                 <td>Analysis-ready dataset built from verified records and the MAIB spreadsheets</td>
                 <td class="num">6</td>
+                <td class="num">10.2</td>
                 <td class="num">£5,100</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
                 <td>Causes stated in each report extracted and cited</td>
                 <td class="num">6</td>
+                <td class="num">10.2</td>
                 <td class="num">£5,100</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
                 <td>SHIELD codes proposed across the corpus and confirmed in the review tool (shares a model with proposed coding, <a href="#analyst">section B</a>)</td>
                 <td class="num">6</td>
+                <td class="num">10.2</td>
                 <td class="num">£5,100</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
                 <td>Cause-and-effect maps for priority accident types, drawn up with CHIRP’s experts and fed into the system</td>
                 <td class="num">5</td>
+                <td class="num">8.5</td>
                 <td class="num">£4,250</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
                 <td>Chat checks causal claims before replying, and words untested ones as associations (<a href="#chat">section A</a>)</td>
                 <td class="num">5</td>
+                <td class="num">8.5</td>
                 <td class="num">£4,250</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
                 <td>Analysts raise and test hypotheses through the chat (<a href="#chat">section A</a>)</td>
                 <td class="num">5</td>
+                <td class="num">8.5</td>
                 <td class="num">£4,250</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
                 <td>Hypothesis register in the review tool, signed off before results are cited</td>
                 <td class="num">4</td>
+                <td class="num">6.8</td>
                 <td class="num">£3,400</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
                 <td>Feasibility spike: test the approach on our data before committing the rest</td>
                 <td class="num">3</td>
+                <td class="num">5.1</td>
                 <td class="num">£2,550</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Must if taken</span></td>
                 <td>Quality test set of known cause-and-effect relationships, re-run after every change</td>
                 <td class="num">3</td>
+                <td class="num">5.1</td>
                 <td class="num">£2,550</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Should if taken</span></td>
                 <td>Exposure data (fleet sizes, time at sea), so findings are rates rather than counts</td>
                 <td class="num">6</td>
+                <td class="num">10.2</td>
                 <td class="num">£5,100</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Should if taken</span></td>
                 <td>Did the rule work: outcomes before and after a regulation change, and between countries (<a href="#sources">section D</a>)</td>
                 <td class="num">6</td>
+                <td class="num">10.2</td>
                 <td class="num">£5,100</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Should if taken</span></td>
                 <td>Causal pathway view: the maps on screen, with the evidence behind every link</td>
                 <td class="num">6</td>
+                <td class="num">10.2</td>
                 <td class="num">£5,100</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Should if taken</span></td>
                 <td>Where a factor matters most: effects broken down by vessel type, region and conditions</td>
                 <td class="num">5</td>
+                <td class="num">8.5</td>
                 <td class="num">£4,250</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Should if taken</span></td>
                 <td>Control measures ranked by estimated lives saved</td>
                 <td class="num">5</td>
+                <td class="num">8.5</td>
                 <td class="num">£4,250</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Should if taken</span></td>
                 <td>AI-proposed links for experts to accept or reject into the maps</td>
                 <td class="num">5</td>
+                <td class="num">8.5</td>
                 <td class="num">£4,250</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Should if taken</span></td>
                 <td>Chat suggests causal lines of enquiry and offers to test them (<a href="#chat">section A</a>)</td>
                 <td class="num">4</td>
+                <td class="num">6.8</td>
                 <td class="num">£3,400</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Should if taken</span></td>
                 <td>Evidence tables for regulators, exported as PDF and CSV</td>
                 <td class="num">2</td>
+                <td class="num">3.4</td>
                 <td class="num">£1,700</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Could if taken</span></td>
                 <td>Sequence of events extracted from each report, to find recurring chains</td>
                 <td class="num">8</td>
+                <td class="num">13.6</td>
                 <td class="num">£6,800</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Could if taken</span></td>
                 <td>Did the recommendation work: outcomes before and after implementation</td>
                 <td class="num">5</td>
+                <td class="num">8.5</td>
                 <td class="num">£4,250</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Could if taken</span></td>
                 <td>Weather and sea state as tested factors (Copernicus, <a href="#sources">section D</a>)</td>
                 <td class="num">3</td>
+                <td class="num">5.1</td>
                 <td class="num">£2,550</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Could if taken</span></td>
                 <td>Incoming CHIRP reports set against the maps, with follow-up questions for the reporter (<a href="#analyst">section B</a>)</td>
                 <td class="num">3</td>
+                <td class="num">5.1</td>
                 <td class="num">£2,550</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Could if taken</span></td>
                 <td>Hypotheses re-tested as new reports are verified</td>
                 <td class="num">3</td>
+                <td class="num">5.1</td>
                 <td class="num">£2,550</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Could if taken</span></td>
                 <td>Methods note for regulators and external reviewers</td>
                 <td class="num">3</td>
+                <td class="num">5.1</td>
                 <td class="num">£2,550</td>
               </tr>
               <tr>
                 <td><span class="pill pill--could">Could</span><span class="sub">Could if taken</span></td>
                 <td>Dashboard figures labelled as association or tested cause (<a href="#analyst">section B</a>)</td>
                 <td class="num">2</td>
+                <td class="num">3.4</td>
                 <td class="num">£1,700</td>
               </tr>
               <tr class="total">
                 <td><strong>Could total</strong></td>
                 <td></td>
                 <td class="num"><strong>119</strong></td>
+                <td class="num"><strong>202.3</strong></td>
                 <td class="num"><strong>£101,150</strong></td>
               </tr>
               <tr>
                 <td><span class="pill pill--wont">Won't</span></td>
                 <td>Causal findings shown to the public without human sign-off</td>
                 <td class="num">n/a</td>
+                <td class="num"></td>
                 <td class="num">n/a</td>
               </tr>
               <tr>
                 <td><span class="pill pill--wont">Won't</span></td>
                 <td>Claims about how often accidents happen without exposure data</td>
                 <td class="num">n/a</td>
+                <td class="num"></td>
                 <td class="num">n/a</td>
               </tr>
               <tr>
                 <td><span class="pill pill--wont">Won't</span></td>
                 <td>Real-time risk scoring for vessels or voyages</td>
                 <td class="num">n/a</td>
+                <td class="num"></td>
                 <td class="num">n/a</td>
               </tr>
             </tbody>
@@ -1894,7 +2044,7 @@
       <section class="block" id="bodies">
         <h2>F. Official investigation bodies</h2>
         <p class="note">
-          Billed at £500 a day plus 20% contingency and 20% ZigZag product management, with no project management.
+          Each build day comes with 0.2 days of contingency and 0.2 days of ZigZag product management, with no project management: 1.4 days in total, at £500 a day.
           <strong>Full ingestion</strong> (5 days) encodes each jurisdiction’s rules.
           <strong>Fast</strong> (2.5 days) is quicker with less reliable data: halfway
           between full ingestion and ingesting the reports with no jurisdiction
@@ -1907,8 +2057,8 @@
                 <th>Country</th>
                 <th>Body</th>
                 <th>Status</th>
-                <th class="num">Full, 5 days</th>
-                <th class="num">Fast, 2.5 days</th>
+                <th class="num">Full: 5 build days, 7 in total</th>
+                <th class="num">Fast: 2.5 build days, 3.5 in total</th>
               </tr>
             </thead>
             <tbody>
@@ -2436,6 +2586,7 @@
               <tr>
                 <th>Item</th>
                 <th class="num">Build days</th>
+                <th class="num">Total days</th>
                 <th class="num">Cost</th>
               </tr>
             </thead>
@@ -2446,25 +2597,45 @@
                   ><span class="sub">Chat first plus data first</span>
                 </td>
                 <td class="num"><strong>55.5</strong></td>
+                <td class="num"><strong>89.85</strong></td>
                 <td class="num"><strong>£44,925</strong></td>
               </tr>
-              <tr class="bundle-head"><td colspan="3"><strong>Chat</strong> (<a href="#chat">section A</a>)</td></tr>
-              <tr class="bundle-item"><td>Ask a question and get an answer drawn from verified reports (the tools the model can call, plus retrieval)</td><td class="num">11</td><td class="num">£9,350</td></tr>
-              <tr class="bundle-item"><td>Every claim cited and checked, with a link to the report at the right PDF page</td><td class="num">4</td><td class="num">£3,400</td></tr>
-              <tr class="bundle-item"><td>Answers in plain maritime English, tuned for task briefings and descriptions of a near miss</td><td class="num">4</td><td class="num">£3,400</td></tr>
-              <tr class="bundle-item"><td>Replies stream in; chat screen works on mobile and is accessible</td><td class="num">4</td><td class="num">£3,400</td></tr>
-              <tr class="bundle-item"><td>Refuses when there is no evidence or the question is off-topic; prompt-injection defence; safety disclaimer</td><td class="num">3</td><td class="num">£2,550</td></tr>
-              <tr class="bundle-item"><td>Follow-up questions within a conversation</td><td class="num">2</td><td class="num">£1,700</td></tr>
-              <tr class="bundle-item"><td>Quality test set, slimmed to core questions</td><td class="num">2</td><td class="num">£1,700</td></tr>
-              <tr class="bundle-head"><td colspan="3"><strong>Platform</strong> (<a href="#platform">section C</a>)</td></tr>
-              <tr class="bundle-item"><td>Rate limits, a spending cap that degrades gracefully, abuse and scraping protection</td><td class="num">4</td><td class="num">£3,400</td></tr>
-              <tr class="bundle-item"><td>Deployment and backups, without load testing</td><td class="num">3</td><td class="num">£2,550</td></tr>
-              <tr class="bundle-item"><td>Public access kept separate from staff tools; anonymous sessions</td><td class="num">2</td><td class="num">£1,700</td></tr>
-              <tr class="bundle-item"><td>Terms, privacy notice and disclaimers built in (CHIRP writes the wording)</td><td class="num">1.5</td><td class="num">£1,275</td></tr>
-              <tr class="bundle-head"><td colspan="3"><strong>Data</strong> (<a href="#bodies">section F</a>)</td></tr>
-              <tr class="bundle-item"><td>Ingest reports from 6 more national investigation bodies, fast ingestion at 2.5 days each <span class="tag">contingency, no PM</span></td><td class="num">15</td><td class="num">£10,500</td></tr>
-              <tr class="bundle-head"><td colspan="3"><strong>Product management</strong></td></tr>
-              <tr class="bundle-item"><td>Maritime Safety Senior Stakeholder Workshop, to decide the future direction of CHIRPdb <span class="tag">in ZigZag product management</span></td><td class="num"></td><td class="num"></td></tr>
+              <tr class="bundle-head"><td colspan="4"><strong>Chat</strong> (<a href="#chat">section A</a>)</td></tr>
+              <tr class="bundle-item"><td>Ask a question and get an answer drawn from verified reports (the tools the model can call, plus retrieval)</td><td class="num">11</td><td class="num">18.7</td><td class="num">£9,350</td></tr>
+              <tr class="bundle-item"><td>Every claim cited and checked, with a link to the report at the right PDF page</td><td class="num">4</td><td class="num">6.8</td><td class="num">£3,400</td></tr>
+              <tr class="bundle-item"><td>Answers in plain maritime English, tuned for task briefings and descriptions of a near miss</td><td class="num">4</td><td class="num">6.8</td><td class="num">£3,400</td></tr>
+              <tr class="bundle-item"><td>Replies stream in; chat screen works on mobile and is accessible</td><td class="num">4</td><td class="num">6.8</td><td class="num">£3,400</td></tr>
+              <tr class="bundle-item"><td>Refuses when there is no evidence or the question is off-topic; prompt-injection defence; safety disclaimer</td><td class="num">3</td><td class="num">5.1</td><td class="num">£2,550</td></tr>
+              <tr class="bundle-item"><td>Follow-up questions within a conversation</td><td class="num">2</td><td class="num">3.4</td><td class="num">£1,700</td></tr>
+              <tr class="bundle-item"><td>Quality test set, slimmed to core questions</td><td class="num">2</td><td class="num">3.4</td><td class="num">£1,700</td></tr>
+              <tr class="bundle-head"><td colspan="4"><strong>Platform</strong> (<a href="#platform">section C</a>)</td></tr>
+              <tr class="bundle-item"><td>Rate limits, a spending cap that degrades gracefully, abuse and scraping protection</td><td class="num">4</td><td class="num">6.8</td><td class="num">£3,400</td></tr>
+              <tr class="bundle-item"><td>Deployment and backups, without load testing</td><td class="num">3</td><td class="num">5.1</td><td class="num">£2,550</td></tr>
+              <tr class="bundle-item"><td>Public access kept separate from staff tools; anonymous sessions</td><td class="num">2</td><td class="num">3.4</td><td class="num">£1,700</td></tr>
+              <tr class="bundle-item"><td>Terms, privacy notice and disclaimers built in (CHIRP writes the wording)</td><td class="num">1.5</td><td class="num">2.55</td><td class="num">£1,275</td></tr>
+              <tr class="bundle-head"><td colspan="4"><strong>Data</strong> (<a href="#bodies">section F</a>)</td></tr>
+              <tr class="bundle-item"><td>Ingest reports from 6 more national investigation bodies, fast ingestion at 2.5 days each <span class="tag">contingency, no PM</span></td><td class="num">15</td><td class="num">21</td><td class="num">£10,500</td></tr>
+              <tr class="bundle-head"><td colspan="4"><strong>Product management</strong></td></tr>
+              <tr class="bundle-item"><td>Maritime Safety Senior Stakeholder Workshop, to decide the future direction of CHIRPdb <span class="tag">in ZigZag product management</span></td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Where the days go</h3>
+        <div class="table-wrap">
+          <table class="bundles">
+            <thead>
+              <tr>
+                <th>Work</th>
+                <th class="num">Days</th>
+                <th class="num">Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Build</td><td class="num">55.5</td><td class="num">£27,750</td></tr>
+              <tr><td>Contingency</td><td class="num">11.1</td><td class="num">£5,550</td></tr>
+              <tr><td>Project management (not on investigation bodies)</td><td class="num">12.15</td><td class="num">£6,075</td></tr>
+              <tr><td>ZigZag product management</td><td class="num">11.1</td><td class="num">£5,550</td></tr>
+              <tr class="total"><td><strong>Total</strong></td><td class="num"><strong>89.85</strong></td><td class="num"><strong>£44,925</strong></td></tr>
             </tbody>
           </table>
         </div>
@@ -2479,13 +2650,14 @@
               <tr>
                 <th>Item</th>
                 <th class="num">Build days</th>
+                <th class="num">Total days</th>
                 <th class="num">Cost</th>
               </tr>
             </thead>
             <tbody>
-              <tr class="bundle-item"><td>Pattern finding for CHIRP analysts: ask what keeps recurring across all reports, counted across every report rather than read from the top matches, see the supporting cases, and get a first-draft outline of a CHIRP write-up (<a href="#analyst">section B</a>)</td><td class="num">8</td><td class="num">£6,800</td></tr>
-              <tr class="bundle-item"><td>SHIELD code matching: SHIELD codes proposed across the corpus and confirmed in the review tool, so reports can be counted by causal factor (<a href="#causal">section E</a>)</td><td class="num">6</td><td class="num">£5,100</td></tr>
-              <tr class="total"><td><strong>Stretch goals total</strong></td><td class="num"><strong>14</strong></td><td class="num"><strong>£11,900</strong></td></tr>
+              <tr class="bundle-item"><td>Pattern finding for CHIRP analysts: ask what keeps recurring across all reports, counted across every report rather than read from the top matches, see the supporting cases, and get a first-draft outline of a CHIRP write-up (<a href="#analyst">section B</a>)</td><td class="num">8</td><td class="num">13.6</td><td class="num">£6,800</td></tr>
+              <tr class="bundle-item"><td>SHIELD code matching: SHIELD codes proposed across the corpus and confirmed in the review tool, so reports can be counted by causal factor (<a href="#causal">section E</a>)</td><td class="num">6</td><td class="num">10.2</td><td class="num">£5,100</td></tr>
+              <tr class="total"><td><strong>Stretch goals total</strong></td><td class="num"><strong>14</strong></td><td class="num"><strong>23.8</strong></td><td class="num"><strong>£11,900</strong></td></tr>
             </tbody>
           </table>
         </div>
@@ -2513,6 +2685,7 @@
               <tr>
                 <th>Item</th>
                 <th class="num">Build days</th>
+                <th class="num">Total days</th>
                 <th class="num">Cost</th>
               </tr>
             </thead>
@@ -2523,65 +2696,71 @@
                   ><span class="sub">The gap from Steel to Bronze</span>
                 </td>
                 <td class="num"><strong>116</strong></td>
+                <td class="num"><strong>186.7</strong></td>
                 <td class="num"><strong>£93,350</strong></td>
               </tr>
-              <tr class="bundle-head"><td colspan="3"><strong>Chat</strong> (<a href="#chat">section A</a>)</td></tr>
-              <tr class="bundle-item"><td>Learning from user questions: features extracted from each question and reused when others ask similar ones</td><td class="num">12</td><td class="num">£10,200</td></tr>
-              <tr class="bundle-item"><td>Rest of the quality test set</td><td class="num">5</td><td class="num">£4,250</td></tr>
-              <tr class="bundle-item"><td>Tracing and cost per conversation</td><td class="num">2</td><td class="num">£1,700</td></tr>
-              <tr class="bundle-head"><td colspan="3"><strong>Platform</strong> (<a href="#platform">section C</a>)</td></tr>
-              <tr class="bundle-item"><td>Closed beta with real seafarers, then a round of fixes</td><td class="num">6</td><td class="num">£5,100</td></tr>
-              <tr class="bundle-item"><td>Landing page, first-time walkthrough, sample questions, accessibility (WCAG)</td><td class="num">5</td><td class="num">£4,250</td></tr>
-              <tr class="bundle-item"><td>Watching answers, a “report a wrong answer” route, withdrawing an answer or record</td><td class="num">4</td><td class="num">£3,400</td></tr>
-              <tr class="bundle-item"><td>User and developer documentation</td><td class="num">3</td><td class="num">£2,550</td></tr>
-              <tr class="bundle-item"><td>Load testing</td><td class="num">1</td><td class="num">£850</td></tr>
-              <tr class="bundle-head"><td colspan="3"><strong>Analyst tools</strong> (<a href="#analyst">section B</a>)</td></tr>
-              <tr class="bundle-item"><td>Pattern finding for CHIRP analysts, with supporting cases and a first-draft outline</td><td class="num">8</td><td class="num">£6,800</td></tr>
-              <tr class="bundle-item"><td>Proposed coding and similar cases for incoming CHIRP reports</td><td class="num">6</td><td class="num">£5,100</td></tr>
-              <tr class="bundle-head"><td colspan="3"><strong>Sources</strong> (<a href="#sources">section D</a>)</td></tr>
-              <tr class="bundle-item"><td>Capture more metadata, with a shared vocabulary for each field across jurisdictions</td><td class="num">14</td><td class="num">£11,900</td></tr>
-              <tr class="bundle-item"><td>MAIB webpage ingestion, alongside the report or on its own</td><td class="num">4</td><td class="num">£3,400</td></tr>
-              <tr class="bundle-item"><td>Automatically ingest new content from every source as it is published</td><td class="num">4</td><td class="num">£3,400</td></tr>
-              <tr class="bundle-item"><td>CHIRP Maritime published reports</td><td class="num">3</td><td class="num">£2,550</td></tr>
-              <tr class="bundle-item"><td>MAIB Safety Digests</td><td class="num">2</td><td class="num">£1,700</td></tr>
-              <tr class="bundle-item"><td>Accident linking, official reports</td><td class="num">2</td><td class="num">£1,700</td></tr>
-              <tr class="bundle-head"><td colspan="3"><strong>Investigation bodies</strong> (<a href="#bodies">section F</a>)</td></tr>
-              <tr class="bundle-item"><td>4 more bodies to reach Baseline’s 10, at full ingestion <span class="tag">contingency, no PM</span></td><td class="num">20</td><td class="num">£14,000</td></tr>
-              <tr class="bundle-item"><td>Upgrade Steel’s 6 bodies from fast to full ingestion <span class="tag">contingency, no PM</span></td><td class="num">15</td><td class="num">£10,500</td></tr>
+              <tr class="bundle-head"><td colspan="4"><strong>Chat</strong> (<a href="#chat">section A</a>)</td></tr>
+              <tr class="bundle-item"><td>Learning from user questions: features extracted from each question and reused when others ask similar ones</td><td class="num">12</td><td class="num">20.4</td><td class="num">£10,200</td></tr>
+              <tr class="bundle-item"><td>Rest of the quality test set</td><td class="num">5</td><td class="num">8.5</td><td class="num">£4,250</td></tr>
+              <tr class="bundle-item"><td>Tracing and cost per conversation</td><td class="num">2</td><td class="num">3.4</td><td class="num">£1,700</td></tr>
+              <tr class="bundle-head"><td colspan="4"><strong>Platform</strong> (<a href="#platform">section C</a>)</td></tr>
+              <tr class="bundle-item"><td>Closed beta with real seafarers, then a round of fixes</td><td class="num">6</td><td class="num">10.2</td><td class="num">£5,100</td></tr>
+              <tr class="bundle-item"><td>Landing page, first-time walkthrough, sample questions, accessibility (WCAG)</td><td class="num">5</td><td class="num">8.5</td><td class="num">£4,250</td></tr>
+              <tr class="bundle-item"><td>Watching answers, a “report a wrong answer” route, withdrawing an answer or record</td><td class="num">4</td><td class="num">6.8</td><td class="num">£3,400</td></tr>
+              <tr class="bundle-item"><td>User and developer documentation</td><td class="num">3</td><td class="num">5.1</td><td class="num">£2,550</td></tr>
+              <tr class="bundle-item"><td>Load testing</td><td class="num">1</td><td class="num">1.7</td><td class="num">£850</td></tr>
+              <tr class="bundle-head"><td colspan="4"><strong>Analyst tools</strong> (<a href="#analyst">section B</a>)</td></tr>
+              <tr class="bundle-item"><td>Pattern finding for CHIRP analysts, with supporting cases and a first-draft outline</td><td class="num">8</td><td class="num">13.6</td><td class="num">£6,800</td></tr>
+              <tr class="bundle-item"><td>Proposed coding and similar cases for incoming CHIRP reports</td><td class="num">6</td><td class="num">10.2</td><td class="num">£5,100</td></tr>
+              <tr class="bundle-head"><td colspan="4"><strong>Sources</strong> (<a href="#sources">section D</a>)</td></tr>
+              <tr class="bundle-item"><td>Capture more metadata, with a shared vocabulary for each field across jurisdictions</td><td class="num">14</td><td class="num">23.8</td><td class="num">£11,900</td></tr>
+              <tr class="bundle-item"><td>MAIB webpage ingestion, alongside the report or on its own</td><td class="num">4</td><td class="num">6.8</td><td class="num">£3,400</td></tr>
+              <tr class="bundle-item"><td>Automatically ingest new content from every source as it is published</td><td class="num">4</td><td class="num">6.8</td><td class="num">£3,400</td></tr>
+              <tr class="bundle-item"><td>CHIRP Maritime published reports</td><td class="num">3</td><td class="num">5.1</td><td class="num">£2,550</td></tr>
+              <tr class="bundle-item"><td>MAIB Safety Digests</td><td class="num">2</td><td class="num">3.4</td><td class="num">£1,700</td></tr>
+              <tr class="bundle-item"><td>Accident linking, official reports</td><td class="num">2</td><td class="num">3.4</td><td class="num">£1,700</td></tr>
+              <tr class="bundle-head"><td colspan="4"><strong>Investigation bodies</strong> (<a href="#bodies">section F</a>)</td></tr>
+              <tr class="bundle-item"><td>4 more bodies to reach Baseline’s 10, at full ingestion <span class="tag">contingency, no PM</span></td><td class="num">20</td><td class="num">28</td><td class="num">£14,000</td></tr>
+              <tr class="bundle-item"><td>Upgrade Steel’s 6 bodies from fast to full ingestion <span class="tag">contingency, no PM</span></td><td class="num">15</td><td class="num">21</td><td class="num">£10,500</td></tr>
               <tr class="bundle-head tier--silver">
                 <td>
                   <span class="medal medal--silver"></span><strong>Every Should</strong
                   ><span class="sub">As in Silver</span>
                 </td>
                 <td class="num"><strong>75</strong></td>
+                <td class="num"><strong>127.5</strong></td>
                 <td class="num"><strong>£63,750</strong></td>
               </tr>
-              <tr class="bundle-item"><td>Chat Shoulds: shared memory, saved history, toolbox talks, searching past chats, tables, suggested questions, summarising, export (<a href="#chat">section A</a>)</td><td class="num">20</td><td class="num">£17,000</td></tr>
-              <tr class="bundle-item"><td>Dashboards filtered by vessel type, date, outcome and country (<a href="#analyst">section B</a>)</td><td class="num">12</td><td class="num">£10,200</td></tr>
-              <tr class="bundle-item"><td>Source Shoulds: legislation, short-form schema, free-text, IMO GISIS, derivative accident linking, six short-form sources (<a href="#sources">section D</a>)</td><td class="num">43</td><td class="num">£36,550</td></tr>
+              <tr class="bundle-item"><td>Chat Shoulds: shared memory, saved history, toolbox talks, searching past chats, tables, suggested questions, summarising, export (<a href="#chat">section A</a>)</td><td class="num">20</td><td class="num">34</td><td class="num">£17,000</td></tr>
+              <tr class="bundle-item"><td>Dashboards filtered by vessel type, date, outcome and country (<a href="#analyst">section B</a>)</td><td class="num">12</td><td class="num">20.4</td><td class="num">£10,200</td></tr>
+              <tr class="bundle-item"><td>Source Shoulds: legislation, short-form schema, free-text, IMO GISIS, derivative accident linking, six short-form sources (<a href="#sources">section D</a>)</td><td class="num">43</td><td class="num">73.1</td><td class="num">£36,550</td></tr>
               <tr class="bundle-head tier--gold">
                 <td>
                   <span class="medal medal--gold"></span><strong>Every Could</strong
                   ><span class="sub">As in Gold</span>
                 </td>
                 <td class="num"><strong>76</strong></td>
+                <td class="num"><strong>129.2</strong></td>
                 <td class="num"><strong>£64,600</strong></td>
               </tr>
-              <tr class="bundle-item"><td>Chat Coulds: charts, document upload, maps, remembering role and vessel, share links, regenerate (<a href="#chat">section A</a>)</td><td class="num">34</td><td class="num">£28,900</td></tr>
-              <tr class="bundle-item"><td>Source Coulds: refined and simple cost estimates, Copernicus, P&amp;I clubs, pre-2005 scans (<a href="#sources">section D</a>)</td><td class="num">42</td><td class="num">£35,700</td></tr>
+              <tr class="bundle-item"><td>Chat Coulds: charts, document upload, maps, remembering role and vessel, share links, regenerate (<a href="#chat">section A</a>)</td><td class="num">34</td><td class="num">57.8</td><td class="num">£28,900</td></tr>
+              <tr class="bundle-item"><td>Source Coulds: refined and simple cost estimates, Copernicus, P&amp;I clubs, pre-2005 scans (<a href="#sources">section D</a>)</td><td class="num">42</td><td class="num">71.4</td><td class="num">£35,700</td></tr>
               <tr class="bundle-head">
                 <td><strong>Causal AI</strong><span class="sub">All of <a href="#causal">section E</a></span></td>
                 <td class="num"><strong>119</strong></td>
+                <td class="num"><strong>202.3</strong></td>
                 <td class="num"><strong>£101,150</strong></td>
               </tr>
               <tr class="bundle-head">
                 <td><strong>Maritime Narrative Analytics</strong><span class="sub">Funded separately by the Responsible AI Institute (<a href="#narrative">section B(a)</a>)</span></td>
                 <td class="num"><strong>53</strong></td>
+                <td class="num"><strong>90.1</strong></td>
                 <td class="num"><strong>£45,050</strong></td>
               </tr>
               <tr class="total">
                 <td><strong>Total excluded</strong></td>
                 <td class="num"><strong>439</strong></td>
+                <td class="num"><strong>735.8</strong></td>
                 <td class="num"><strong>£367,900</strong></td>
               </tr>
             </tbody>
@@ -2615,6 +2794,7 @@
               <tr>
                 <th>Item</th>
                 <th class="num">Build days</th>
+                <th class="num">Total days</th>
                 <th class="num">Cost</th>
               </tr>
             </thead>
@@ -2625,24 +2805,44 @@
                   ><span class="sub">CHIRPdb connector for Claude, plus backend</span>
                 </td>
                 <td class="num"><strong>59.5</strong></td>
+                <td class="num"><strong>96.65</strong></td>
                 <td class="num"><strong>£48,325</strong></td>
               </tr>
-              <tr class="bundle-head"><td colspan="3"><strong>MCP server</strong></td></tr>
-              <tr class="bundle-item"><td>Tools Claude can call: search verified reports, find incidents similar to a description, count and compare across every report by causal factor, vessel type, date, outcome and country (pattern finding), and fetch a report with a link to the right PDF page</td><td class="num">8</td><td class="num">£6,800</td></tr>
-              <tr class="bundle-item"><td>Quality test set, run through Claude and re-run after every change</td><td class="num">3</td><td class="num">£2,550</td></tr>
-              <tr class="bundle-item"><td>Rate limits and abuse and scraping protection on the public server</td><td class="num">3</td><td class="num">£2,550</td></tr>
-              <tr class="bundle-item"><td>Deployment, backups and monitoring</td><td class="num">3</td><td class="num">£2,550</td></tr>
-              <tr class="bundle-item"><td>Instructions and prompts: plain maritime English, cite every claim, refuse off-topic questions, task briefings, near misses, toolbox talks and draft CHIRP write-ups</td><td class="num">2</td><td class="num">£1,700</td></tr>
-              <tr class="bundle-item"><td>Logging and tracing of every question asked, the starting point for learning from user questions</td><td class="num">2</td><td class="num">£1,700</td></tr>
-              <tr class="bundle-item"><td>Setup page: how to add the CHIRPdb connector to Claude, with sample questions</td><td class="num">2</td><td class="num">£1,700</td></tr>
-              <tr class="bundle-item"><td>Terms, privacy notice and disclaimers (CHIRP writes the wording)</td><td class="num">1.5</td><td class="num">£1,275</td></tr>
-              <tr class="bundle-head"><td colspan="3"><strong>Backend</strong> (<a href="#analyst">section B</a>, <a href="#sources">section D</a>)</td></tr>
-              <tr class="bundle-item"><td>Capture more metadata, with a shared vocabulary for each field across jurisdictions, so counts across countries compare like with like</td><td class="num">14</td><td class="num">£11,900</td></tr>
-              <tr class="bundle-item"><td>Proposed coding and similar cases for incoming CHIRP reports, inside the review tool</td><td class="num">6</td><td class="num">£5,100</td></tr>
-              <tr class="bundle-head"><td colspan="3"><strong>Data</strong> (<a href="#bodies">section F</a>)</td></tr>
-              <tr class="bundle-item"><td>Ingest reports from 6 more national investigation bodies, fast ingestion at 2.5 days each <span class="tag">contingency, no PM</span></td><td class="num">15</td><td class="num">£10,500</td></tr>
-              <tr class="bundle-head"><td colspan="3"><strong>Product management</strong></td></tr>
-              <tr class="bundle-item"><td>Maritime Safety Senior Stakeholder Workshop, to decide the future direction of CHIRPdb <span class="tag">in ZigZag product management</span></td><td class="num"></td><td class="num"></td></tr>
+              <tr class="bundle-head"><td colspan="4"><strong>MCP server</strong></td></tr>
+              <tr class="bundle-item"><td>Tools Claude can call: search verified reports, find incidents similar to a description, count and compare across every report by causal factor, vessel type, date, outcome and country (pattern finding), and fetch a report with a link to the right PDF page</td><td class="num">8</td><td class="num">13.6</td><td class="num">£6,800</td></tr>
+              <tr class="bundle-item"><td>Quality test set, run through Claude and re-run after every change</td><td class="num">3</td><td class="num">5.1</td><td class="num">£2,550</td></tr>
+              <tr class="bundle-item"><td>Rate limits and abuse and scraping protection on the public server</td><td class="num">3</td><td class="num">5.1</td><td class="num">£2,550</td></tr>
+              <tr class="bundle-item"><td>Deployment, backups and monitoring</td><td class="num">3</td><td class="num">5.1</td><td class="num">£2,550</td></tr>
+              <tr class="bundle-item"><td>Instructions and prompts: plain maritime English, cite every claim, refuse off-topic questions, task briefings, near misses, toolbox talks and draft CHIRP write-ups</td><td class="num">2</td><td class="num">3.4</td><td class="num">£1,700</td></tr>
+              <tr class="bundle-item"><td>Logging and tracing of every question asked, the starting point for learning from user questions</td><td class="num">2</td><td class="num">3.4</td><td class="num">£1,700</td></tr>
+              <tr class="bundle-item"><td>Setup page: how to add the CHIRPdb connector to Claude, with sample questions</td><td class="num">2</td><td class="num">3.4</td><td class="num">£1,700</td></tr>
+              <tr class="bundle-item"><td>Terms, privacy notice and disclaimers (CHIRP writes the wording)</td><td class="num">1.5</td><td class="num">2.55</td><td class="num">£1,275</td></tr>
+              <tr class="bundle-head"><td colspan="4"><strong>Backend</strong> (<a href="#analyst">section B</a>, <a href="#sources">section D</a>)</td></tr>
+              <tr class="bundle-item"><td>Capture more metadata, with a shared vocabulary for each field across jurisdictions, so counts across countries compare like with like</td><td class="num">14</td><td class="num">23.8</td><td class="num">£11,900</td></tr>
+              <tr class="bundle-item"><td>Proposed coding and similar cases for incoming CHIRP reports, inside the review tool</td><td class="num">6</td><td class="num">10.2</td><td class="num">£5,100</td></tr>
+              <tr class="bundle-head"><td colspan="4"><strong>Data</strong> (<a href="#bodies">section F</a>)</td></tr>
+              <tr class="bundle-item"><td>Ingest reports from 6 more national investigation bodies, fast ingestion at 2.5 days each <span class="tag">contingency, no PM</span></td><td class="num">15</td><td class="num">21</td><td class="num">£10,500</td></tr>
+              <tr class="bundle-head"><td colspan="4"><strong>Product management</strong></td></tr>
+              <tr class="bundle-item"><td>Maritime Safety Senior Stakeholder Workshop, to decide the future direction of CHIRPdb <span class="tag">in ZigZag product management</span></td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Where the days go</h3>
+        <div class="table-wrap">
+          <table class="bundles">
+            <thead>
+              <tr>
+                <th>Work</th>
+                <th class="num">Days</th>
+                <th class="num">Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Build</td><td class="num">59.5</td><td class="num">£29,750</td></tr>
+              <tr><td>Contingency</td><td class="num">11.9</td><td class="num">£5,950</td></tr>
+              <tr><td>Project management (not on investigation bodies)</td><td class="num">13.35</td><td class="num">£6,675</td></tr>
+              <tr><td>ZigZag product management</td><td class="num">11.9</td><td class="num">£5,950</td></tr>
+              <tr class="total"><td><strong>Total</strong></td><td class="num"><strong>96.65</strong></td><td class="num"><strong>£48,325</strong></td></tr>
             </tbody>
           </table>
         </div>
@@ -2663,11 +2863,12 @@
               <tr>
                 <th>Item</th>
                 <th class="num">Build days</th>
+                <th class="num">Total days</th>
                 <th class="num">Cost</th>
               </tr>
             </thead>
             <tbody>
-              <tr class="bundle-item"><td>SHIELD code matching: SHIELD codes proposed across the corpus and confirmed in the review tool, so reports can be counted by causal factor (<a href="#causal">section E</a>)</td><td class="num">6</td><td class="num">£5,100</td></tr>
+              <tr class="bundle-item"><td>SHIELD code matching: SHIELD codes proposed across the corpus and confirmed in the review tool, so reports can be counted by causal factor (<a href="#causal">section E</a>)</td><td class="num">6</td><td class="num">10.2</td><td class="num">£5,100</td></tr>
             </tbody>
           </table>
         </div>
@@ -2706,6 +2907,7 @@
               <tr>
                 <th>Item</th>
                 <th class="num">Build days</th>
+                <th class="num">Total days</th>
                 <th class="num">Cost</th>
               </tr>
             </thead>
@@ -2716,26 +2918,46 @@
                   ><span class="sub">A chat that learns, for CHIRP staff only</span>
                 </td>
                 <td class="num"><strong>59</strong></td>
+                <td class="num"><strong>98.8</strong></td>
                 <td class="num"><strong>£49,400</strong></td>
               </tr>
-              <tr class="bundle-head"><td colspan="3"><strong>Chat</strong> (<a href="#chat">section A</a>)</td></tr>
-              <tr class="bundle-item"><td>Ask a question and get an answer drawn from verified reports (the tools the model can call, plus retrieval)</td><td class="num">11</td><td class="num">£9,350</td></tr>
-              <tr class="bundle-item"><td>Every claim cited and checked, with a link to the report at the right PDF page</td><td class="num">4</td><td class="num">£3,400</td></tr>
-              <tr class="bundle-item"><td>Answers in plain maritime English, tuned for task briefings and descriptions of a near miss</td><td class="num">4</td><td class="num">£3,400</td></tr>
-              <tr class="bundle-item"><td>Refuses when there is no evidence or the question is off-topic; prompt-injection defence; safety disclaimer</td><td class="num">3</td><td class="num">£2,550</td></tr>
-              <tr class="bundle-item"><td>Follow-up questions within a conversation</td><td class="num">2</td><td class="num">£1,700</td></tr>
-              <tr class="bundle-head"><td colspan="3"><strong>Learning</strong> (<a href="#chat">section A</a>, <a href="#platform">section C</a>)</td></tr>
-              <tr class="bundle-item"><td>Learning from user questions: features extracted from each question and reused when others ask similar ones</td><td class="num">12</td><td class="num">£10,200</td></tr>
-              <tr class="bundle-item"><td>Watching answers, a “report a wrong answer” route, withdrawing an answer or record; reported answers join the quality test set</td><td class="num">4</td><td class="num">£3,400</td></tr>
-              <tr class="bundle-head"><td colspan="3"><strong>Hardening and testing</strong> (<a href="#chat">section A</a>, <a href="#platform">section C</a>)</td></tr>
-              <tr class="bundle-item"><td>Quality test set, re-run after every change</td><td class="num">7</td><td class="num">£5,950</td></tr>
-              <tr class="bundle-item"><td>Deployment, load testing, backups</td><td class="num">4</td><td class="num">£3,400</td></tr>
-              <tr class="bundle-item"><td>Tracing and cost per conversation</td><td class="num">2</td><td class="num">£1,700</td></tr>
-              <tr class="bundle-item"><td>Chat inside the existing review tool, behind CHIRP staff sign-in and roles</td><td class="num">1</td><td class="num">£850</td></tr>
-              <tr class="bundle-head"><td colspan="3"><strong>Data</strong> (<a href="#bodies">section F</a>)</td></tr>
-              <tr class="bundle-item"><td>Ingest reports from 2 more national investigation bodies, fast ingestion at 2.5 days each <span class="tag">contingency, no PM</span></td><td class="num">5</td><td class="num">£3,500</td></tr>
-              <tr class="bundle-head"><td colspan="3"><strong>Product management</strong></td></tr>
-              <tr class="bundle-item"><td>Maritime Safety Senior Stakeholder Workshop, to decide the future direction of CHIRPdb <span class="tag">in ZigZag product management</span></td><td class="num"></td><td class="num"></td></tr>
+              <tr class="bundle-head"><td colspan="4"><strong>Chat</strong> (<a href="#chat">section A</a>)</td></tr>
+              <tr class="bundle-item"><td>Ask a question and get an answer drawn from verified reports (the tools the model can call, plus retrieval)</td><td class="num">11</td><td class="num">18.7</td><td class="num">£9,350</td></tr>
+              <tr class="bundle-item"><td>Every claim cited and checked, with a link to the report at the right PDF page</td><td class="num">4</td><td class="num">6.8</td><td class="num">£3,400</td></tr>
+              <tr class="bundle-item"><td>Answers in plain maritime English, tuned for task briefings and descriptions of a near miss</td><td class="num">4</td><td class="num">6.8</td><td class="num">£3,400</td></tr>
+              <tr class="bundle-item"><td>Refuses when there is no evidence or the question is off-topic; prompt-injection defence; safety disclaimer</td><td class="num">3</td><td class="num">5.1</td><td class="num">£2,550</td></tr>
+              <tr class="bundle-item"><td>Follow-up questions within a conversation</td><td class="num">2</td><td class="num">3.4</td><td class="num">£1,700</td></tr>
+              <tr class="bundle-head"><td colspan="4"><strong>Learning</strong> (<a href="#chat">section A</a>, <a href="#platform">section C</a>)</td></tr>
+              <tr class="bundle-item"><td>Learning from user questions: features extracted from each question and reused when others ask similar ones</td><td class="num">12</td><td class="num">20.4</td><td class="num">£10,200</td></tr>
+              <tr class="bundle-item"><td>Watching answers, a “report a wrong answer” route, withdrawing an answer or record; reported answers join the quality test set</td><td class="num">4</td><td class="num">6.8</td><td class="num">£3,400</td></tr>
+              <tr class="bundle-head"><td colspan="4"><strong>Hardening and testing</strong> (<a href="#chat">section A</a>, <a href="#platform">section C</a>)</td></tr>
+              <tr class="bundle-item"><td>Quality test set, re-run after every change</td><td class="num">7</td><td class="num">11.9</td><td class="num">£5,950</td></tr>
+              <tr class="bundle-item"><td>Deployment, load testing, backups</td><td class="num">4</td><td class="num">6.8</td><td class="num">£3,400</td></tr>
+              <tr class="bundle-item"><td>Tracing and cost per conversation</td><td class="num">2</td><td class="num">3.4</td><td class="num">£1,700</td></tr>
+              <tr class="bundle-item"><td>Chat inside the existing review tool, behind CHIRP staff sign-in and roles</td><td class="num">1</td><td class="num">1.7</td><td class="num">£850</td></tr>
+              <tr class="bundle-head"><td colspan="4"><strong>Data</strong> (<a href="#bodies">section F</a>)</td></tr>
+              <tr class="bundle-item"><td>Ingest reports from 2 more national investigation bodies, fast ingestion at 2.5 days each <span class="tag">contingency, no PM</span></td><td class="num">5</td><td class="num">7</td><td class="num">£3,500</td></tr>
+              <tr class="bundle-head"><td colspan="4"><strong>Product management</strong></td></tr>
+              <tr class="bundle-item"><td>Maritime Safety Senior Stakeholder Workshop, to decide the future direction of CHIRPdb <span class="tag">in ZigZag product management</span></td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Where the days go</h3>
+        <div class="table-wrap">
+          <table class="bundles">
+            <thead>
+              <tr>
+                <th>Work</th>
+                <th class="num">Days</th>
+                <th class="num">Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Build</td><td class="num">59</td><td class="num">£29,500</td></tr>
+              <tr><td>Contingency</td><td class="num">11.8</td><td class="num">£5,900</td></tr>
+              <tr><td>Project management (not on investigation bodies)</td><td class="num">16.2</td><td class="num">£8,100</td></tr>
+              <tr><td>ZigZag product management</td><td class="num">11.8</td><td class="num">£5,900</td></tr>
+              <tr class="total"><td><strong>Total</strong></td><td class="num"><strong>98.8</strong></td><td class="num"><strong>£49,400</strong></td></tr>
             </tbody>
           </table>
         </div>
@@ -2750,13 +2972,14 @@
               <tr>
                 <th>Item</th>
                 <th class="num">Build days</th>
+                <th class="num">Total days</th>
                 <th class="num">Cost</th>
               </tr>
             </thead>
             <tbody>
-              <tr class="bundle-item"><td>Pattern finding for CHIRP analysts: ask what keeps recurring across all reports, counted across every report rather than read from the top matches, see the supporting cases, and get a first-draft outline of a CHIRP write-up (<a href="#analyst">section B</a>)</td><td class="num">8</td><td class="num">£6,800</td></tr>
-              <tr class="bundle-item"><td>SHIELD code matching: SHIELD codes proposed across the corpus and confirmed in the review tool, so reports can be counted by causal factor (<a href="#causal">section E</a>)</td><td class="num">6</td><td class="num">£5,100</td></tr>
-              <tr class="total"><td><strong>Stretch goals total</strong></td><td class="num"><strong>14</strong></td><td class="num"><strong>£11,900</strong></td></tr>
+              <tr class="bundle-item"><td>Pattern finding for CHIRP analysts: ask what keeps recurring across all reports, counted across every report rather than read from the top matches, see the supporting cases, and get a first-draft outline of a CHIRP write-up (<a href="#analyst">section B</a>)</td><td class="num">8</td><td class="num">13.6</td><td class="num">£6,800</td></tr>
+              <tr class="bundle-item"><td>SHIELD code matching: SHIELD codes proposed across the corpus and confirmed in the review tool, so reports can be counted by causal factor (<a href="#causal">section E</a>)</td><td class="num">6</td><td class="num">10.2</td><td class="num">£5,100</td></tr>
+              <tr class="total"><td><strong>Stretch goals total</strong></td><td class="num"><strong>14</strong></td><td class="num"><strong>23.8</strong></td><td class="num"><strong>£11,900</strong></td></tr>
             </tbody>
           </table>
         </div>
