@@ -664,7 +664,7 @@
       }
     </style>
     <script>
-      if (localStorage.getItem("tranche-2-unlocked") !== "yes") {
+      if (localStorage.getItem("tranche-2-unlocked-v2") !== "yes") {
         document.documentElement.classList.add("locked");
       }
     </script>
@@ -682,8 +682,8 @@
     <script>
       document.getElementById("gate-form").addEventListener("submit", function (e) {
         e.preventDefault();
-        if (document.getElementById("gate-password").value === "CHIRPzigzag") {
-          localStorage.setItem("tranche-2-unlocked", "yes");
+        if (document.getElementById("gate-password").value === "fathom-tidal-bosun-367") {
+          localStorage.setItem("tranche-2-unlocked-v2", "yes");
           document.documentElement.classList.remove("locked");
         } else {
           document.getElementById("gate-error").style.display = "block";
