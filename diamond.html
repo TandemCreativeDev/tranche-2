@@ -526,6 +526,86 @@
       ul.list li strong {
         color: var(--navy-deep);
       }
+      main.container > h2 {
+        scroll-margin-top: 88px;
+      }
+      h2 a {
+        color: inherit;
+        text-decoration: none;
+      }
+      h2 a:hover::after {
+        content: " #";
+        color: var(--orange);
+      }
+      .layout {
+        max-width: 1272px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: grid;
+        grid-template-columns: 200px minmax(0, 1fr);
+        column-gap: 24px;
+      }
+      .layout > .container {
+        max-width: none;
+        margin: 0;
+        padding: 8px 0 96px;
+      }
+      .intro__inner {
+        max-width: 1272px;
+        padding-left: 248px;
+      }
+      .toc-side {
+        position: sticky;
+        top: 96px;
+        align-self: start;
+        max-height: calc(100vh - 120px);
+        overflow-y: auto;
+        margin-top: 48px;
+        font-size: 13px;
+      }
+      .toc-side__label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-mute);
+        margin-bottom: 8px;
+      }
+      .toc-side a {
+        display: block;
+        padding: 5px 10px;
+        border-left: 2px solid var(--border);
+        color: var(--text-soft);
+        text-decoration: none;
+        line-height: 1.35;
+      }
+      .toc-side a:hover {
+        color: var(--orange-deep);
+      }
+      .toc-side a.active {
+        color: var(--orange-deep);
+        border-left-color: var(--orange);
+        font-weight: 600;
+      }
+      @media (max-width: 1024px) {
+        .layout {
+          display: block;
+          max-width: none;
+          padding: 0;
+        }
+        .toc-side {
+          display: none;
+        }
+        .layout > .container {
+          max-width: 1000px;
+          margin: 0 auto;
+          padding: 8px 24px 96px;
+        }
+        .intro__inner {
+          max-width: 1000px;
+          padding-left: 24px;
+        }
+      }
       @media (max-width: 640px) {
         .intro__inner {
           padding: 36px 16px 28px;
@@ -663,8 +743,12 @@
       </div>
     </section>
 
+    <div class="layout">
+    <nav class="toc-side" id="toc-side" aria-label="Contents">
+      <div class="toc-side__label">Contents</div>
+    </nav>
     <main class="container">
-      <h2>What CHIRP gets</h2>
+      <h2 id="gets">What CHIRP gets</h2>
       <div class="table-wrap">
         <table class="hide-build">
           <thead>
@@ -839,7 +923,7 @@
         </table>
       </div>
 
-      <h2>Stretch goal</h2>
+      <h2 id="stretch">Stretch goal</h2>
       <div class="table-wrap">
         <table class="hide-build">
           <thead>
@@ -879,7 +963,7 @@
       </div>
       <p class="note">Taken on if time allows, or funded on top, which brings Diamond to £53,425.</p>
 
-      <h2>Where the days go</h2>
+      <h2 id="days">Where the days go</h2>
       <div class="table-wrap">
         <table>
           <thead>
@@ -899,7 +983,7 @@
         </table>
       </div>
 
-      <h2>Not included</h2>
+      <h2 id="not-included">Not included</h2>
       <ul class="list">
         <li><strong>A CHIRP-branded chat screen.</strong> Users ask through their own AI, such as <a href="https://claude.ai">claude.ai</a>.</li>
         <li><strong><a href="#g-patterns">Learning from user questions</a>.</strong> Recurring patterns are found from each report’s metadata and text on every question, but not saved for next time. Questions are <a href="#g-log">logged</a>, which is the starting point.</li>
@@ -911,7 +995,7 @@
         <a href="index.html">full menu</a>.
       </p>
 
-      <h2>Glossary</h2>
+      <h2 id="glossary">Glossary</h2>
       <ul class="list">
         <li id="g-connector"><strong>Connector.</strong> A small new service that users add to the Claude harness. It holds no data: it turns the AI’s requests into calls to CHIRPdb, which does the searching and counting. Users sign in with a CHIRPdb account before it works.</li>
         <li id="g-vocabulary"><strong>Shared vocabulary.</strong> Each country describes the same thing in its own words: one says “fishing vessel”, another “fishing”, another “trawler”; severity and accident type vary in the same way. We map every country’s terms onto one list for each field, building on the IMO classifications we already use for accident type and severity. We also capture more fields from every report, so a report from any country carries close to the detail the MAIB spreadsheets give. The result: ask about fishing vessel groundings and the answer draws on the matching reports from every country, with counts that compare like with like.</li>
@@ -925,7 +1009,7 @@
         <li id="g-log"><strong>Log.</strong> A record of each question asked and which reports the AI used to answer it.</li>
       </ul>
 
-      <h2>How CHIRP’s users get answers</h2>
+      <h2 id="journey">How CHIRP’s users get answers</h2>
       <div class="diagram">
         <svg viewBox="0 0 960 335" role="img" aria-label="Set up once: CHIRP invites a user, they add the connector to their own AI and sign in. Every time: they ask a question, get an answer compared across 8 countries, and check the source. Follow-up questions loop back.">
           <defs>
@@ -971,7 +1055,7 @@
         </svg>
       </div>
 
-      <h2>What happens when someone asks a question</h2>
+      <h2 id="question-flow">What happens when someone asks a question</h2>
       <div class="diagram">
         <svg viewBox="0 0 960 606" role="img" aria-label="One question, end to end: the user asks; the Claude harness reads CHIRPdb's instructions and picks tools; the connector passes the request to the CHIRPdb API with the user's sign-in; the API checks access, logs the question, counts the matching reports by SHIELD code, vessel type, country, date or outcome, finds the matching reports and pulls passages and PDF pages; the connector returns the results; the Claude harness writes a cited answer; the user checks a source.">
           <defs>
@@ -1039,7 +1123,7 @@
         </svg>
       </div>
 
-      <h2>Questions Diamond can answer</h2>
+      <h2 id="examples">Questions Diamond can answer</h2>
       <ul class="examples">
         <li>
           <strong>“How many fishing vessels have sunk in the last ten years, and in which countries?”</strong>
@@ -1093,7 +1177,7 @@ get_report_pages(report_ids=[…], pages="matching passages")</code>
       </ul>
       <p class="note">Illustrative: the tool names and fields are settled during the build, and the figures and vessel names in the answers are made up for illustration.</p>
 
-      <h2>How it fits together</h2>
+      <h2 id="fits-together">How it fits together</h2>
       <div class="diagram">
         <svg viewBox="0 30 960 408" role="img" aria-label="Sources flow through automatic ingestion into CHIRPdb: its database, API and frontend. A new connector turns the Claude harness's requests into calls to the CHIRPdb API. Users are invited and managed by CHIRP in the CHIRPdb frontend.">
           <defs>
@@ -1182,6 +1266,39 @@ get_report_pages(report_ids=[…], pages="matching passages")</code>
         </svg>
       </div>
     </main>
+    </div>
+    <script>
+      (function () {
+        var nav = document.getElementById("toc-side");
+        var targets = [];
+        document.querySelectorAll("main.container > h2[id]").forEach(function (h2) {
+          var a = document.createElement("a");
+          a.href = "#" + h2.id;
+          a.textContent = h2.textContent;
+          nav.appendChild(a);
+          targets.push({ el: h2, link: a });
+          h2.innerHTML = '<a href="#' + h2.id + '">' + h2.innerHTML + "</a>";
+        });
+        var ticking = false;
+        function update() {
+          ticking = false;
+          var current = null;
+          targets.forEach(function (t) {
+            if (t.el.getBoundingClientRect().top <= 120) current = t;
+          });
+          targets.forEach(function (t) {
+            t.link.classList.toggle("active", t === current);
+          });
+        }
+        window.addEventListener("scroll", function () {
+          if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(update);
+          }
+        }, { passive: true });
+        update();
+      })();
+    </script>
     <script>
       document.querySelectorAll(".toggle").forEach(function (button) {
         button.addEventListener("click", function () {
