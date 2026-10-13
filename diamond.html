@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>CHIRPdb - Tranche 2 Diamond</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="chirp.css" />
+    <style>
+      body {
+        background: var(--bg-soft);
+        color: var(--text);
+        line-height: 1.6;
+      }
+      .intro {
+        background: var(--bg-card);
+        border-bottom: 1px solid var(--border);
+      }
+      .intro__inner,
+      .container {
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 48px 24px 32px;
+      }
+      .container {
+        padding: 8px 24px 96px;
+      }
+      .eyebrow {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--orange);
+        margin-bottom: 12px;
+      }
+      h1 {
+        font-size: clamp(28px, 4vw, 34px);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+        color: var(--navy-deep);
+        margin-bottom: 12px;
+      }
+      .lede {
+        font-size: 17px;
+        color: var(--navy-deep);
+        font-weight: 500;
+      }
+      .price {
+        margin-top: 16px;
+        font-size: 15px;
+        color: var(--text-soft);
+      }
+      .price strong {
+        font-size: 22px;
+        color: var(--navy-deep);
+      }
+      h2 {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-mute);
+        margin: 36px 0 0;
+      }
+      .note {
+        font-size: 14px;
+        color: var(--text-soft);
+        margin-top: 8px;
+      }
+      a {
+        color: var(--orange-deep);
+      }
+      .table-wrap {
+        margin-top: 12px;
+        overflow-x: auto;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+      td {
+        text-align: left;
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--border-soft);
+        vertical-align: top;
+        color: var(--text-soft);
+      }
+      tr:last-child td {
+        border-bottom: 0;
+      }
+      td strong {
+        display: block;
+        color: var(--navy-deep);
+        font-size: 15px;
+      }
+      .num {
+        text-align: right;
+        white-space: nowrap;
+        font-variant-numeric: tabular-nums;
+        color: var(--navy-deep);
+        font-weight: 600;
+      }
+      tr.total td {
+        background: var(--bg-soft);
+        border-top: 1px solid var(--border);
+      }
+      ul.list {
+        list-style: none;
+        margin: 12px 0 0;
+        padding: 0;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--bg-card);
+        overflow: hidden;
+      }
+      ul.list li {
+        padding: 10px 16px;
+        font-size: 14px;
+        color: var(--text-soft);
+        border-bottom: 1px solid var(--border-soft);
+      }
+      ul.list li:last-child {
+        border-bottom: 0;
+      }
+      ul.list li:target {
+        background: var(--orange-tint);
+      }
+      ul.list li {
+        scroll-margin-top: 24px;
+      }
+      ul.list li strong {
+        color: var(--navy-deep);
+      }
+      @media (max-width: 640px) {
+        .intro__inner {
+          padding: 36px 16px 28px;
+        }
+        .container {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+      }
+    </style>
+    <style>
+      html.locked body > :not(#gate) {
+        display: none;
+      }
+      #gate {
+        display: none;
+      }
+      html.locked #gate {
+        display: flex;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+      .gate__card {
+        width: 100%;
+        max-width: 360px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 28px 24px;
+      }
+      .gate__card h1 {
+        font-size: 20px;
+        margin-bottom: 6px;
+      }
+      .gate__card p {
+        font-size: 14px;
+        color: var(--text-soft);
+        margin-bottom: 16px;
+      }
+      .gate__card input {
+        width: 100%;
+        font: inherit;
+        padding: 10px 12px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        margin-bottom: 12px;
+      }
+      .gate__card button {
+        width: 100%;
+        font: inherit;
+        font-weight: 600;
+        padding: 10px 12px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--navy-deep);
+        color: #fff;
+        cursor: pointer;
+      }
+      .gate__error {
+        display: none;
+        font-size: 13px;
+        color: #b42318;
+        margin-top: 10px;
+      }
+    </style>
+    <script>
+      if (localStorage.getItem("tranche-2-unlocked-v2") !== "yes") {
+        document.documentElement.classList.add("locked");
+      }
+    </script>
+  </head>
+  <body>
+    <div id="gate">
+      <form class="gate__card" id="gate-form">
+        <h1>Password required</h1>
+        <p>This draft is private. Enter the password to continue.</p>
+        <input type="password" id="gate-password" placeholder="Password" autocomplete="current-password" autofocus />
+        <button type="submit">Continue</button>
+        <div class="gate__error" id="gate-error">Incorrect password.</div>
+      </form>
+    </div>
+    <script>
+      document.getElementById("gate-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (document.getElementById("gate-password").value === "fathom-tidal-bosun-367") {
+          localStorage.setItem("tranche-2-unlocked-v2", "yes");
+          document.documentElement.classList.remove("locked");
+        } else {
+          document.getElementById("gate-error").style.display = "block";
+        }
+      });
+    </script>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a href="index.html" class="logo">
+          <img
+            src="https://chirp.co.uk/app/uploads/2024/07/chirp-logo-blue.svg"
+            alt="CHIRP"
+            class="logo__img"
+          />
+        </a>
+        <div class="header__spacer"></div>
+        <span class="header__tag">Tranche 2: Diamond</span>
+      </div>
+    </header>
+
+    <section class="intro">
+      <div class="intro__inner">
+        <div class="eyebrow">Internal draft · not yet shared with CHIRP</div>
+        <h1>Diamond</h1>
+        <p class="lede">
+          By the end of this tranche, CHIRP can ask an AI about reports from 8
+          countries to compare incidents, find recurring patterns and draw
+          lessons, with every conclusion traced back to its source report.
+        </p>
+        <p class="price"><strong>£49,600</strong> · 99.2 days at £500 a day, all costs included</p>
+      </div>
+    </section>
+
+    <main class="container">
+      <h2>What CHIRP gets</h2>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <strong>Ask questions in Claude, or another AI that supports <a href="#g-connector">connectors</a></strong>
+                A CHIRPdb <a href="#g-connector">connector</a> that searches the reports, finds similar incidents, counts across
+                every report, and links each claim to the right page of the source PDF.
+              </td>
+              <td class="num">£11,900</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Reports from 6 more countries</strong>
+                Chosen by CHIRP, added to the UK and US reports already in from Tranche 1.
+              </td>
+              <td class="num">£10,500</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Compare countries like with like</strong>
+                One <a href="#g-vocabulary">shared vocabulary</a> for vessel type, accident type, outcome and so on, so
+                that a count in one country means the same as a count in another.
+              </td>
+              <td class="num">£11,900</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Count incidents by causal factor</strong>
+                <a href="#g-shield">SHIELD codes</a> proposed for every report and confirmed by CHIRP in the <a href="#g-review-tool">review tool</a>.
+              </td>
+              <td class="num">£5,100</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>CHIRP’s own reports included</strong>
+                CHIRP Maritime’s published reports, searchable alongside the investigation reports.
+              </td>
+              <td class="num">£2,550</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Always up to date</strong>
+                New reports are <a href="#g-ingestion">ingested automatically</a> as each source publishes them.
+              </td>
+              <td class="num">£3,400</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Proof the answers are right, and a record of how it is used</strong>
+                A <a href="#g-test-set">validated test set</a>, re-run after every change, and a <a href="#g-log">log</a> of every question asked.
+              </td>
+              <td class="num">£4,250</td>
+            </tr>
+            <tr class="total">
+              <td><strong>Total</strong></td>
+              <td class="num">£49,600</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Stretch goal</h2>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <strong>Open it to people CHIRP shares the link with</strong>
+                Rate limits, abuse and scraping protection, and terms and a privacy notice
+                (CHIRP writes the wording). The <a href="#g-log">log</a> shows how it is used in practice.
+              </td>
+              <td class="num">£3,825</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Taken on if time allows, or funded on top, which brings Diamond to £53,425.</p>
+
+      <h2>Not included</h2>
+      <ul class="list">
+        <li><strong>A CHIRP-branded chat screen.</strong> Users ask through their own AI.</li>
+        <li><strong>Learning from user questions.</strong> Questions are <a href="#g-log">logged</a>, but not yet reused to improve answers.</li>
+        <li><strong>Full <a href="#g-ingestion">ingestion</a> of the 6 new countries.</strong> These use <a href="#g-fast">fast ingestion</a>, which is quicker but gives less reliable data.</li>
+        <li><strong>Dashboards and Causal AI.</strong></li>
+      </ul>
+      <p class="note">
+        Hosting and AI usage are paid by CHIRP. Costs come from the
+        <a href="index.html">full menu</a>.
+      </p>
+
+      <h2>Glossary</h2>
+      <ul class="list">
+        <li id="g-connector"><strong>Connector.</strong> A plug-in users add to their own AI, such as Claude, so it can search CHIRPdb.</li>
+        <li id="g-vocabulary"><strong>Shared vocabulary.</strong> Each country labels things its own way (“fishing vessel”, “fishing”, “trawler”). We map them all onto one list, so counts compare across countries.</li>
+        <li id="g-shield"><strong>SHIELD codes.</strong> A standard set of codes for the human factors behind an incident. The AI suggests them for each report; CHIRP accepts or corrects them.</li>
+        <li id="g-review-tool"><strong>Review tool.</strong> CHIRP’s existing staff screen for checking reports.</li>
+        <li id="g-ingestion"><strong>Ingestion.</strong> Adding a source’s reports to CHIRPdb so they can be searched. Automatic ingestion checks each source on a schedule and adds new reports without anyone doing it by hand.</li>
+        <li id="g-fast"><strong>Fast ingestion.</strong> 2.5 days per country instead of 5. Only some of each country’s reporting rules are built in, so the data is less reliable.</li>
+        <li id="g-test-set"><strong>Validated test set.</strong> A fixed list of questions with known right answers, re-run after every change to catch answers getting worse.</li>
+        <li id="g-log"><strong>Log.</strong> A record of each question asked and which reports the AI used to answer it.</li>
+      </ul>
+    </main>
+  </body>
+</html>
