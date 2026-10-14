@@ -483,6 +483,15 @@
         background: #eef2f8;
         border-radius: 8px;
       }
+      .examples__query {
+        margin-top: 8px;
+      }
+      .examples__query summary {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--orange-deep);
+        cursor: pointer;
+      }
       .examples__plain {
         display: block;
         margin-top: 4px;
@@ -528,6 +537,38 @@
       }
       main.container > h2 {
         scroll-margin-top: 88px;
+      }
+      tr[id] {
+        scroll-margin-top: 88px;
+      }
+      tr[id]:target > td {
+        background: var(--orange-tint);
+      }
+      tr.st-in td:first-child {
+        box-shadow: inset 4px 0 #1f7a45;
+      }
+      tr.st-part td:first-child {
+        box-shadow: inset 4px 0 #f5a623;
+      }
+      tr.st-out td:first-child {
+        box-shadow: inset 4px 0 #d0d5dd;
+      }
+      tr.st-out td {
+        color: var(--text-mute);
+      }
+      .tag--part {
+        background: #fff4e5;
+        color: #b54708;
+      }
+      tr.group td {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--navy-deep);
+        background: #eef2f8;
       }
       h2 a {
         color: inherit;
@@ -760,7 +801,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr id="d-ai">
               <td>
                 <strong>Asked through an AI</strong>
                 Users ask in the Claude harness through a CHIRPdb <a href="#g-connector">connector</a>. Only people CHIRP gives access to can use it.
@@ -794,7 +835,7 @@
               <td class="num">6.8</td>
               <td class="num">£3,400</td>
             </tr>
-            <tr>
+            <tr id="d-patterns">
               <td>
                 <strong>Compare incidents, find <a href="#g-patterns">recurring patterns</a> and draw lessons</strong>
                 Counts across every report, not just the top matches, and finds similar past incidents, so the AI can compare them and draw lessons.
@@ -822,7 +863,7 @@
               <td class="num">2.55</td>
               <td class="num">£1,275</td>
             </tr>
-            <tr>
+            <tr id="d-trace">
               <td>
                 <strong>Every conclusion traceable to its source report</strong>
                 Each conclusion links to the right page of the source PDF.
@@ -844,7 +885,7 @@
               <td class="num">0.85</td>
               <td class="num">£425</td>
             </tr>
-            <tr>
+            <tr id="d-countries">
               <td>
                 <strong>Reports from the UK, the US and up to 6 more countries</strong>
                 The 6 more countries are chosen by CHIRP, added to the UK and US reports already in from Tranche 1.
@@ -853,7 +894,7 @@
               <td class="num">21</td>
               <td class="num">£10,500</td>
             </tr>
-            <tr>
+            <tr id="d-vocab">
               <td>
                 <strong>Compare incidents across countries like with like</strong>
                 One <a href="#g-vocabulary">shared vocabulary</a> for vessel type, accident type, outcome and so on, so
@@ -863,7 +904,7 @@
               <td class="num">20.4</td>
               <td class="num">£10,200</td>
             </tr>
-            <tr>
+            <tr id="d-shield">
               <td>
                 <strong>SHIELD matching</strong>
                 SHIELD codes proposed for every report and confirmed by CHIRP in the <a href="#g-review-tool">review tool</a>,
@@ -873,7 +914,7 @@
               <td class="num">10.2</td>
               <td class="num">£5,100</td>
             </tr>
-            <tr>
+            <tr id="d-chirp">
               <td>
                 <strong>CHIRP’s own reports</strong>
                 CHIRP Maritime’s published reports, searchable alongside the investigation reports.
@@ -882,7 +923,7 @@
               <td class="num">5.1</td>
               <td class="num">£2,550</td>
             </tr>
-            <tr>
+            <tr id="d-updates">
               <td>
                 <strong>Kept up to date automatically</strong>
                 New reports are ingested automatically as each source publishes them.
@@ -891,7 +932,7 @@
               <td class="num">3.4</td>
               <td class="num">£1,700</td>
             </tr>
-            <tr>
+            <tr id="d-proof">
               <td>
                 <strong>A validated test set, and logging</strong>
                 A <a href="#g-test-set">validated test set</a>, re-run after every change to prove the answers are right, and a <a href="#g-log">log</a> of every question asked.
@@ -935,7 +976,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr id="d-link">
               <td>
                 <strong>Open it to people CHIRP shares the link with</strong>
                 Rate limits and abuse and scraping protection on the connector, and terms and a privacy notice
@@ -1013,50 +1054,60 @@
       <ul class="examples">
         <li>
           <strong>“How many fishing vessels have sunk in the last ten years, and in which countries?”</strong>
-          <span class="examples__label">Claude asks CHIRPdb</span>
-          <code>count_reports(vessel_type="fishing vessel", vessel_sank=true,
+          <details class="examples__query">
+            <summary>How Claude asks CHIRPdb</summary>
+            <code>count_reports(vessel_type="fishing vessel", vessel_sank=true,
               accident_date_from="2016-01-01", group_by="country")</code>
-          <span class="examples__label">In plain English</span>
-          <span class="examples__plain">Count the reports about fishing vessels that sank since 2016, split by country.</span>
+            <span class="examples__label">In plain English</span>
+            <span class="examples__plain">Count the reports about fishing vessels that sank since 2016, split by country.</span>
+          </details>
           <span class="examples__label">A typical answer</span>
           <span class="examples__answer">112 fishing vessels sank across the 8 countries since 2016. The UK had the most (38), then the US (27) and Norway (14). Most capsized after flooding or losing stability. Each count links to the reports behind it.</span>
         </li>
         <li>
           <strong>“What keeps causing deaths in enclosed spaces?”</strong>
-          <span class="examples__label">Claude asks CHIRPdb</span>
-          <code>search_text(text="enclosed space", deaths_min=1)
+          <details class="examples__query">
+            <summary>How Claude asks CHIRPdb</summary>
+            <code>search_text(text="enclosed space", deaths_min=1)
 count_reports(text="enclosed space", deaths_min=1, group_by="shield_code")</code>
-          <span class="examples__label">In plain English</span>
-          <span class="examples__plain">Find passages that mention enclosed spaces in reports where someone died, then count those reports by SHIELD code.</span>
+            <span class="examples__label">In plain English</span>
+            <span class="examples__plain">Find passages that mention enclosed spaces in reports where someone died, then count those reports by SHIELD code.</span>
+          </details>
           <span class="examples__label">A typical answer</span>
           <span class="examples__answer">Across 46 fatal enclosed-space accidents, two factors recur most: poor planning of the task (29 reports) and procedures not followed (24). A common sequence: the atmosphere was not tested, and a second person died going in to help. Each point links to the report page it comes from.</span>
         </li>
         <li>
           <strong>“Compare collisions in the UK and the US since 2015.”</strong>
-          <span class="examples__label">Claude asks CHIRPdb</span>
-          <code>count_reports(accident_type="collision", country=["UK", "US"],
+          <details class="examples__query">
+            <summary>How Claude asks CHIRPdb</summary>
+            <code>count_reports(accident_type="collision", country=["UK", "US"],
               accident_date_from="2015-01-01", group_by=["country", "vessel_type"])</code>
-          <span class="examples__label">In plain English</span>
-          <span class="examples__plain">Count collisions in UK and US reports since 2015, split by country and vessel type.</span>
+            <span class="examples__label">In plain English</span>
+            <span class="examples__plain">Count collisions in UK and US reports since 2015, split by country and vessel type.</span>
+          </details>
           <span class="examples__label">A typical answer</span>
           <span class="examples__answer">A table of collisions by country and vessel type, 212 in UK reports and 184 in US reports, with the biggest differences called out: fishing vessels feature far more often in UK reports, towing vessels in US reports.</span>
         </li>
         <li>
           <strong>“Has anything like this happened before? A bulk carrier grounded at night with one person on watch.”</strong>
-          <span class="examples__label">Claude asks CHIRPdb</span>
-          <code>find_similar(description="bulk carrier grounded at night, single watchkeeper")</code>
-          <span class="examples__label">In plain English</span>
-          <span class="examples__plain">Find past incidents that read most like this description.</span>
+          <details class="examples__query">
+            <summary>How Claude asks CHIRPdb</summary>
+            <code>find_similar(description="bulk carrier grounded at night, single watchkeeper")</code>
+            <span class="examples__label">In plain English</span>
+            <span class="examples__plain">Find past incidents that read most like this description.</span>
+          </details>
           <span class="examples__label">A typical answer</span>
           <span class="examples__answer">6 similar groundings, closest first: the bulk carrier Ocean Venture, Australia, 2018, grounded at night with the officer of the watch alone on the bridge; and so on, each with a one-line summary and a link to the report.</span>
         </li>
         <li>
           <strong>“Write me a toolbox talk on mooring line injuries, from real cases.”</strong>
-          <span class="examples__label">Claude asks CHIRPdb</span>
-          <code>search_text(text="mooring line", injuries_min=1)
+          <details class="examples__query">
+            <summary>How Claude asks CHIRPdb</summary>
+            <code>search_text(text="mooring line", injuries_min=1)
 get_report_pages(report_ids=[…], pages="matching passages")</code>
-          <span class="examples__label">In plain English</span>
-          <span class="examples__plain">Find passages about mooring lines in reports where someone was injured, then fetch those report pages.</span>
+            <span class="examples__label">In plain English</span>
+            <span class="examples__plain">Find passages about mooring lines in reports where someone was injured, then fetch those report pages.</span>
+          </details>
           <span class="examples__label">A typical answer</span>
           <span class="examples__answer">A one-page toolbox talk in plain English: what went wrong in 14 real cases, the warning signs, and what to do differently, each point linked to the report it comes from.</span>
         </li>
@@ -1265,6 +1316,179 @@ get_report_pages(report_ids=[…], pages="matching passages")</code>
           <text class="item" x="38" y="326">Tranche 2</text>
         </svg>
       </div>
+      <h2 id="scope-status">Scope status after CHIRP’s update</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Deliverable</th>
+              <th>Was</th>
+              <th>In Diamond</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="group"><td colspan="3">Must</td></tr>
+            <tr class="st-part">
+              <td><strong>A broad and validated data set</strong> “The real Must is a broad and validated data-set.” (CHIRP’s update)</td>
+              <td></td>
+              <td><span class="tag tag--part">Partly</span> <a href="#d-countries">Reports from the UK, the US and up to 6 more countries</a>, <a href="#d-vocab">Compare incidents across countries like with like</a>, <a href="#d-shield">SHIELD matching</a>, <a href="#d-proof">A validated test set, and logging</a>. The 6 new countries use <a href="#g-fast">fast ingestion</a>, which is less reliable.</td>
+            </tr>
+            <tr class="st-part">
+              <td><strong>3a Pattern analysis</strong> “As a CHIRP analyst, I want to ask questions across all reports and datasets, so that I can unearth patterns and publish insight that raises awareness and encourages improvement.” CHIRP’s top priority.</td>
+              <td></td>
+              <td><span class="tag tag--part">Partly</span> <a href="#d-patterns">Compare incidents, find recurring patterns and draw lessons</a>, <a href="#d-trace">Every conclusion traceable to its source report</a>. Pathways and drafting an outline are not named on this page yet.</td>
+            </tr>
+            <tr class="st-part">
+              <td><strong>1a Task briefing</strong> “As a seafarer or supervisor about to start a task, I want to know what has gone wrong during similar work, so that I recognise the critical hazards before I start.”</td>
+              <td></td>
+              <td><span class="tag tag--part">Partly</span> <a href="#d-ai">Asked through an AI</a>, <a href="#d-patterns">Compare incidents, find recurring patterns and draw lessons</a>, <a href="#d-trace">Every conclusion traceable to its source report</a>. Invited users only; public access is the <a href="#d-link">stretch goal</a>.</td>
+            </tr>
+            <tr class="st-part">
+              <td><strong>2a Near miss</strong> “As a seafarer who has just had a near miss, I want to describe what happened, so that I can see whether others have experienced the same thing and what they learned.”</td>
+              <td></td>
+              <td><span class="tag tag--part">Partly</span> <a href="#d-patterns">Compare incidents, find recurring patterns and draw lessons</a> (find similar incidents). The link to the reporting form is not yet included.</td>
+            </tr>
+            <tr class="st-part">
+              <td><strong>All marine accident investigation bodies publishing in English</strong> “Full investigation reports from flag and coastal states. The core corpus. MAIB reports are already ingested (P1).”</td>
+              <td></td>
+              <td><span class="tag tag--part">Partly</span> <a href="#d-countries">Reports from the UK, the US and up to 6 more countries</a>.</td>
+            </tr>
+            <tr class="group"><td colspan="3">Should</td></tr>
+            <tr class="st-in">
+              <td><strong>CHIRP Maritime published reports</strong> “De-identified confidential reports and commentary. Closest to seafarer experience. Roadmap step 13.”</td>
+              <td>Must</td>
+              <td><span class="tag tag--in">In</span> <a href="#d-chirp">CHIRP’s own reports</a>.</td>
+            </tr>
+            <tr class="st-in">
+              <td><strong>Citation integrity</strong> “Every public answer cites verified records and links to the source report (step 10).”</td>
+              <td>Must</td>
+              <td><span class="tag tag--in">In</span> <a href="#d-trace">Every conclusion traceable to its source report</a>. Still a fixed constraint in the scope.</td>
+            </tr>
+            <tr class="st-in">
+              <td><strong>1b Toolbox talk</strong> “As an onboard supervisor, I want the briefing produced as a toolbox talk, so that I can brief the crew from real incidents.”</td>
+              <td></td>
+              <td><span class="tag tag--in">In</span> <a href="#d-ai">Asked through an AI</a>, see the <a href="#examples">example questions</a>.</td>
+            </tr>
+            <tr class="st-part">
+              <td><strong>2b Code incoming reports</strong> “As a CHIRP analyst, I want each report we receive coded and set against similar cases, so that I can assess it quickly and consistently and respond with context.”</td>
+              <td>Must</td>
+              <td><span class="tag tag--part">Partly</span> <a href="#d-shield">SHIELD matching</a> and <a href="#d-patterns">Compare incidents, find recurring patterns and draw lessons</a> (find similar incidents), for published reports only.</td>
+            </tr>
+            <tr class="st-part">
+              <td><strong>Production hardening</strong> “Logins and role-based access for CHIRP staff and partners; anonymous public access kept separate from the review tool and drafting features.”</td>
+              <td>Must</td>
+              <td><span class="tag tag--part">Partly</span> sign-in and user management in <a href="#d-ai">Asked through an AI</a>.</td>
+            </tr>
+            <tr class="st-part">
+              <td><strong>Public usage controls</strong> “Rate limiting per user, a spending cap on question-answering costs, and protection against abuse, scraping and prompt injection.”</td>
+              <td>Must</td>
+              <td><span class="tag tag--part">Partly</span> rate limits and abuse protection in the <a href="#d-link">stretch goal</a>.</td>
+            </tr>
+            <tr class="st-part">
+              <td><strong>Monitoring and correction</strong> “Usage and error monitoring with alerts, and a route to correct or withdraw a published answer or record.”</td>
+              <td>Must</td>
+              <td><span class="tag tag--part">Partly</span> monitoring in <a href="#d-ai">Asked through an AI</a>. No correction route.</td>
+            </tr>
+            <tr class="st-out">
+              <td><strong>MAIB Safety Digests and bulletins</strong> “Short-form learning. Roadmap step 13.”</td>
+              <td>Must</td>
+              <td><span class="tag tag--out">Not in</span></td>
+            </tr>
+            <tr class="st-out">
+              <td><strong>Duplicate and derivative tracking</strong> “Many sources republish or edit the same event (MARS, SAFETY4SEA, IMO GISIS and national bodies). Each derivative account links to its source report, and pattern analysis counts the event once.”</td>
+              <td>Must</td>
+              <td><span class="tag tag--out">Not in</span></td>
+            </tr>
+            <tr class="st-out">
+              <td><strong>3b Dashboards</strong> “As a shore-side manager or commercial operator, I want to explore trends across the evidence base, so that I can find vulnerabilities and decide where to invest.”</td>
+              <td></td>
+              <td><span class="tag tag--out">Not in</span> The same counts can be asked for through <a href="#d-ai">Asked through an AI</a>.</td>
+            </tr>
+            <tr class="st-out">
+              <td><strong>3c Legislation links</strong> “As CHIRP, I want to see where incidents recur because regulation is absent, unclear or poorly implemented, so that I can put evidence to flag states and encourage change.”</td>
+              <td></td>
+              <td><span class="tag tag--out">Not in</span></td>
+            </tr>
+            <tr class="st-out">
+              <td><strong>IMO GISIS Marine Casualties and Incidents module</strong> “Investigation reports submitted to IMO, filling gaps for states without their own publication site.”</td>
+              <td></td>
+              <td><span class="tag tag--out">Not in</span></td>
+            </tr>
+            <tr class="st-out">
+              <td><strong>IMO Lessons Learned from casualty investigations</strong> “Short anonymised lessons drawn from member-state investigations.”</td>
+              <td></td>
+              <td><span class="tag tag--out">Not in</span></td>
+            </tr>
+            <tr class="st-out">
+              <td><strong>Nautical Institute MARS</strong> “Free-text narratives of the kind third parties will submit. Mostly edited from regulators’ reports, so depends on duplicate tracking.”</td>
+              <td></td>
+              <td><span class="tag tag--out">Not in</span></td>
+            </tr>
+            <tr class="st-out">
+              <td><strong>SAFETY4SEA</strong> “Incident news and safety articles, often derived from investigation reports, so depends on duplicate tracking.”</td>
+              <td></td>
+              <td><span class="tag tag--out">Not in</span></td>
+            </tr>
+            <tr class="st-out">
+              <td><strong>IMCA safety flashes</strong> “Offshore and marine contracting incidents with lessons.”</td>
+              <td></td>
+              <td><span class="tag tag--out">Not in</span></td>
+            </tr>
+            <tr class="st-out">
+              <td><strong>USCG Marine Safety Alerts and lessons learned</strong> “Short-form alerts linked to US investigations.”</td>
+              <td></td>
+              <td><span class="tag tag--out">Not in</span></td>
+            </tr>
+            <tr class="st-out">
+              <td><strong>UK legislation and MCA notices</strong> “Instruments to link findings against, starting with the UK flag.”</td>
+              <td></td>
+              <td><span class="tag tag--out">Not in</span></td>
+            </tr>
+            <tr class="st-out">
+              <td><strong>ILO Maritime Labour Convention</strong> “Hours of rest, manning and welfare requirements.”</td>
+              <td></td>
+              <td><span class="tag tag--out">Not in</span></td>
+            </tr>
+            <tr class="st-out">
+              <td><strong>IMO conventions and codes</strong> “The core international instruments.”</td>
+              <td></td>
+              <td><span class="tag tag--out">Not in</span></td>
+            </tr>
+            <tr class="group"><td colspan="3">Could</td></tr>
+            <tr class="st-out">
+              <td><strong>1c Upload a risk assessment, permit or plan</strong> “As an onboard supervisor, I want to upload a draft risk assessment, permit or plan, so that it is challenged against previous incidents before authorisation.”</td>
+              <td></td>
+              <td><span class="tag tag--out">Not in</span></td>
+            </tr>
+            <tr class="st-out">
+              <td><strong>2c Upload your own report</strong> “As an organisation or onboard investigator, I want to upload our own report or event narrative, so that I can find comparable cases and lines of enquiry, knowing the document itself is not kept.”</td>
+              <td></td>
+              <td><span class="tag tag--out">Not in</span></td>
+            </tr>
+            <tr class="st-out">
+              <td><strong>Upload terms</strong> “Terms stating where uploaded files are processed, that documents are deleted after the session, and that a de-identified pattern record is kept from 2c uploads.”</td>
+              <td></td>
+              <td><span class="tag tag--out">Not in</span></td>
+            </tr>
+            <tr class="st-out">
+              <td><strong>Scanned pre-2005 reports</strong> “Historic depth. Requires OCR, excluded from P1.”</td>
+              <td></td>
+              <td><span class="tag tag--out">Not in</span></td>
+            </tr>
+            <tr class="st-out">
+              <td><strong>P&amp;I club loss prevention publications</strong> “Claims-led trend analysis and case studies.”</td>
+              <td></td>
+              <td><span class="tag tag--out">Not in</span></td>
+            </tr>
+            <tr class="st-out">
+              <td><strong>Copernicus metocean data</strong> “Historical wind, wave and sea state at the time and position of each incident, enriching reports that omit or understate conditions. Needs incident position and time from extraction (step 6).”</td>
+              <td></td>
+              <td><span class="tag tag--out">Not in</span></td>
+            </tr>
+</tbody>
+        </table>
+      </div>
+      <p class="note">Every deliverable in the Tranche 2 Development Scope, with its description quoted from that document, grouped by its priority after CHIRP moved 2b and all Musts except 1a, 2a and 3a to Should. “Was” shows the old priority where it changed. Won’t items are left out.</p>
     </main>
     </div>
     <script>
