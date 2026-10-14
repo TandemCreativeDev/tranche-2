@@ -556,6 +556,10 @@
       tr.st-out td {
         color: var(--text-mute);
       }
+      .tag--future {
+        background: #eef2f8;
+        color: var(--navy-soft);
+      }
       .tag--part {
         background: #fff4e5;
         color: #b54708;
@@ -1323,204 +1327,172 @@ get_report_pages(report_ids=[…], pages="matching passages")</code>
             <tr>
               <th>Deliverable</th>
               <th>Done when</th>
-              <th>Was</th>
               <th>In Diamond</th>
             </tr>
           </thead>
           <tbody>
-            <tr class="group"><td colspan="4">Must</td></tr>
+            <tr class="group"><td colspan="3">Must</td></tr>
             <tr class="st-in">
               <td><strong>A broad and validated data set</strong> “The real Must is a broad and validated data-set.” (CHIRP’s update)</td>
-              <td></td>
               <td></td>
               <td><span class="tag tag--in">In</span> <a href="#d-countries">Reports from the UK, the US and up to 6 more countries</a>, <a href="#d-vocab">Compare incidents across countries like with like</a>, <a href="#d-shield">SHIELD matching</a>, <a href="#d-proof">A validated test set, and logging</a>. The 6 new countries use <a href="#g-fast">fast ingestion</a>; the validated test set checks the answers drawn from them.</td>
             </tr>
             <tr class="st-in">
               <td><strong>3a Pattern analysis</strong> “As a CHIRP analyst, I want to ask questions across all reports and datasets, so that I can unearth patterns and publish insight that raises awareness and encourages improvement.” CHIRP’s top priority.</td>
               <td>“An analyst query returns pathways with supporting cases, and drafting support produces a reviewable outline.”</td>
-              <td></td>
               <td><span class="tag tag--in">In</span> <a href="#d-patterns">Compare incidents, find recurring patterns and draw lessons</a>, <a href="#d-trace">Every conclusion traceable to its source report</a>. Claude shows the recurring sequences with their supporting cases, and drafts an outline from the cited results for an analyst to review.</td>
             </tr>
             <tr class="st-in">
               <td><strong>1a Task briefing</strong> “As a seafarer or supervisor about to start a task, I want to know what has gone wrong during similar work, so that I recognise the critical hazards before I start.”</td>
               <td>“A member of the public asks a task question and receives a briefing in which every claim is cited to a verified report.”</td>
-              <td></td>
               <td><span class="tag tag--in">In</span> <a href="#d-ai">Asked through an AI</a>, <a href="#d-patterns">Compare incidents, find recurring patterns and draw lessons</a>, <a href="#d-trace">Every conclusion traceable to its source report</a>. For invited users; opening it to the public is the <a href="#d-link">stretch goal</a>.</td>
             </tr>
             <tr class="st-in">
               <td><strong>2a Near miss</strong> “As a seafarer who has just had a near miss, I want to describe what happened, so that I can see whether others have experienced the same thing and what they learned.”</td>
               <td>“A typed description returns related verified incidents, their shared factors and a link to CHIRP’s reporting form.”</td>
-              <td></td>
               <td><span class="tag tag--in">In</span> <a href="#d-patterns">Compare incidents, find recurring patterns and draw lessons</a> (find similar incidents). The AI is instructed to point near misses to CHIRP’s reporting form.</td>
             </tr>
             <tr class="st-in">
               <td><strong>All marine accident investigation bodies publishing in English</strong> “Full investigation reports from flag and coastal states. The core corpus. MAIB reports are already ingested (P1).”</td>
               <td></td>
-              <td></td>
               <td><span class="tag tag--in">In</span> <a href="#d-countries">Reports from the UK, the US and up to 6 more countries</a>, the breadth CHIRP set for Tranche 2.</td>
             </tr>
-            <tr class="group"><td colspan="4">Should</td></tr>
+            <tr class="group"><td colspan="3">Should</td></tr>
             <tr class="st-in">
               <td><strong>CHIRP Maritime published reports</strong> “De-identified confidential reports and commentary. Closest to seafarer experience. Roadmap step 13.”</td>
               <td></td>
-              <td>Must</td>
               <td><span class="tag tag--in">In</span> <a href="#d-chirp">CHIRP’s own reports</a>.</td>
             </tr>
             <tr class="st-in">
               <td><strong>Citation integrity</strong> “Every public answer cites verified records and links to the source report (step 10).”</td>
               <td></td>
-              <td>Must</td>
               <td><span class="tag tag--in">In</span> <a href="#d-trace">Every conclusion traceable to its source report</a>. Still a fixed constraint in the scope.</td>
             </tr>
             <tr class="st-in">
               <td><strong>1b Toolbox talk</strong> “As an onboard supervisor, I want the briefing produced as a toolbox talk, so that I can brief the crew from real incidents.”</td>
               <td>“A request for a named task returns a printable toolbox talk with sources.”</td>
-              <td></td>
               <td><span class="tag tag--in">In</span> <a href="#d-ai">Asked through an AI</a>, see the <a href="#examples">example questions</a>.</td>
             </tr>
             <tr class="st-part">
               <td><strong>2b Code incoming reports</strong> “As a CHIRP analyst, I want each report we receive coded and set against similar cases, so that I can assess it quickly and consistently and respond with context.”</td>
               <td>“A submitted report returns proposed coding and similar cases, and nothing enters the database until verified in the review tool.”</td>
-              <td>Must</td>
               <td><span class="tag tag--part">Partly</span> <a href="#d-shield">SHIELD matching</a> and <a href="#d-patterns">Compare incidents, find recurring patterns and draw lessons</a> (find similar incidents), for published reports only.</td>
             </tr>
             <tr class="st-part">
               <td><strong>Production hardening</strong> “Logins and role-based access for CHIRP staff and partners; anonymous public access kept separate from the review tool and drafting features.”</td>
               <td></td>
-              <td>Must</td>
               <td><span class="tag tag--part">Partly</span> sign-in and user management in <a href="#d-ai">Asked through an AI</a>.</td>
             </tr>
             <tr class="st-part">
               <td><strong>Public usage controls</strong> “Rate limiting per user, a spending cap on question-answering costs, and protection against abuse, scraping and prompt injection.”</td>
               <td></td>
-              <td>Must</td>
               <td><span class="tag tag--part">Partly</span> rate limits and abuse protection in the <a href="#d-link">stretch goal</a>.</td>
             </tr>
             <tr class="st-part">
               <td><strong>Monitoring and correction</strong> “Usage and error monitoring with alerts, and a route to correct or withdraw a published answer or record.”</td>
               <td></td>
-              <td>Must</td>
               <td><span class="tag tag--part">Partly</span> monitoring in <a href="#d-ai">Asked through an AI</a>. No correction route.</td>
             </tr>
             <tr class="st-out">
               <td><strong>MAIB Safety Digests and bulletins</strong> “Short-form learning. Roadmap step 13.”</td>
               <td></td>
-              <td>Must</td>
-              <td><span class="tag tag--out">Not in</span></td>
+              <td><span class="tag tag--future">Future scope</span></td>
             </tr>
             <tr class="st-out">
               <td><strong>Duplicate and derivative tracking</strong> “Many sources republish or edit the same event (MARS, SAFETY4SEA, IMO GISIS and national bodies). Each derivative account links to its source report, and pattern analysis counts the event once.”</td>
               <td></td>
-              <td>Must</td>
-              <td><span class="tag tag--out">Not in</span></td>
+              <td><span class="tag tag--future">Future scope</span></td>
             </tr>
             <tr class="st-out">
               <td><strong>3b Dashboards</strong> “As a shore-side manager or commercial operator, I want to explore trends across the evidence base, so that I can find vulnerabilities and decide where to invest.”</td>
               <td>“Dashboards filter by vessel type, date, outcome and country, and every figure traces to verified records.”</td>
-              <td></td>
-              <td><span class="tag tag--out">Not in</span> The same counts can be asked for through <a href="#d-ai">Asked through an AI</a>.</td>
+              <td><span class="tag tag--future">Future scope</span> The same counts can be asked for through <a href="#d-ai">Asked through an AI</a>.</td>
             </tr>
             <tr class="st-out">
               <td><strong>3c Legislation links</strong> “As CHIRP, I want to see where incidents recur because regulation is absent, unclear or poorly implemented, so that I can put evidence to flag states and encourage change.”</td>
               <td>“Findings carry AI-proposed legislation links, clearly caveated for the user to verify, and an analyst can list recurring findings by instrument.”</td>
-              <td></td>
-              <td><span class="tag tag--out">Not in</span></td>
+              <td><span class="tag tag--future">Future scope</span></td>
             </tr>
             <tr class="st-out">
               <td><strong>IMO GISIS Marine Casualties and Incidents module</strong> “Investigation reports submitted to IMO, filling gaps for states without their own publication site.”</td>
               <td></td>
-              <td></td>
-              <td><span class="tag tag--out">Not in</span></td>
+              <td><span class="tag tag--future">Future scope</span></td>
             </tr>
             <tr class="st-out">
               <td><strong>IMO Lessons Learned from casualty investigations</strong> “Short anonymised lessons drawn from member-state investigations.”</td>
               <td></td>
-              <td></td>
-              <td><span class="tag tag--out">Not in</span></td>
+              <td><span class="tag tag--future">Future scope</span></td>
             </tr>
             <tr class="st-out">
               <td><strong>Nautical Institute MARS</strong> “Free-text narratives of the kind third parties will submit. Mostly edited from regulators’ reports, so depends on duplicate tracking.”</td>
               <td></td>
-              <td></td>
-              <td><span class="tag tag--out">Not in</span></td>
+              <td><span class="tag tag--future">Future scope</span></td>
             </tr>
             <tr class="st-out">
               <td><strong>SAFETY4SEA</strong> “Incident news and safety articles, often derived from investigation reports, so depends on duplicate tracking.”</td>
               <td></td>
-              <td></td>
-              <td><span class="tag tag--out">Not in</span></td>
+              <td><span class="tag tag--future">Future scope</span></td>
             </tr>
             <tr class="st-out">
               <td><strong>IMCA safety flashes</strong> “Offshore and marine contracting incidents with lessons.”</td>
               <td></td>
-              <td></td>
-              <td><span class="tag tag--out">Not in</span></td>
+              <td><span class="tag tag--future">Future scope</span></td>
             </tr>
             <tr class="st-out">
               <td><strong>USCG Marine Safety Alerts and lessons learned</strong> “Short-form alerts linked to US investigations.”</td>
               <td></td>
-              <td></td>
-              <td><span class="tag tag--out">Not in</span></td>
+              <td><span class="tag tag--future">Future scope</span></td>
             </tr>
             <tr class="st-out">
               <td><strong>UK legislation and MCA notices</strong> “Instruments to link findings against, starting with the UK flag.”</td>
               <td></td>
-              <td></td>
-              <td><span class="tag tag--out">Not in</span></td>
+              <td><span class="tag tag--future">Future scope</span></td>
             </tr>
             <tr class="st-out">
               <td><strong>ILO Maritime Labour Convention</strong> “Hours of rest, manning and welfare requirements.”</td>
               <td></td>
-              <td></td>
-              <td><span class="tag tag--out">Not in</span></td>
+              <td><span class="tag tag--future">Future scope</span></td>
             </tr>
             <tr class="st-out">
               <td><strong>IMO conventions and codes</strong> “The core international instruments.”</td>
               <td></td>
-              <td></td>
-              <td><span class="tag tag--out">Not in</span></td>
+              <td><span class="tag tag--future">Future scope</span></td>
             </tr>
-            <tr class="group"><td colspan="4">Could</td></tr>
+            <tr class="group"><td colspan="3">Could</td></tr>
             <tr class="st-out">
               <td><strong>1c Upload a risk assessment, permit or plan</strong> “As an onboard supervisor, I want to upload a draft risk assessment, permit or plan, so that it is challenged against previous incidents before authorisation.”</td>
               <td>“An uploaded document returns missing hazards and controls with sources, and is deleted after the session.”</td>
-              <td></td>
-              <td><span class="tag tag--out">Not in</span></td>
+              <td><span class="tag tag--future">Future scope</span></td>
             </tr>
             <tr class="st-out">
               <td><strong>2c Upload your own report</strong> “As an organisation or onboard investigator, I want to upload our own report or event narrative, so that I can find comparable cases and lines of enquiry, knowing the document itself is not kept.”</td>
               <td>“An upload returns comparable cases and factors. At session end the document is deleted and a pattern record (SHIELD codes, vessel type, operation, outcome, no narrative) is stored, flagged as contributor-derived and used in aggregate analysis only.”</td>
-              <td></td>
-              <td><span class="tag tag--out">Not in</span></td>
+              <td><span class="tag tag--future">Future scope</span></td>
             </tr>
             <tr class="st-out">
               <td><strong>Upload terms</strong> “Terms stating where uploaded files are processed, that documents are deleted after the session, and that a de-identified pattern record is kept from 2c uploads.”</td>
               <td></td>
-              <td></td>
-              <td><span class="tag tag--out">Not in</span></td>
+              <td><span class="tag tag--future">Future scope</span></td>
             </tr>
             <tr class="st-out">
               <td><strong>Scanned pre-2005 reports</strong> “Historic depth. Requires OCR, excluded from P1.”</td>
               <td></td>
-              <td></td>
-              <td><span class="tag tag--out">Not in</span></td>
+              <td><span class="tag tag--future">Future scope</span></td>
             </tr>
             <tr class="st-out">
               <td><strong>P&amp;I club loss prevention publications</strong> “Claims-led trend analysis and case studies.”</td>
               <td></td>
-              <td></td>
-              <td><span class="tag tag--out">Not in</span></td>
+              <td><span class="tag tag--future">Future scope</span></td>
             </tr>
             <tr class="st-out">
               <td><strong>Copernicus metocean data</strong> “Historical wind, wave and sea state at the time and position of each incident, enriching reports that omit or understate conditions. Needs incident position and time from extraction (step 6).”</td>
               <td></td>
-              <td></td>
-              <td><span class="tag tag--out">Not in</span></td>
+              <td><span class="tag tag--future">Future scope</span></td>
             </tr>
 </tbody>
         </table>
       </div>
-      <p class="note">Every deliverable in the Tranche 2 Development Scope, with its description quoted from that document, grouped by its priority after CHIRP moved 2b and all Musts except 1a, 2a and 3a to Should. “Was” shows the old priority where it changed. Won’t items are left out.</p>
+      <p class="note">Every deliverable in the Tranche 2 Development Scope, with its description quoted from that document, grouped by its priority after CHIRP moved 2b and all Musts except 1a, 2a and 3a to Should. Won’t items are left out.</p>
     </main>
     </div>
     <script>
