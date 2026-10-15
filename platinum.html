@@ -537,6 +537,10 @@
       ul.list li:target {
         background: var(--orange-tint);
       }
+      .split:target {
+        background: var(--orange-tint);
+        scroll-margin-top: 24px;
+      }
       ul.list li {
         scroll-margin-top: 24px;
       }
@@ -826,7 +830,7 @@
               <td>
                 <strong>CHIRP’s own chat</strong>
                 A CHIRP chat screen on the web, built on our own <a href="#g-chat-harness">chat harness</a> instead of a third party’s AI app. Anyone can sign up, and their conversations are saved.
-                Bigger than Diamond’s “Asked through an AI” because Claude’s app gave users the chat screen, follow-up questions and saved conversations for free; here we build them. Sign-in stays at Diamond’s 4 days, but now anyone can sign up instead of CHIRP inviting each user.
+                Bigger than Diamond’s “Asked through an AI” because in Diamond, Claude’s app came with everything around CHIRPdb’s tools: the chat screen, accounts, emails, saved conversations, GDPR, security and paying for the AI. Here we build and run all of it; see <a href="#g-why-harness">why it costs more than an MCP connector</a>. Sign-in stays at Diamond’s 4 days, but now anyone can sign up instead of CHIRP inviting each user.
                 <button type="button" class="toggle" data-group="chat" aria-expanded="false">Show breakdown</button>
               </td>
               <td class="num">25</td>
@@ -946,6 +950,15 @@
               <td class="num">20.4</td>
               <td class="num">£10,200</td>
             </tr>
+            <tr id="d-linking">
+              <td>
+                <strong>Stop the same accident being counted more than once</strong>
+                When more than one country investigates the same accident, or a digest summarises a report, their reports are linked to that one accident, so counts and patterns no longer count it once per report. Duplicate PDFs are already caught.
+              </td>
+              <td class="num">2</td>
+              <td class="num">3.4</td>
+              <td class="num">£1,700</td>
+            </tr>
             <tr id="d-shield">
               <td>
                 <strong>SHIELD matching</strong>
@@ -981,15 +994,15 @@
                 Bigger than Diamond because we now test the answers themselves, end to end through our own chat, including after every change to the instructions or the AI model. In Diamond, Claude wrote the answers and we only tested that CHIRPdb’s tools returned the right data.
                 <button type="button" class="toggle" data-group="proof" aria-expanded="false">Show breakdown</button>
               </td>
-              <td class="num">9</td>
-              <td class="num">15.3</td>
-              <td class="num">£7,650</td>
+              <td class="num">8</td>
+              <td class="num">13.6</td>
+              <td class="num">£6,800</td>
             </tr>
             <tr class="sub" data-group="proof" hidden>
               <td><a href="#g-test-set">Validated test set</a>, re-run after every change</td>
-              <td class="num">7</td>
-              <td class="num">11.9</td>
-              <td class="num">£5,950</td>
+              <td class="num">6</td>
+              <td class="num">10.2</td>
+              <td class="num">£5,100</td>
             </tr>
             <tr class="sub" data-group="proof" hidden>
               <td>Logging: a <a href="#g-log">log</a> of every question asked and the reports used to answer it</td>
@@ -1043,9 +1056,9 @@
                 A closed beta with real seafarers before launch, a landing page with sample questions, and documentation.
                 <button type="button" class="toggle" data-group="launch" aria-expanded="false">Show breakdown</button>
               </td>
-              <td class="num">10</td>
-              <td class="num">17</td>
-              <td class="num">£8,500</td>
+              <td class="num">9</td>
+              <td class="num">15.3</td>
+              <td class="num">£7,650</td>
             </tr>
             <tr class="sub" data-group="launch" hidden>
               <td>Closed beta with real seafarers, then a round of fixes</td>
@@ -1055,9 +1068,9 @@
             </tr>
             <tr class="sub" data-group="launch" hidden>
               <td>Landing page, sample questions, accessibility (WCAG)</td>
-              <td class="num">3</td>
-              <td class="num">5.1</td>
-              <td class="num">£2,550</td>
+              <td class="num">2</td>
+              <td class="num">3.4</td>
+              <td class="num">£1,700</td>
             </tr>
             <tr class="sub" data-group="launch" hidden>
               <td>User and developer documentation</td>
@@ -1113,7 +1126,7 @@
       <p class="card card--orange">Where this page says Claude, it means Claude as an example of an AI chat app. Diamond’s connector would work the same way with ChatGPT or any other AI chat app that supports MCP.</p>
       <ul class="list">
         <li id="g-chat-harness"><strong>Chat harness.</strong> The part of CHIRP’s chat that we build in place of a third party’s AI app. It sends each question to an AI model with CHIRPdb’s instructions and tools, runs the tools the model picks against CHIRPdb, which does the searching and counting, and streams the answer back. It holds the sign-in, the saved conversations, the per-user rate limits and the overall spending cap, so CHIRP controls the screen, the costs and which AI model is used.
-          <div class="split"><strong>Why it costs more than an MCP connector.</strong> Diamond’s connector was a small service that gave Claude a few CHIRPdb tools. Everything around it came with Claude’s app, run by Anthropic. An AI model on its own only takes text in and gives text out. With our own chat harness, we build and run the rest:
+          <div class="split" id="g-why-harness"><strong>Why it costs more than an MCP connector.</strong> Diamond’s connector was a small service that gave Claude a few CHIRPdb tools. Everything around it came with Claude’s app, run by Anthropic. An AI model on its own only takes text in and gives text out. With our own chat harness, we build and run the rest:
             <ul class="split-list">
               <li>The chat screen, on desktop and mobile, accessible</li>
               <li>Deciding which tools to call and when, and streaming the answer</li>
@@ -1482,10 +1495,10 @@ get_report_pages(report_ids=[…], pages="matching passages")</code>
               <td></td>
               <td><span class="tag tag--future">Future scope</span></td>
             </tr>
-            <tr class="st-out">
+            <tr class="st-part">
               <td><strong>Duplicate and derivative tracking</strong> “Many sources republish or edit the same event (MARS, SAFETY4SEA, IMO GISIS and national bodies). Each derivative account links to its source report, and pattern analysis counts the event once.”</td>
               <td></td>
-              <td><span class="tag tag--future">Future scope</span></td>
+              <td><span class="tag tag--part">Partly</span> <a href="#d-linking">Stop the same accident being counted more than once</a> for investigation reports and digests. Linking derivative sources such as MARS and SAFETY4SEA is future scope, along with those sources.</td>
             </tr>
             <tr class="st-out">
               <td><strong>3b Dashboards</strong> “As a shore-side manager or commercial operator, I want to explore trends across the evidence base, so that I can find vulnerabilities and decide where to invest.”</td>
