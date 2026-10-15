@@ -1152,7 +1152,7 @@
       <p class="card card--orange">Where this page says Claude, it means Claude as an example of an AI chat app. Diamond’s connector would work the same way with ChatGPT or any other AI chat app that supports MCP.</p>
       <ul class="list">
         <li id="g-chat-harness"><strong>Chat harness.</strong> The part of CHIRP’s chat that we build in place of a third party’s AI app. It sends each question to an AI model with CHIRPdb’s instructions and tools, runs the tools the model picks against CHIRPdb, which does the searching and counting, and streams the answer back. It holds the sign-in, the saved conversations, the per-user rate limits and the overall spending cap, so CHIRP controls the UI, the costs and which AI model is used.
-          <div class="split" id="g-why-harness"><strong>Why it costs more than an MCP connector.</strong> Diamond’s connector was a small service that gave Claude a few CHIRPdb tools. Everything around it came with Claude’s app, run by Anthropic. An AI model on its own only takes text in and gives text out. With our own chat harness, we build and run the rest:
+          <div class="split" id="g-why-harness"><strong>Why it costs more than an MCP connector.</strong> Diamond’s connector was a small service that gave Claude a few CHIRPdb tools. Everything around it came with Claude’s app, run by Anthropic. An AI model on its own (as opposed to the full harness that Claude.ai provides) only takes text in and gives text out. With our own chat harness, we build and run the rest:
             <ul class="split-list">
               <li>The chat UI, on desktop and mobile, accessible</li>
               <li>Deciding which tools to call and when, and streaming the answer</li>
