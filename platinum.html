@@ -674,6 +674,26 @@
           padding-right: 16px;
         }
       }
+      .toc {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 24px;
+      }
+      .toc a {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text-soft);
+        text-decoration: none;
+        padding: 6px 12px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: #fff;
+      }
+      .toc a:hover {
+        color: var(--orange-deep);
+        border-color: var(--orange);
+      }
     </style>
     <style>
       html.locked body > :not(#gate) {
@@ -799,6 +819,10 @@
           </ul>
         </div>
         <p class="price"><strong>£89,975</strong> · 179.95 days at £500 a day. Hosting and AI usage paid by CHIRP externally to this quote.</p>
+        <nav class="toc" aria-label="Proposals">
+          <a href="index.html">Full menu →</a>
+          <a href="diamond.html">Diamond: our proposal for CHIRP’s MVP →</a>
+        </nav>
       </div>
     </section>
 
